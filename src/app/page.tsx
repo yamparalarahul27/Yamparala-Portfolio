@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   const projects = [
@@ -35,75 +35,73 @@ export default function Home() {
   ];
 
   return (
-    <main className="page-container text-[var(--text-primary)]">
-
-      {/* Top Header / Navigation */}
-      <header className="border-b border-[var(--border-color)] p-6 lg:p-9 flex flex-col md:flex-row items-center justify-between bg-white sticky top-0 z-50 animate-enter">
-        <div className="flex items-center gap-6 mb-6 md:mb-0 w-full md:w-auto">
-          {/* Portrait */}
-          <div className="relative w-16 h-16 shrink-0 structural-border-right border-[var(--border-color)] overflow-hidden hidden md:block">
-            <Image
-              src="/headshot.png"
-              alt="Yamparala Rahul Portrait"
-              fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
-            />
-          </div>
-
-          {/* Name & Title */}
-          <div>
-            <h1 className="text-2xl lg:text-3xl font-bold tracking-tighter leading-none mb-2">
-              Yamparala Rahul
-            </h1>
-            <p className="text-sm text-[var(--text-secondary)] font-medium">
-              UX Engineer @ <a href="https://www.linkedin.com/company/equicom-technologies/" target="_blank" rel="noreferrer" className="text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors underline decoration-1 underline-offset-4">Equicom Technologies</a>
-            </p>
-          </div>
-        </div>
-
-        {/* Contact CTA */}
-        <div className="flex gap-4 w-full md:w-auto">
-          <a href="https://t.me/yamparalarahul1" className="brutal-btn w-full md:w-auto text-sm py-2 px-4" target="_blank" rel="noreferrer">
-            <MessageSquare className="w-4 h-4 mr-2" /> Telegram
-          </a>
-          <a href="https://wa.me/918897132717" className="brutal-btn w-full" target="_blank" rel="noreferrer">
-            <MessageSquare className="w-4 h-4 mr-2" /> WhatsApp
-          </a>
-        </div>
-      </header>
+    <main className="page-container mt-[240px] text-[var(--text-primary)]">
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col gap-3 mt-3">
+      <div className="flex-1 flex flex-col gap-12 pt-8">
 
-        <header className="px-9 py-7 structural-border flex justify-between items-center bg-white sticky top-[120px] md:top-[88px] lg:top-[112px] z-40">
-          <h2 className="text-xs uppercase tracking-widest font-bold text-[var(--text-secondary)]">Selected Work</h2>
-          <span className="text-xs font-mono">{new Date().getFullYear()}</span>
-        </header>
+        {/* Hero Section */}
+        <section className="flex flex-col items-center text-center gap-6 animate-enter">
+          <div className="flex flex-col items-center gap-4">
+            {/* Portrait */}
+            <div className="relative w-20 h-20 shrink-0 overflow-hidden">
+              <Image
+                src="/headshot.png"
+                alt="Yamparala Rahul Portrait"
+                fill
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
 
-        <section className="flex flex-col gap-3">
+            <div>
+              <h1 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight">
+                Yamparala Rahul
+              </h1>
+              <p className="text-sm text-[var(--text-secondary)] font-medium mt-1">
+                UX Engineer @ <a href="https://www.linkedin.com/company/equicom-technologies/" target="_blank" rel="noreferrer" className="text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors underline decoration-1 underline-offset-4">Equicom Technologies</a>
+              </p>
+            </div>
+          </div>
+
+          <p className="text-lg text-[var(--text-secondary)] max-w-2xl text-balance text-center">
+            This is a placeholder paragraph for the hero section. Replace this with a compelling introduction or tagline that captures the essence of your work.
+          </p>
+
+          {/* Contact CTA */}
+          <div className="flex gap-4 justify-center">
+            <a href="https://t.me/yamparalarahul1" className="brutal-btn" target="_blank" rel="noreferrer">
+              Telegram
+            </a>
+            <a href="https://wa.me/918897132717" className="brutal-btn" target="_blank" rel="noreferrer">
+              WhatsApp
+            </a>
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-8">
           {projects.map((project, index) => (
             <Link
               key={project.id}
               href={project.href}
               target={project.href.startsWith("http") ? "_blank" : "_self"}
               rel={project.href.startsWith("http") ? "noopener noreferrer" : ""}
-              className={`brutal-card block animate-enter delay-${(index + 2) * 100}`}
+              className={`brutal-card bg-white block animate-enter delay-${(index + 2) * 100}`}
             >
               <div className="flex flex-col lg:flex-row gap-9 lg:gap-[52px] items-start justify-between">
 
                 {/* Text Metadata */}
-                <div className="flex-1 lg:max-w-md">
-                  <div className="flex items-center gap-5 mb-5 text-xs font-mono text-[var(--text-secondary)]">
+                <div className="flex-1 lg:max-w-md flex flex-col gap-[6px]">
+                  <div className="flex items-center gap-5 text-xs font-mono text-[var(--text-secondary)]">
                     <span>{project.year}</span>
                     <span className="w-8 h-px bg-[var(--border-color)] mx-2"></span>
                     <span className="text-[var(--accent)] font-semibold">{project.category}</span>
                   </div>
 
-                  <h3 className="text-2xl lg:text-3xl font-bold tracking-tight mb-5 group-hover:text-[var(--bg-color)] transition-colors">
+                  <h3 className="text-2xl lg:text-3xl font-bold tracking-tight group-hover:text-[var(--bg-color)] transition-colors">
                     {project.title}
                   </h3>
 
-                  <p className="text-[var(--text-secondary)] mb-9 text-balance group-hover:text-white/80 transition-colors">
+                  <p className="text-[var(--text-secondary)] text-balance group-hover:text-white/80 transition-colors">
                     {project.description}
                   </p>
 
