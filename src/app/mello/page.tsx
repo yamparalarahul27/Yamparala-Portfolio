@@ -17,7 +17,7 @@ export default function MelloPage() {
     return (
         <main className="min-h-screen bg-[var(--bg-color)] text-[var(--text-primary)] flex flex-col relative overflow-hidden">
             {/* Header / Navigation */}
-            <header className="px-9 py-7 structural-border flex justify-between items-center bg-[var(--bg-color)] sticky top-0 z-20 animate-enter">
+            <header className="px-9 h-8 structural-border flex justify-between items-center bg-[var(--bg-color)] sticky top-0 z-20 animate-enter">
                 <Link href="/" className="inline-flex items-center text-xs uppercase tracking-widest font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
                     <ArrowLeft className="w-4 h-4 mr-2" /> Back
                 </Link>
@@ -36,7 +36,7 @@ export default function MelloPage() {
                     backgroundSize: '40px 40px'
                 }}></div>
 
-                <div className="max-w-2xl w-full text-center relative z-10 bg-[var(--bg-color)] p-9 lg:p-[68px] border-[var(--grid-line-bold)] shadow-2xl">
+                <div className="max-w-2xl min-h-[400px] w-full flex flex-col justify-center items-center text-center relative z-10 bg-[var(--bg-color)] p-9 lg:p-[68px] border-[var(--grid-line-bold)] shadow-2xl">
                     <h1 className="text-5xl lg:text-7xl font-bold tracking-tighter leading-none mb-7">
                         MEET <span className="text-[var(--accent)]">MELLO.</span>
                     </h1>
@@ -48,7 +48,7 @@ export default function MelloPage() {
 
                     <button
                         onClick={() => setDogEnabled(!dogEnabled)}
-                        className={`brutal-btn w-full md:w-auto text-lg py-4 px-12 ${dogEnabled ? 'bg-[var(--text-primary)] text-[var(--bg-color)] border-[var(--text-primary)] hover:bg-transparent hover:text-[var(--text-primary)]' : ''}`}
+                        className={`brutal-btn w-full md:w-xl justify-center mx-auto text-lg py-4 px-12 ${dogEnabled ? 'bg-[var(--text-primary)] text-[var(--bg-color)] border-[var(--text-primary)] hover:bg-transparent hover:text-[var(--text-primary)]' : ''}`}
                     >
                         {dogEnabled ? "DISMISS ENTITY" : "INITIALIZE MELLO"}
                     </button>
