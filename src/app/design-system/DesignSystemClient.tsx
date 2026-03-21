@@ -49,7 +49,7 @@ const previewProjects: ProjectPreview[] = [
     description:
       "A comprehensive trading journal and analytics platform tailored for Deriverse.",
     image: "/images/Deriverse.png",
-    href: "https://deriverse.vercel.app",
+    href: "https://deriverse.hirahul.xyz",
     accent: "Live product",
   },
   {
@@ -67,7 +67,7 @@ const previewProjects: ProjectPreview[] = [
     description:
       "A centralized, high-performance platform for design team resources.",
     image: "/images/Ymparalalog.png",
-    href: "https://yamparalalog.vercel.app",
+    href: "https://log.hirahul.xyz",
     accent: "Live product",
   },
 ];

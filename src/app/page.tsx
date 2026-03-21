@@ -23,7 +23,7 @@ export default function Home() {
       category: "Side Quests",
       description: "A project built for a Superteam bounty on Earn, focused on the Deriverse ecosystem.",
       image: "/images/Deriverse.png",
-      href: "https://deriverse.vercel.app",
+      href: "https://deriverse.hirahul.xyz",
       accent: "Live product",
     },
     {
@@ -41,7 +41,7 @@ export default function Home() {
       category: "Internal Tooling",
       description: "A project built to collect interesting references, ideas, and useful resources in one place.",
       image: "/images/Ymparalalog.png",
-      href: "https://yamparalalog.vercel.app",
+      href: "https://log.hirahul.xyz",
       accent: "Live product",
     },
     {
@@ -50,6 +50,7 @@ export default function Home() {
       title: "YDex",
       category: "Products WIP",
       description: "A work-in-progress product direction exploring a faster, structured way to index and retrieve product knowledge.",
+      href: "https://dex.hirahul.xyz",
       accent: "WIP",
     },
     {
@@ -74,6 +75,7 @@ export default function Home() {
       title: "OME-sim",
       category: "Side Quests",
       description: "A project built for a Superteam bounty on Earn to simulate and develop a production-grade Rust Solana order matching engine program.",
+      href: "https://ome.hirahul.xyz",
       accent: "Prototype",
     },
     {
@@ -98,6 +100,7 @@ export default function Home() {
       title: "Proteus",
       category: "Ideas",
       description: "A project to bring together cross-chain analytics and a personalized dApp portal.",
+      href: "https://proteus.hirahul.xyz",
       accent: "Idea",
     },
     {
@@ -107,6 +110,24 @@ export default function Home() {
       category: "Mini Apps",
       description: "A project to make assets versus liabilities more measurable for personal finance.",
       accent: "Mini app",
+    },
+    {
+      id: 12,
+      year: "2025",
+      title: "Localhost Status App",
+      category: "Internal Tooling",
+      description: "A lightweight status dashboard for checking whether local apps and services are running during development.",
+      href: "https://localhost.hirahul.xyz",
+      accent: "Live utility",
+    },
+    {
+      id: 13,
+      year: "2025",
+      title: "App Backgrounds",
+      category: "Mini Apps",
+      description: "A small utility for browsing and collecting polished app backgrounds for product and design work.",
+      href: "https://bg.hirahul.xyz",
+      accent: "Live utility",
     },
   ];
 
