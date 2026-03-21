@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yamparala Rahul - UX Engineer",
-  description: "Personal portfolio of Yamparala Rahul, UX Engineer at Equicom Technologies",
+  title: "Yamparala Rahul - Design Engineer",
+  description: "Personal portfolio of Yamparala Rahul, Design Engineer at Equicom Technologies",
   icons: {
     icon: '/favicon.png',
   },

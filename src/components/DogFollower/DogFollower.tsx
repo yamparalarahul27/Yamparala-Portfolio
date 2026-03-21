@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
+import type { CSSProperties } from 'react';
+import { useMemo } from 'react';
 import styles from './DogFollower.module.css';
 import { useDogState } from './useDogState';
 import { SPRITE_CONFIG } from './config';
@@ -29,7 +30,7 @@ function getScaledSpriteSize(): { width: number; height: number } {
   };
 }
 
-function generateAnimationStyle(animation: AnimationState): React.CSSProperties {
+function generateAnimationStyle(animation: AnimationState): CSSProperties {
   const config = SPRITE_CONFIG.animations[animation];
   const { frameHeight, renderedWidth, renderedHeight, gutter } = SPRITE_CONFIG;
   const scaleY = renderedHeight / frameHeight;
@@ -59,17 +60,10 @@ function generateAnimationStyle(animation: AnimationState): React.CSSProperties 
 export function DogFollower() {
   const { position, animation, direction, isVisible, onAnimationEnd } =
     useDogState();
-  const [reducedMotion, setReducedMotion] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    setReducedMotion(
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    );
-    setIsTouch(isTouchDevice());
-  }, []);
+  const reducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = isTouchDevice();
 
   // Generate keyframe styles dynamically with scaled positions
   const keyframeStyles = useMemo(() => {
@@ -100,12 +94,12 @@ export function DogFollower() {
   }, []);
 
   // Don't render on server, touch devices, or with reduced motion
-  if (!mounted || reducedMotion || isTouch || !isVisible) {
+  if (reducedMotion || isTouch || !isVisible) {
     return null;
   }
 
   const animationStyle = generateAnimationStyle(animation);
-  const positionStyle: React.CSSProperties = {
+  const positionStyle: CSSProperties = {
     left: position.x,
     top: position.y,
   };
