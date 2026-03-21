@@ -29,7 +29,7 @@ export function useDogState(): UseDogStateReturn {
     };
   });
   const [targetPosition, setTargetPosition] = useState<Position>(position);
-  const [animation, setAnimation] = useState<AnimationState>('sitting');
+  const [idleAnimation, setIdleAnimation] = useState<AnimationState>('sitting');
   const [direction, setDirection] = useState<Direction>('left');
   const [isIdle, setIsIdle] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
@@ -39,14 +39,23 @@ export function useDogState(): UseDogStateReturn {
   const idleTimerRef = useRef<NodeJS.Timeout | null>(null);
   const lastIdleAnimationRef = useRef<AnimationState | null>(null);
   const animationFrameRef = useRef<number | null>(null);
-  const isPlayingIdleRef = useRef(false);
   const boostDecayRef = useRef<NodeJS.Timeout | null>(null);
   const positionRef = useRef(position);
+  const isIdleRef = useRef(isIdle);
+  const hasReachedTargetRef = useRef(hasReachedTarget);
 
   // Keep position ref in sync for dead zone checks
   useEffect(() => {
     positionRef.current = position;
   }, [position]);
+
+  useEffect(() => {
+    isIdleRef.current = isIdle;
+  }, [isIdle]);
+
+  useEffect(() => {
+    hasReachedTargetRef.current = hasReachedTarget;
+  }, [hasReachedTarget]);
 
   const selectRandomIdle = useCallback((): AnimationState => {
     const available = IDLE_ANIMATIONS.filter((a) => a !== lastIdleAnimationRef.current);
@@ -66,19 +75,19 @@ export function useDogState(): UseDogStateReturn {
       });
 
       // Dead zone check when idle: ignore movement if cursor is too close
-      if (isPlayingIdleRef.current) {
+      if (isIdleRef.current && hasReachedTargetRef.current) {
         const dx = newTarget.x - positionRef.current.x;
         const dy = newTarget.y - positionRef.current.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         if (distance < SPRITE_CONFIG.idleDeadZone) {
           return;
         }
-        isPlayingIdleRef.current = false;
-        setAnimation('walking');
       }
 
       setTargetPosition(newTarget);
+      isIdleRef.current = false;
       setIsIdle(false);
+      hasReachedTargetRef.current = false;
       setHasReachedTarget(false);
 
       // Reset idle timer
@@ -86,7 +95,11 @@ export function useDogState(): UseDogStateReturn {
         clearTimeout(idleTimerRef.current);
       }
       idleTimerRef.current = setTimeout(() => {
+        isIdleRef.current = true;
         setIsIdle(true);
+        if (hasReachedTargetRef.current) {
+          setIdleAnimation(selectRandomIdle());
+        }
       }, SPRITE_CONFIG.idleThreshold);
     };
 
@@ -97,7 +110,7 @@ export function useDogState(): UseDogStateReturn {
         clearTimeout(idleTimerRef.current);
       }
     };
-  }, []);
+  }, [selectRandomIdle]);
 
   // Visibility handling (mouse enters/leaves window)
   useEffect(() => {
@@ -160,12 +173,16 @@ export function useDogState(): UseDogStateReturn {
 
         // Arrived at target
         if (distance < currentSpeed) {
-          if (!hasReachedTarget) {
+          if (!hasReachedTargetRef.current) {
+            hasReachedTargetRef.current = true;
             setHasReachedTarget(true);
             setBoostLevel(0);
             // Face toward cursor based on offset
             if (SPRITE_CONFIG.cursorOffset.x !== 0) {
               setDirection(SPRITE_CONFIG.cursorOffset.x < 0 ? 'left' : 'right');
+            }
+            if (isIdleRef.current) {
+              setIdleAnimation(selectRandomIdle());
             }
           }
           return clampToViewport(targetPosition);
@@ -194,37 +211,16 @@ export function useDogState(): UseDogStateReturn {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [targetPosition, hasReachedTarget, boostLevel]);
-
-  // Animation state management
-  useEffect(() => {
-    if (!isIdle || !hasReachedTarget) {
-      // Still moving or pointer active
-      if (!isPlayingIdleRef.current && animation !== 'walking') {
-        setAnimation('walking');
-      }
-      return;
-    }
-
-    // Idle and at target - play random idle if not already playing one
-    if (!isPlayingIdleRef.current) {
-      isPlayingIdleRef.current = true;
-      setAnimation(selectRandomIdle());
-    }
-  }, [isIdle, hasReachedTarget, animation, selectRandomIdle]);
+  }, [targetPosition, boostLevel, selectRandomIdle]);
 
   // Handle animation end for idle animations
   const onAnimationEnd = useCallback(() => {
-    if (!isPlayingIdleRef.current) return;
-
-    // If still idle, play another random idle
-    if (isIdle && hasReachedTarget) {
-      setAnimation(selectRandomIdle());
-    } else {
-      isPlayingIdleRef.current = false;
-      setAnimation('walking');
+    if (isIdleRef.current && hasReachedTargetRef.current) {
+      setIdleAnimation(selectRandomIdle());
     }
-  }, [isIdle, hasReachedTarget, selectRandomIdle]);
+  }, [selectRandomIdle]);
+
+  const animation = isIdle && hasReachedTarget ? idleAnimation : 'walking';
 
   return {
     position,
