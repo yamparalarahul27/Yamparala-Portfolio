@@ -9,6 +9,13 @@
   --accent: #E11D48;
   /* High contrast Rose Red accent */
 
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-72: 72px;
+  --space-132: 132px;
+
   --grid-line: 1px solid var(--border-color);
   --grid-line-bold: 2px solid var(--text-primary);
 }
@@ -17,8 +24,16 @@
 
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
+}
+
+/* Restore a small baseline of inner spacing for editorial layout containers. */
+:where(main, section, article, aside, nav, header, footer) {
+  padding: var(--space-8);
+}
+
+:where(main, section, article, aside, nav, header, footer) > div {
+  padding: var(--space-8);
 }
 
 body {
@@ -27,6 +42,7 @@ body {
   background-repeat: repeat;
   background-attachment: fixed;
   color: var(--text-primary);
+  padding: var(--space-8);
   font-family: var(--font-geist-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -90,7 +106,7 @@ h6 {
 .brutal-card {
   position: relative;
   background: #FFFFFF;
-  padding: 2rem;
+  padding: var(--space-32);
   border: var(--grid-line);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
@@ -139,7 +155,8 @@ h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
+  gap: var(--space-8);
+  padding: var(--space-12) 24px;
   font-weight: 600;
   letter-spacing: -0.01em;
   background-color: transparent;
@@ -195,7 +212,5 @@ h6 {
 @media (min-width: 1024px) {
   .page-container {
     padding: 2rem;
-    border-left: var(--grid-line);
-    border-right: var(--grid-line);
   }
 }
