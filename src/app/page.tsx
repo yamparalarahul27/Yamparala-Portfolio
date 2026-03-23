@@ -133,7 +133,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="page-container mt-[132px] text-[var(--text-primary)]">
+      <main className="page-container mt-[72px] text-[var(--text-primary)]">
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col gap-[72px] pt-8">
