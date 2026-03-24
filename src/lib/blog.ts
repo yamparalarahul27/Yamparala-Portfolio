@@ -62,6 +62,28 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    slug: "leading-team",
+    lastUpdated: "2026-03-24",
+    title: "Leading Team",
+    category: "Thinking",
+    excerpt:
+      "For the first time, leading a team of 2 at Crpko — and a major unlock already on day one.",
+    readTime: "3 min read",
+    published: true,
+    entries: [
+      {
+        date: "2026-03-24",
+        title: "A Major Unlock for the Team",
+        paragraphs: [
+          "For the first time, I am leading a team of 2 at Crpko (Equicomtech).",
+          "Today I saw a major unlock for my team. Shaina is a graphic designer, and while working together we found a major issue with how graphics get updated across the web and mobile platforms.",
+          "The current flow involved downloading assets, sharing them through Drive organised in folders — boring, manual, and slow. Every update meant repeating the same tedious steps.",
+          "I took the initiative to have Shaina build an app specifically for managing graphics. Here is the link: Shainam.vercel.app",
+        ],
+      },
+    ],
+  },
+  {
     slug: "why-i-build-in-public",
     lastUpdated: "2025-03-15",
     title: "Why I Build in Public",
