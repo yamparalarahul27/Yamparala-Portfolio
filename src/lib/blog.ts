@@ -1,0 +1,104 @@
+export type BlogEntry = {
+  date: string;
+  title: string;
+  paragraphs: string[];
+  bullets?: string[];
+};
+
+export type BlogPost = {
+  slug: string;
+  lastUpdated: string;
+  title: string;
+  category: string;
+  excerpt: string;
+  readTime: string;
+  published: boolean;
+  entries?: BlogEntry[];
+};
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "ai-engineering",
+    lastUpdated: "2026-03-25",
+    title: "AI Engineering",
+    category: "Technical",
+    excerpt:
+      "A running log of practical engineering notes, starting with a reminder from recent Crpko Web Platform fixes: audit every PR and check dependencies even for small UI changes.",
+    readTime: "6 min read",
+    published: true,
+    entries: [
+      {
+        date: "2026-03-25",
+        title: "PR Audits and Dependency Checks",
+        paragraphs: [
+          "Over the last two days, I have been working on minor UI and UX fixes for the Crpko Web Platform and raising PRs.",
+          "One point I missed, and now see as a must, is that every PR needs a proper audit before it moves forward.",
+          "Before making any change, even something that looks tiny like updating an icon, it is important to check functionality dependencies.",
+          "Small UI changes can look isolated, but they can still affect behavior, user flow, or connected parts of the product in ways that are easy to miss.",
+        ],
+        bullets: [
+          "Audit the PR before merging.",
+          "Check what functionality depends on the change.",
+          "Do not assume a visual update is risk-free.",
+          "Treat even icon changes with the same engineering discipline.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "why-i-build-in-public",
+    lastUpdated: "2025-03-15",
+    title: "Why I Build in Public",
+    category: "Thinking",
+    excerpt:
+      "On the value of sharing rough work, learning out loud, and letting the process be visible.",
+    readTime: "4 min read",
+    published: false,
+  },
+  {
+    slug: "design-engineering-is-a-spectrum",
+    lastUpdated: "2025-02-28",
+    title: "Design Engineering Is a Spectrum",
+    category: "Craft",
+    excerpt:
+      "Exploring the space between pixel-perfect design and production-grade code and why living in that gap is a superpower.",
+    readTime: "5 min read",
+    published: false,
+  },
+  {
+    slug: "solana-order-matching-lessons-from-ome-sim",
+    lastUpdated: "2025-02-10",
+    title: "Solana Order Matching: Lessons from OME-sim",
+    category: "Technical",
+    excerpt:
+      "What I learned building a production-grade Rust order matching engine on Solana for a Superteam bounty.",
+    readTime: "7 min read",
+    published: false,
+  },
+  {
+    slug: "indexing-product-knowledge",
+    lastUpdated: "2025-01-22",
+    title: "Indexing Product Knowledge",
+    category: "Product",
+    excerpt:
+      "Early notes on YDex and the problem of retrieving the right context at the right time.",
+    readTime: "4 min read",
+    published: false,
+  },
+  {
+    slug: "the-case-for-fewer-features",
+    lastUpdated: "2025-01-05",
+    title: "The Case for Fewer Features",
+    category: "Thinking",
+    excerpt:
+      "Most products ship too much. A short argument for restraint, focus, and saying no more often.",
+    readTime: "3 min read",
+    published: false,
+  },
+];
+
+export const publishedBlogPosts = blogPosts.filter((post) => post.published);
+
+export function getBlogPostBySlug(slug: string) {
+  return publishedBlogPosts.find((post) => post.slug === slug);
+}
