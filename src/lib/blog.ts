@@ -23,10 +23,26 @@ export const blogPosts: BlogPost[] = [
     title: "AI Engineering",
     category: "Technical",
     excerpt:
-      "A running log of practical engineering notes, starting with a reminder from recent Crpko Web Platform fixes: audit every PR and check dependencies even for small UI changes.",
+      "A running log of practical engineering notes: keep PRs screen-specific so a blocked change never holds back an unrelated one, and audit every PR for dependency impact before merging.",
     readTime: "6 min read",
     published: true,
     entries: [
+      {
+        date: "2026-03-24",
+        title: "Keep PRs Screen-Specific",
+        paragraphs: [
+          "A PR can either be merged or canceled. That binary outcome means every PR needs to stand on its own.",
+          "When changes span multiple screens, a single dependency issue on one screen can block the entire PR from merging, including unrelated changes on other screens that were perfectly fine.",
+          "The rule is simple: keep changes screen-specific. If an asset is updated on the profile screen, raise a PR for the profile screen only. The home screen and market screen get their own separate PRs.",
+          "This is not about limiting the number of PRs. It is the opposite. Raise as many PRs as needed. More focused PRs move faster, get reviewed more accurately, and can be merged or canceled independently without collateral damage.",
+        ],
+        bullets: [
+          "One screen per PR, not one PR for all screens.",
+          "A blocked change should never hold back an unrelated change.",
+          "Functionality dependencies are screen-local, so PRs should be too.",
+          "Do not limit yourself by PR count. Limit yourself by scope.",
+        ],
+      },
       {
         date: "2026-03-25",
         title: "PR Audits and Dependency Checks",
