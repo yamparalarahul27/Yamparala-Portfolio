@@ -34,6 +34,7 @@ export const blogPosts: BlogPost[] = [
           "I am trying Claude Code on mobile to develop my log app, and it is really great.",
           "There is one minor challenge: how to view localhost on mobile while developing.",
           "Found a solution called Wormkey: https://github.com/max-pantom/worm — will share more about it as I go.",
+          "Update: Installed Wormkey, but it requires the machine to be running 24/7 to work. Skipping it for now.",
         ],
       },
       {
