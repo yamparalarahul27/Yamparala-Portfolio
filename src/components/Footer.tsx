@@ -24,7 +24,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-[var(--border-color)]">
-        <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-6 flex flex-col gap-4 lg:gap-6">
+        <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-8 flex flex-col gap-6 lg:gap-6">
           {/* Top row: links */}
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-between gap-4">
             <p className="text-xs text-[var(--text-secondary)]">
@@ -57,9 +57,9 @@ export default function Footer() {
               &ldquo;Quality means doing it right when no one is looking&rdquo;
             </p>
             <div className="flex items-center gap-3">
-              <Image src="/portfolio/badge-gcc.png" alt="Google UX Design Certificate" width={64} height={64} className="w-8 h-8 lg:w-16 lg:h-16" />
-              <Image src="/portfolio/badge-ibm.png" alt="IBM Enterprise Design Thinking" width={64} height={64} className="w-8 h-8 lg:w-16 lg:h-16" />
-              <Image src="/portfolio/badge-greed.png" alt="Greed badge" width={64} height={64} className="w-8 h-8 lg:w-16 lg:h-16" />
+              <Image src="/portfolio/badge-gcc.png" alt="Google UX Design Certificate" width={64} height={64} className="w-16 h-16" />
+              <Image src="/portfolio/badge-ibm.png" alt="IBM Enterprise Design Thinking" width={64} height={64} className="w-16 h-16" />
+              <Image src="/portfolio/badge-greed.png" alt="Greed badge" width={64} height={64} className="w-16 h-16" />
             </div>
           </div>
         </div>

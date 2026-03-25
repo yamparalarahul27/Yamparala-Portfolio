@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +14,13 @@ const DogFollower = dynamic(
 
 export default function Home() {
   const [dogEnabled, setDogEnabled] = useState(false);
-  const [viewMode, setViewMode] = useState<"card" | "list">("card");
+  const [viewMode, setViewMode] = useState<"card" | "list">("list");
+
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 640px)").matches) {
+      setViewMode("card");
+    }
+  }, []);
 
   const projects = [
     {
@@ -195,7 +201,7 @@ export default function Home() {
             </p>
 
             {/* Contact CTA */}
-            <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a href="https://t.me/yamparalarahul1" className="brutal-btn w-full sm:w-auto" target="_blank" rel="noreferrer">
                 Telegram
               </a>
@@ -205,7 +211,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setDogEnabled((enabled) => !enabled)}
-                className={`brutal-btn w-full sm:w-auto ${dogEnabled ? "bg-[var(--text-primary)] text-[var(--bg-color)] border-[var(--text-primary)] hover:bg-transparent hover:text-[var(--text-primary)]" : ""}`}
+                className={`brutal-btn hidden sm:inline-flex ${dogEnabled ? "bg-[var(--text-primary)] text-[var(--bg-color)] border-[var(--text-primary)] hover:bg-transparent hover:text-[var(--text-primary)]" : ""}`}
               >
                 {dogEnabled ? "Dismiss Mello" : "Meet Mello"}
               </button>
@@ -244,12 +250,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className={`flex ${viewMode === "card" ? "flex-col gap-8" : "flex-col gap-3"}`}>
+            <div className={`flex ${viewMode === "card" ? "flex-col gap-8" : "flex-col gap-2"}`}>
               {projects.map((project, index) => {
-                const cardClassName = `group brutal-card bg-white block animate-enter delay-${(index + 2) * 100} ${viewMode === "list" ? "p-3" : ""}`;
+                const cardClassName = `group brutal-card bg-white block animate-enter delay-${(index + 2) * 100} ${viewMode === "list" ? "!p-2 sm:!p-3" : ""}`;
                 const cardContent = (
-                  <div className={`flex items-start justify-between ${viewMode === "card" ? "flex-col gap-8 lg:flex-row lg:gap-10" : "flex-col gap-4 sm:flex-row sm:gap-8"}`}>
-                    <div className={`flex flex-col ${viewMode === "card" ? "flex-1 gap-3 lg:max-w-md" : "min-w-0 flex-1 gap-3"}`}>
+                  <div className={`flex items-start justify-between ${viewMode === "card" ? "flex-col gap-8 lg:flex-row lg:gap-10" : "flex-col gap-2 sm:flex-row sm:gap-8"}`}>
+                    <div className={`flex flex-col ${viewMode === "card" ? "flex-1 gap-3 lg:max-w-md" : "min-w-0 flex-1 gap-1"}`}>
                       <div className="flex items-center gap-3 text-xs font-mono text-[var(--text-secondary)]">
                         <span>{project.year}</span>
                         <span className="w-8 h-px bg-[var(--border-color)]"></span>
