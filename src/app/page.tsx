@@ -1,19 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, List, Rows2 } from "lucide-react";
 import Footer from "../components/Footer";
 
-const DogFollower = dynamic(
-  () => import("../components/DogFollower/DogFollower"),
-  { ssr: false }
-);
-
 export default function Home() {
-  const [dogEnabled, setDogEnabled] = useState(false);
   const [viewMode, setViewMode] = useState<"card" | "list">("list");
 
   useEffect(() => {
@@ -28,7 +21,7 @@ export default function Home() {
       year: "2024",
       title: "Revamping Opensource Discord Verification",
       category: "Product Design",
-      description: "Pubkey — First full fledge Solana project. 1 Month sprint covering Mobile & Web.",
+      description: "Pubkey. First full fledge Solana project. 1 Month sprint covering Mobile & Web.",
       image: "/portfolio/pubkey-work.png",
       accent: "Case study",
     },
@@ -37,7 +30,7 @@ export default function Home() {
       year: "2022–2024",
       title: "Building connected OPD Care at Singapore Based",
       category: "UI Design",
-      description: "Synclo — 2 Years, 4 End to End Products, 3 Multi-speciality Hospitals Onboarded.",
+      description: "Synclo. 2 Years, 4 End to End Products, 3 Multi-speciality Hospitals Onboarded.",
       image: "/portfolio/synclo-work.png",
       href: "/2-years-at-synclo",
       accent: "Case study",
@@ -47,7 +40,7 @@ export default function Home() {
       year: "2020–2022",
       title: "Simplified Installed Base Management at US Based",
       category: "UX Design",
-      description: "Entytle — 2.4 Years, 3 End to End Products, 7% Increase in retention.",
+      description: "Entytle. 2.4 Years, 3 End to End Products, 7% Increase in retention.",
       image: "/portfolio/entytle-work.png",
       accent: "NDA",
     },
@@ -197,7 +190,7 @@ export default function Home() {
             </div>
 
             <p className="text-lg text-[var(--text-secondary)] max-w-2xl text-balance text-center">
-              UX Designer turned Design Engineer. I do the best I can — designing and building products in web3.
+              UX Designer turned Design Engineer. I do the best I can, designing and building products in web3.
             </p>
 
             {/* Contact CTA */}
@@ -208,13 +201,6 @@ export default function Home() {
               <a href="https://wa.me/918897132717" className="brutal-btn sm:w-auto" target="_blank" rel="noreferrer">
                 WhatsApp
               </a>
-              <button
-                type="button"
-                onClick={() => setDogEnabled((enabled) => !enabled)}
-                className={`brutal-btn hidden sm:inline-flex ${dogEnabled ? "bg-[var(--text-primary)] text-[var(--bg-color)] border-[var(--text-primary)] hover:bg-transparent hover:text-[var(--text-primary)]" : ""}`}
-              >
-                {dogEnabled ? "Dismiss Mello" : "Meet Mello"}
-              </button>
             </div>
           </section>
 
@@ -335,7 +321,6 @@ export default function Home() {
         </div>
       </main>
       <Footer />
-      {dogEnabled && <DogFollower />}
     </>
   );
 }
