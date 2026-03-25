@@ -551,7 +551,7 @@ export default function DesignSystemClient() {
   return (
     <>
       <main className="page-container mt-20 sm:mt-24 lg:mt-[132px] text-[var(--text-primary)]">
-        <div className="flex flex-col gap-8 sm:gap-12 lg:gap-[72px] pb-12">
+        <div className="flex flex-col gap-8 sm:gap-12 lg:gap-[56px] pb-12">
           <section className="flex flex-col gap-8 animate-enter">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <Link

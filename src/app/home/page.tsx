@@ -245,7 +245,7 @@ export default function Home() {
             </div>
 
             {/* Testimonials */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {/* Sushana Taunk */}
               <div className="flex items-center gap-3 border-l-4 border-[var(--text-primary)] pl-4">
                 <Image

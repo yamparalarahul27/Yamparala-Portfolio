@@ -14,7 +14,7 @@ function formatDate(iso: string) {
 export default function BlogPage() {
   return (
     <main className="page-container mt-20 sm:mt-24 lg:mt-[132px] text-[var(--text-primary)]">
-      <div className="flex-1 flex flex-col gap-8 sm:gap-12 lg:gap-[72px] pt-8">
+      <div className="flex-1 flex flex-col gap-8 sm:gap-12 lg:gap-[56px] pt-8">
         {/* Header */}
         <section className="flex flex-col gap-6 animate-enter">
           <Link

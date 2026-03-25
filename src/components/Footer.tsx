@@ -24,7 +24,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-[var(--border-color)]">
-        <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-6 flex flex-col sm:flex-row flex-wrap items-center justify-between gap-4 lg:gap-6">
           <p className="text-xs text-[var(--text-secondary)]">
             &ldquo;Quality means doing it right when no one is looking&rdquo;
           </p>

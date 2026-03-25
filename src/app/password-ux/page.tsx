@@ -65,7 +65,7 @@ export default function PasswordUXPage() {
     <div className="page-container">
       <div className="animate-enter">
         {/* ====== HERO ====== */}
-        <header className="max-w-4xl mx-auto px-4 lg:px-0 pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-12">
+        <header className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0 pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-12">
           <SectionLabel>Case Study</SectionLabel>
           <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold tracking-tight leading-tight mb-4">
             Product Experience of Password Creation
@@ -86,7 +86,7 @@ export default function PasswordUXPage() {
         </header>
 
         {/* ====== SUMMARY BOX ====== */}
-        <section className="max-w-4xl mx-auto px-4 lg:px-0 pb-8">
+        <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0 pb-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="brutal-card p-6">
               <h3 className="text-sm font-bold uppercase tracking-wide mb-2">
@@ -133,7 +133,7 @@ export default function PasswordUXPage() {
         <Divider />
 
         {/* ====== CHAPTER 1 ====== */}
-        <section className="max-w-4xl mx-auto px-4 lg:px-0">
+        <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0">
           <SectionLabel>Chapter 1</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             Knowing Why &amp; What
@@ -192,7 +192,7 @@ export default function PasswordUXPage() {
         <Divider />
 
         {/* ====== CHAPTER 2 ====== */}
-        <section className="max-w-4xl mx-auto px-4 lg:px-0">
+        <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0">
           <SectionLabel>Chapter 2</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             Finding Problems
@@ -250,7 +250,7 @@ export default function PasswordUXPage() {
         <Divider />
 
         {/* ====== SOLUTION 1: REQUIREMENTS ====== */}
-        <section className="max-w-4xl mx-auto px-4 lg:px-0">
+        <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0">
           <SectionLabel>Solution 1</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             Requirements &mdash; Show Them Upfront
@@ -294,7 +294,7 @@ export default function PasswordUXPage() {
         <Divider />
 
         {/* ====== SOLUTION 2: VISUAL REQUIREMENTS ====== */}
-        <section className="max-w-4xl mx-auto px-4 lg:px-0">
+        <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0">
           <SectionLabel>Solution 2</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             Visual Requirements &mdash; Explicit vs Implicit
@@ -365,7 +365,7 @@ export default function PasswordUXPage() {
         <Divider />
 
         {/* ====== SOLUTION 3: SHOW/HIDE ====== */}
-        <section className="max-w-4xl mx-auto px-4 lg:px-0">
+        <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0">
           <SectionLabel>Solution 3</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             Show / Hide &mdash; The Eye Icon Dilemma
@@ -445,7 +445,7 @@ export default function PasswordUXPage() {
         <Divider />
 
         {/* ====== STRENGTH INDICATOR ====== */}
-        <section className="max-w-4xl mx-auto px-4 lg:px-0">
+        <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0">
           <SectionLabel>Strength Indicator</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             How Strong Is Strong Enough?
@@ -480,7 +480,7 @@ export default function PasswordUXPage() {
         <Divider />
 
         {/* ====== LEARNINGS & IMPACT ====== */}
-        <section className="max-w-4xl mx-auto px-4 lg:px-0">
+        <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0">
           <SectionLabel>Learnings &amp; Impact</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             Product Shipped
@@ -519,7 +519,7 @@ export default function PasswordUXPage() {
         <Divider />
 
         {/* ====== REFERENCES ====== */}
-        <section className="max-w-4xl mx-auto px-4 lg:px-0 pb-16">
+        <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0 pb-16">
           <SectionLabel>References</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             Key References

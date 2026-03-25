@@ -27,7 +27,7 @@ export default function ResumePage() {
   return (
     <>
       <main className="page-container mt-20 sm:mt-24 lg:mt-[132px] text-[var(--text-primary)]">
-        <div className="flex-1 flex flex-col gap-8 sm:gap-12 lg:gap-[72px] pt-8">
+        <div className="flex-1 flex flex-col gap-8 sm:gap-12 lg:gap-[56px] pt-8">
           {/* Header */}
           <section className="flex flex-col gap-6 animate-enter">
             <Link
@@ -49,7 +49,7 @@ export default function ResumePage() {
           </section>
 
           {/* Resume Cards */}
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-enter">
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 animate-enter">
             {resumes.map((resume) => (
               <div
                 key={resume.id}

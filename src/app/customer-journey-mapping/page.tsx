@@ -6,7 +6,7 @@ export default function CustomerJourneyMappingPage() {
   return (
     <>
       <main className="page-container mt-20 sm:mt-24 lg:mt-[132px] text-[var(--text-primary)]">
-        <div className="flex-1 flex flex-col gap-8 sm:gap-12 lg:gap-[72px] pt-8">
+        <div className="flex-1 flex flex-col gap-8 sm:gap-12 lg:gap-[56px] pt-8">
           {/* Back link */}
           <Link
             href="/"
@@ -28,7 +28,7 @@ export default function CustomerJourneyMappingPage() {
           {/* ── What ── */}
           <section className="flex flex-col gap-4 animate-enter">
             <h2 className="text-2xl font-bold tracking-tight">What</h2>
-            <p className="text-lg text-[var(--text-secondary)] max-w-3xl leading-relaxed">
+            <p className="text-lg text-[var(--text-secondary)] max-w-3xl lg:max-w-4xl leading-relaxed">
               A visualisation of the major interaction shaping a user&apos;s
               experience of a product or service.
             </p>
@@ -37,7 +37,7 @@ export default function CustomerJourneyMappingPage() {
           {/* ── Why ── */}
           <section className="flex flex-col gap-4 animate-enter">
             <h2 className="text-2xl font-bold tracking-tight">Why</h2>
-            <p className="text-lg text-[var(--text-secondary)] max-w-3xl leading-relaxed">
+            <p className="text-lg text-[var(--text-secondary)] max-w-3xl lg:max-w-4xl leading-relaxed">
               To provide design teams with a bird&apos;s-eye view of a service
               that helps them see the sequence of interactions that make up a
               user&apos;s experience including the complexity, successes, pain
@@ -50,12 +50,12 @@ export default function CustomerJourneyMappingPage() {
             <h2 className="text-2xl font-bold tracking-tight">
               What is Customer Journey Mapping?
             </h2>
-            <p className="text-lg text-[var(--text-secondary)] max-w-3xl leading-relaxed">
+            <p className="text-lg text-[var(--text-secondary)] max-w-3xl lg:max-w-4xl leading-relaxed">
               It looks at mapping out the total customer experience across all
               touchpoints between the customer and the organization, from initial
               contact, through purchasing onto after sales support.
             </p>
-            <div className="brutal-card p-6 max-w-3xl">
+            <div className="brutal-card p-6 max-w-3xl lg:max-w-4xl">
               <p className="text-base text-[var(--text-secondary)] leading-relaxed mb-4">
                 It maps the experience that:
               </p>
@@ -71,14 +71,14 @@ export default function CustomerJourneyMappingPage() {
             <h2 className="text-2xl font-bold tracking-tight">
               Customer Touchpoints
             </h2>
-            <p className="text-lg text-[var(--text-secondary)] max-w-3xl leading-relaxed">
+            <p className="text-lg text-[var(--text-secondary)] max-w-3xl lg:max-w-4xl leading-relaxed">
               Customer touchpoints are your brand&apos;s points of customer
               contact, from start to finish. For example, customers may find our
               business online or in an ad, see ratings and reviews, visit our
               website, shop from our affiliates website, or contact our customer
               service.
             </p>
-            <p className="text-lg text-[var(--text-secondary)] max-w-3xl leading-relaxed">
+            <p className="text-lg text-[var(--text-secondary)] max-w-3xl lg:max-w-4xl leading-relaxed">
               We started identifying our customer touchpoints by making a list of
               all the places and times our customers might come into contact with
               our brand.

@@ -136,7 +136,7 @@ export default function Home() {
       <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] text-[var(--text-primary)]">
 
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col gap-8 sm:gap-12 lg:gap-[72px] pt-8">
+        <div className="flex-1 flex flex-col gap-8 sm:gap-12 lg:gap-[56px] pt-8">
 
           {/* Hero Section */}
           <section className="flex flex-col items-center text-center gap-8 animate-enter">
@@ -219,7 +219,7 @@ export default function Home() {
               {projects.map((project, index) => {
                 const cardClassName = `group brutal-card bg-white block animate-enter delay-${(index + 2) * 100} ${viewMode === "list" ? "p-3" : ""}`;
                 const cardContent = (
-                  <div className={`flex items-start justify-between ${viewMode === "card" ? "flex-col gap-8 lg:flex-row lg:gap-[60px]" : "flex-col gap-4 sm:flex-row sm:gap-8"}`}>
+                  <div className={`flex items-start justify-between ${viewMode === "card" ? "flex-col gap-8 lg:flex-row lg:gap-10" : "flex-col gap-4 sm:flex-row sm:gap-8"}`}>
                     <div className={`flex flex-col ${viewMode === "card" ? "flex-1 gap-3 lg:max-w-md" : "min-w-0 flex-1 gap-3"}`}>
                       <div className="flex items-center gap-3 text-xs font-mono text-[var(--text-secondary)]">
                         <span>{project.year}</span>
@@ -247,7 +247,7 @@ export default function Home() {
                     </div>
 
                     {viewMode === "card" ? (
-                      <div className="project-image-wrapper relative w-full lg:w-1/2 aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f3f4f6_100%)]">
+                      <div className="project-image-wrapper relative w-full lg:w-[55%] aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f3f4f6_100%)]">
                         {project.image ? (
                           <Image
                             src={project.image}
