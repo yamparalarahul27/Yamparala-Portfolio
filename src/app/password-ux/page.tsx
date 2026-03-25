@@ -76,7 +76,7 @@ export default function PasswordUXPage() {
           <div className="brutal-card p-6">
             <p className="text-[var(--text-primary)] leading-relaxed">
               The goal was to give users effortless access to{" "}
-              <strong>Insyghts</strong> &mdash; Entytle&rsquo;s flagship
+              <strong>Insyghts</strong> , Entytle&rsquo;s flagship
               analytics platform. Password creation is often the first
               real interaction a new user has with the product. If that
               moment feels confusing or frustrating, it taints everything
@@ -113,7 +113,7 @@ export default function PasswordUXPage() {
                 Special UX Requirements
               </h3>
               <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                Live validation while typing vs on-exit validation &mdash;
+                Live validation while typing vs on-exit validation ,
                 which approach reduces cognitive load?
               </p>
             </div>
@@ -160,7 +160,7 @@ export default function PasswordUXPage() {
                 <strong className="text-[var(--text-primary)]">
                   660 minutes/year
                 </strong>{" "}
-                wasted on password-related support &mdash; time that
+                wasted on password-related support , time that
                 could be spent on product work
               </li>
             </ul>
@@ -177,7 +177,7 @@ export default function PasswordUXPage() {
             <strong className="text-[var(--text-primary)]">
               20+ B2B enterprise forms
             </strong>{" "}
-            across SaaS products &mdash; studying validation patterns,
+            across SaaS products , studying validation patterns,
             copy, layout, and error handling. This competitive analysis
             became the foundation for every design decision that followed.
           </p>
@@ -211,7 +211,7 @@ export default function PasswordUXPage() {
               <h4 className="font-bold mt-2 mb-1">Requirements</h4>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                 &ldquo;On-exit validation&rdquo; throws errors only after
-                the user leaves the field &mdash; too late and too
+                the user leaves the field , too late and too
                 punishing.
               </p>
             </div>
@@ -222,7 +222,7 @@ export default function PasswordUXPage() {
               </span>
               <h4 className="font-bold mt-2 mb-1">Show / Hide</h4>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                No password validation when visible is risky &mdash; users
+                No password validation when visible is risky , users
                 can&rsquo;t verify what they&rsquo;ve typed without
                 toggling.
               </p>
@@ -253,7 +253,7 @@ export default function PasswordUXPage() {
         <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0">
           <SectionLabel>Solution 1</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
-            Requirements &mdash; Show Them Upfront
+            Requirements , Show Them Upfront
           </h2>
 
           <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
@@ -297,7 +297,7 @@ export default function PasswordUXPage() {
         <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0">
           <SectionLabel>Solution 2</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
-            Visual Requirements &mdash; Explicit vs Implicit
+            Visual Requirements , Explicit vs Implicit
           </h2>
 
           <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
@@ -368,7 +368,7 @@ export default function PasswordUXPage() {
         <section className="max-w-4xl lg:max-w-5xl mx-auto px-4 lg:px-0">
           <SectionLabel>Solution 3</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
-            Show / Hide &mdash; The Eye Icon Dilemma
+            Show / Hide , The Eye Icon Dilemma
           </h2>
 
           <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
@@ -415,7 +415,7 @@ export default function PasswordUXPage() {
               <strong className="text-[var(--text-primary)]">
                 Security:
               </strong>{" "}
-              unchecked by default &mdash; passwords start hidden, as
+              unchecked by default , passwords start hidden, as
               users expect.
             </li>
           </ul>
@@ -530,27 +530,27 @@ export default function PasswordUXPage() {
               <strong className="text-[var(--text-primary)]">
                 Nielsen Norman Group (NN/g)
               </strong>{" "}
-              &mdash; &ldquo;Errors in Form Design&rdquo; and
+              , &ldquo;Errors in Form Design&rdquo; and
               &ldquo;Password Visibility Toggle&rdquo; studies on
               validation timing and toggle affordances.
             </li>
             <li>
               <strong className="text-[var(--text-primary)]">CXL</strong>{" "}
-              &mdash; Research on inline validation performance and
+              , Research on inline validation performance and
               real-time feedback vs batch error messaging.
             </li>
             <li>
               <strong className="text-[var(--text-primary)]">
                 Baymard Institute
               </strong>{" "}
-              &mdash; E-commerce checkout usability studies covering
+              , E-commerce checkout usability studies covering
               password field UX in account creation flows.
             </li>
             <li>
               <strong className="text-[var(--text-primary)]">
                 Academic Papers
               </strong>{" "}
-              &mdash; Research on password meter effectiveness, including
+              , Research on password meter effectiveness, including
               studies on how visual strength indicators influence password
               choices and user confidence.
             </li>
@@ -558,7 +558,7 @@ export default function PasswordUXPage() {
               <strong className="text-[var(--text-primary)]">
                 WCAG 2.1 Guidelines
               </strong>{" "}
-              &mdash; Success criteria for form accessibility, error
+              , Success criteria for form accessibility, error
               identification (3.3.1), labels and instructions (3.3.2),
               and error suggestion (3.3.3).
             </li>
