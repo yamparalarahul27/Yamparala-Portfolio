@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, List, Rows2 } from "lucide-react";
+import Footer from "../components/Footer";
 
 const DogFollower = dynamic(
   () => import("../components/DogFollower/DogFollower"),
@@ -16,6 +17,34 @@ export default function Home() {
   const [viewMode, setViewMode] = useState<"card" | "list">("card");
 
   const projects = [
+    {
+      id: 14,
+      year: "2024",
+      title: "Revamping Opensource Discord Verification",
+      category: "Product Design",
+      description: "Pubkey — First full fledge Solana project. 1 Month sprint covering Mobile & Web.",
+      image: "/portfolio/pubkey-work.png",
+      accent: "Case study",
+    },
+    {
+      id: 15,
+      year: "2022–2024",
+      title: "Building connected OPD Care at Singapore Based",
+      category: "UI Design",
+      description: "Synclo — 2 Years, 4 End to End Products, 3 Multi-speciality Hospitals Onboarded.",
+      image: "/portfolio/synclo-work.png",
+      href: "/2-years-at-synclo",
+      accent: "Case study",
+    },
+    {
+      id: 16,
+      year: "2020–2022",
+      title: "Simplified Installed Base Management at US Based",
+      category: "UX Design",
+      description: "Entytle — 2.4 Years, 3 End to End Products, 7% Increase in retention.",
+      image: "/portfolio/entytle-work.png",
+      accent: "NDA",
+    },
     {
       id: 1,
       year: "2024",
@@ -297,11 +326,9 @@ export default function Home() {
             </div>
           </section>
 
-          <footer className="p-8 text-xs font-mono text-[var(--text-secondary)] text-center animate-enter delay-400">
-            <p>ENGINEERED WITH PRECISION • {new Date().getFullYear()}</p>
-          </footer>
         </div>
       </main>
+      <Footer />
       {dogEnabled && <DogFollower />}
     </>
   );
