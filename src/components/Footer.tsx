@@ -5,11 +5,11 @@ export default function Footer() {
   return (
     <footer className="border-t border-[var(--border-color)] mt-24">
       {/* CTA Section */}
-      <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-16 text-center">
-        <h2 className="text-2xl lg:text-3xl font-bold tracking-tight mb-3">
+      <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-16 text-center flex flex-col items-center gap-3">
+        <h2 className="text-2xl lg:text-3xl font-bold tracking-tight">
           Let&apos;s know each other!
         </h2>
-        <p className="text-[var(--text-secondary)] mb-6 max-w-lg mx-auto">
+        <p className="text-[var(--text-secondary)] max-w-lg">
           Let&apos;s discuss how I can be a good fit with the team and drive growth.
         </p>
         <a
