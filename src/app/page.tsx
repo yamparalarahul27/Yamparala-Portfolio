@@ -162,7 +162,7 @@ export default function Home() {
             </div>
 
             <p className="text-lg text-[var(--text-secondary)] max-w-2xl text-balance text-center">
-              This is a placeholder paragraph for the hero section. Replace this with a compelling introduction or tagline that captures the essence of your work.
+              UX Designer turned Design Engineer. I do the best I can — designing and building products in web3.
             </p>
 
             {/* Contact CTA */}
