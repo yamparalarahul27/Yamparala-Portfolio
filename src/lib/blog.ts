@@ -55,6 +55,21 @@ export const blogPosts: BlogPost[] = [
       },
       {
         date: "2026-03-25",
+        title: "Figma is the Source of Truth",
+        paragraphs: [
+          "Everyone is saying Figma is dead. I kind of believed it too. But what is happening in the current workspace is the total opposite.",
+          "I assumed the source of truth would be a granular PRD, and that everything else would derive from it. In a startup environment, that is not true. PMs use architecture docs as the source of truth and derive features from there. Getting to granular UX and technical detail from that is still broken.",
+          "What is actually happening is Figma is becoming the source of truth. It is the place where UI, UX, Dev, and QA all meet.",
+        ],
+        bullets: [
+          "UI: colours and typography are already there.",
+          "UX: you can create flows with prototype mode.",
+          "Dev: MCP integration works well with Claude and Codex.",
+          "QA: they can use Dev Mode to check for UI and UX bugs.",
+        ],
+      },
+      {
+        date: "2026-03-25",
         title: "PR Audits and Dependency Checks",
         paragraphs: [
           "Over the last two days, I have been working on minor UI and UX fixes for the Crpko Web Platform and raising PRs.",
