@@ -151,13 +151,23 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "indexing-product-knowledge",
-    lastUpdated: "2025-01-22",
+    lastUpdated: "2026-03-24",
     title: "Indexing Product Knowledge",
     category: "Product",
     excerpt:
       "Early notes on YDex and the problem of retrieving the right context at the right time.",
     readTime: "4 min read",
-    published: false,
+    published: true,
+    entries: [
+      {
+        date: "2026-03-24",
+        title: "Product Knowledge is the Edge",
+        paragraphs: [
+          "Product knowledge became more important in the AI world as building things became way easier. The edge is only in how fast, how simple, and how lean you can build.",
+          "Today I worked on end-to-end positive cases for limit orders and explained them to QA freshers — walking them through how to raise, suggest, and ideate on what can be done best.",
+        ],
+      },
+    ],
   },
   {
     slug: "the-case-for-fewer-features",
