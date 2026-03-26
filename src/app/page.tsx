@@ -164,7 +164,7 @@ export default function Home() {
       <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] text-[var(--text-primary)]">
 
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col gap-8 sm:gap-12 lg:gap-[56px] pt-8">
+        <div className="flex-1 flex flex-col gap-8 sm:gap-10 lg:gap-[44px] pt-8">
 
           {/* Hero Section */}
           <section className="flex flex-col items-center text-center gap-8 animate-enter">
@@ -194,7 +194,7 @@ export default function Home() {
             </p>
 
             {/* Contact CTA */}
-            <div className="flex flex-row items-center justify-center gap-3">
+            <div className="flex flex-row items-center justify-center gap-1.5">
               <a href="https://t.me/yamparalarahul1" className="brutal-btn sm:w-auto" target="_blank" rel="noreferrer">
                 Telegram
               </a>
