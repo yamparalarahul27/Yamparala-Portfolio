@@ -88,7 +88,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "leading-team",
-    lastUpdated: "2026-03-24",
+    lastUpdated: "2026-03-26",
     title: "Leading Team",
     category: "Thinking",
     excerpt:
@@ -104,6 +104,17 @@ export const blogPosts: BlogPost[] = [
           "Today I saw a major unlock for my team. Shaina is a graphic designer, and while working together we found a major issue with how graphics get updated across the web and mobile platforms.",
           "The current flow involved downloading assets, sharing them through Drive organised in folders — boring, manual, and slow. Every update meant repeating the same tedious steps.",
           "I took the initiative to have Shaina build an app specifically for managing graphics. Here is the link: Shainam.vercel.app",
+        ],
+      },
+      {
+        date: "2026-03-26",
+        title: "The Simplest Animation Solution Comes from a Smoke Break",
+        paragraphs: [
+          "Yesterday before closing the day, I suggested adding animations for each SVG uploaded in the graphics app.",
+          "There are many ways to do it, but which one to pick depends on how effortlessly you can make it happen.",
+          "During the discussion, one idea was to build an editor environment inside the app for animations. Too much time and effort.",
+          "The real solution came during a smoke break — I do not smoke, but I join others because ideas flow really well at that time.",
+          "The idea: create identifiers for SVG elements that need to be animated, and assign a CSS class for each animation type. No editor needed. Clean, simple, and fast to implement.",
         ],
       },
     ],
