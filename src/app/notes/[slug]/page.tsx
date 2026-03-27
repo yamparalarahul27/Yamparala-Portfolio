@@ -38,7 +38,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} | Blog`,
+    title: `${post.title} | Notes`,
     description: post.excerpt,
   };
 }
@@ -56,11 +56,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <div className="flex-1 flex flex-col gap-8 sm:gap-10 lg:gap-[56px] pt-8">
         <section className="flex flex-col gap-6 animate-enter">
           <Link
-            href="/blog"
+            href="/notes"
             className="inline-flex items-center gap-2 text-sm font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors w-fit"
           >
             <ArrowLeft className="h-3 w-3" />
-            Back to Blog
+            Back to Notes
           </Link>
 
           <div className="flex flex-col gap-4 max-w-3xl">

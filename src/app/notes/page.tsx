@@ -27,7 +27,7 @@ export default function BlogPage() {
 
           <div className="flex flex-col gap-3">
             <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tighter leading-tight">
-              Blog
+              Notes
             </h1>
             <p className="text-lg text-[var(--text-secondary)] max-w-2xl text-balance">
               Published writing and active drafts on design engineering, product thinking, and building things that matter.
@@ -85,7 +85,7 @@ export default function BlogPage() {
             return (
               <Link
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                href={`/notes/${post.slug}`}
                 className={cardClassName}
               >
                 {cardContent}
