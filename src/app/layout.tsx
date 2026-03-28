@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Agentation } from "agentation";
 import { Geist, Geist_Mono } from "next/font/google";
-import Navbar from "../components/Navbar";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,27 +16,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yamparala Rahul - UX Designer",
-  description: "UX Designer for Finance Web3 & B2B Experience. 5 years of design work experience.",
+  title: "Yamparala Rahul - Design Engineer",
+  description: "Design Engineer for Web3, B2B & Healthcare. 5.2 years of experience.",
   icons: {
     icon: '/favicon.png',
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="pt-[57px]">
+        <NextIntlClientProvider messages={messages}>
           {children}
-        </div>
+        </NextIntlClientProvider>
         {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
     </html>

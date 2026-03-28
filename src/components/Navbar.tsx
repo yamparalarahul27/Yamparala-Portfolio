@@ -4,24 +4,26 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/my-story", label: "About Me" },
-  { href: "/notes", label: "Notes" },
-  { href: "/resume", label: "Resume" },
-];
-
-const workLinks = [
-  { href: "/2-years-at-synclo", label: "2 Years at Synclo" },
-  { href: "/password-ux", label: "UX of Password Creation" },
-  { href: "/customer-journey-mapping", label: "Customer Journey Mapping" },
-];
+import { useTranslations } from "next-intl";
 
 export default function Navbar() {
+  const t = useTranslations("nav");
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [workOpen, setWorkOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/", label: t("home") },
+    { href: "/my-story", label: t("aboutMe") },
+    { href: "/notes", label: t("notes") },
+    { href: "/resume", label: t("resume") },
+  ];
+
+  const workLinks = [
+    { href: "/2-years-at-synclo", label: "2 Years at Synclo" },
+    { href: "/password-ux", label: "UX of Password Creation" },
+    { href: "/customer-journey-mapping", label: "Customer Journey Mapping" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-color)]/95 backdrop-blur-sm border-b border-[var(--border-color)]">
@@ -56,7 +58,7 @@ export default function Navbar() {
                 workLinks.some((l) => pathname === l.href) ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]"
               }`}
             >
-              Work
+              {t("work")}
             </button>
             {workOpen && (
               <div className="absolute top-full right-0 mt-2 w-64 max-w-[calc(100vw-2rem)] bg-white border border-[var(--border-color)] shadow-sm">
@@ -82,7 +84,7 @@ export default function Navbar() {
             rel="noreferrer"
             className="brutal-btn text-sm !py-2 !px-4"
           >
-            Contact
+            {t("contact")}
           </a>
         </div>
 
@@ -114,7 +116,7 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="py-2 px-4 text-xs font-mono uppercase tracking-[0.2em] text-[var(--text-secondary)]">
-              Work
+              {t("work")}
             </div>
             {workLinks.map((link) => (
               <Link
@@ -135,7 +137,7 @@ export default function Navbar() {
               className="brutal-btn text-sm mt-2 w-full"
               onClick={() => setMobileOpen(false)}
             >
-              Contact
+              {t("contact")}
             </a>
           </div>
         </div>

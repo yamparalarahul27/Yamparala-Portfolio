@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ArrowRight, List, Rows2 } from "lucide-react";
 
 const DogFollower = dynamic(
-  () => import("../../components/DogFollower/DogFollower"),
+  () => import("../../../components/DogFollower/DogFollower"),
   { ssr: false }
 );
 

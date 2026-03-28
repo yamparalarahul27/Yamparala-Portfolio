@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, List, Rows2 } from "lucide-react";
-import Footer from "../components/Footer";
+import { useTranslations } from "next-intl";
+import Footer from "../../components/Footer";
 
 export default function Home() {
+  const t = useTranslations();
   const [viewMode, setViewMode] = useState<"card" | "list">("list");
 
   useEffect(() => {
@@ -181,25 +183,25 @@ export default function Home() {
 
               <div>
                 <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tighter leading-tight">
-                  Yamparala Rahul
+                  {t("hero.name")}
                 </h1>
                 <p className="text-sm text-[var(--text-secondary)] font-medium mt-3">
-                  Design Engineer @ <a href="https://www.linkedin.com/company/equicom-technologies/" target="_blank" rel="noreferrer" className="text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors underline decoration-1 underline-offset-4">Equicom Technologies</a>
+                  {t("hero.role")} @ <a href="https://www.linkedin.com/company/equicom-technologies/" target="_blank" rel="noreferrer" className="text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors underline decoration-1 underline-offset-4">{t("hero.company")}</a>
                 </p>
               </div>
             </div>
 
             <p className="text-lg text-[var(--text-secondary)] max-w-2xl text-balance text-center">
-              UX Designer turned Design Engineer. I do the best I can, designing and building products in web3.
+              {t("hero.bio")}
             </p>
 
             {/* Contact CTA */}
             <div className="flex flex-row items-center justify-center gap-1.5">
               <a href="https://t.me/yamparalarahul1" className="brutal-btn sm:w-auto" target="_blank" rel="noreferrer">
-                Telegram
+                {t("hero.telegram")}
               </a>
               <a href="https://wa.me/918897132717" className="brutal-btn sm:w-auto" target="_blank" rel="noreferrer">
-                WhatsApp
+                {t("hero.whatsapp")}
               </a>
             </div>
           </section>
@@ -208,12 +210,12 @@ export default function Home() {
             <div className="flex flex-col items-start justify-between gap-3 p-3 sm:flex-row sm:items-center sm:gap-8 animate-enter delay-200">
               <div className="flex items-center gap-3">
                 <span className="text-sm font-mono uppercase tracking-[0.24em] text-[var(--text-secondary)]">
-                  Projects
+                  {t("projects.title")}
                 </span>
               </div>
               <div className="flex w-full items-center justify-between gap-3 sm:w-auto sm:justify-start">
                 <span className="text-xs font-mono uppercase tracking-[0.2em] text-[var(--text-secondary)]">
-                  View
+                  {t("projects.view")}
                 </span>
                 <div className="flex items-center border border-[var(--border-color)] bg-white">
                   <button
@@ -262,7 +264,7 @@ export default function Home() {
                       </p>
 
                       <div className="inline-flex items-center text-sm font-bold tracking-wide uppercase">
-                        {project.href ? "View Project" : "In Progress"}
+                        {project.href ? t("projects.viewProject") : t("projects.inProgress")}
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>

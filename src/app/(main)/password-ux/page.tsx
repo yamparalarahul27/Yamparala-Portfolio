@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Footer from "../../components/Footer";
+import Footer from "../../../components/Footer";
 
 export const metadata: Metadata = {
   title: "Password UX Case Study | Yamparala Rahul",

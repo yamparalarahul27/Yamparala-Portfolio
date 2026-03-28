@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Footer from "../../components/Footer";
+import Footer from "../../../components/Footer";
 
 const resumes = [
   {

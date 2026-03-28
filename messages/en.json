@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "title": "Yamparala Rahul - Design Engineer",
+    "description": "Design Engineer for Web3, B2B & Healthcare. 5.2 years of experience."
+  },
+  "nav": {
+    "home": "Home",
+    "aboutMe": "About Me",
+    "notes": "Notes",
+    "resume": "Resume",
+    "work": "Work",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Yamparala Rahul",
+    "role": "Design Engineer",
+    "at": "at",
+    "company": "Equicom Technologies",
+    "bio": "UX Designer turned Design Engineer. I do the best I can, designing and building products in web3.",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp"
+  },
+  "projects": {
+    "title": "Projects",
+    "view": "View",
+    "viewProject": "View Project",
+    "inProgress": "In Progress"
+  },
+  "footer": {
+    "heading": "Let's know each other!",
+    "description": "Let's discuss how I can be a good fit with the team and drive growth.",
+    "cta": "Book a Intro call ↓",
+    "designedBy": "Designed by Yamparala Rahul @ India",
+    "quote": "\"Quality means doing it right when no one is looking\""
+  },
+  "mini": {
+    "bio1": "Yamparala Rahul is a Design Engineer based in India with 5.2 years of experience. He currently works at {company} building products in web3.",
+    "bio2": "He joined Equicom Technologies in 2025 after revamping {pubkey}'s UI on Solana. Before that, he spent 2.4 years at {entytle} simplifying B2B SaaS, and 2 years at {synclo} designing healthcare systems. He founded Yamparala.in in 2019.",
+    "bio3": "Member of {islandDAO}. Contributor at {superteam}. {greedAcademy} graduate. Certified by Google and IBM.",
+    "contact": "@yamparalarahul"
+  },
+  "workPages": {
+    "synclo": {
+      "title": "2 Years at Synclo"
+    },
+    "passwordUx": {
+      "title": "UX of Password Creation"
+    },
+    "customerJourney": {
+      "title": "Customer Journey Mapping"
+    }
+  }
+}

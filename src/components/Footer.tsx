@@ -1,16 +1,18 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
   return (
     <footer className="border-t border-[var(--border-color)] mt-24 bg-white">
       {/* CTA Section */}
       <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-16 text-center flex flex-col items-center gap-3">
         <h2 className="text-2xl lg:text-3xl font-bold tracking-tight">
-          Let&apos;s know each other!
+          {t("heading")}
         </h2>
         <p className="text-[var(--text-secondary)] max-w-lg">
-          Let&apos;s discuss how I can be a good fit with the team and drive growth.
+          {t("description")}
         </p>
         <a
           href="https://wa.me/918897132717"
@@ -18,7 +20,7 @@ export default function Footer() {
           rel="noreferrer"
           className="brutal-btn"
         >
-          Book a Intro call &darr;
+          {t("cta")}
         </a>
       </div>
 
@@ -28,7 +30,7 @@ export default function Footer() {
           {/* Top row: links */}
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-between gap-4">
             <p className="text-xs text-[var(--text-secondary)]">
-              Designed by Yamparala Rahul @ India
+              {t("designedBy")}
             </p>
 
             <div className="flex items-center gap-4">
@@ -54,7 +56,7 @@ export default function Footer() {
           {/* Bottom row: quote left, badges right */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[var(--text-secondary)]">
-              &ldquo;Quality means doing it right when no one is looking&rdquo;
+              {t("quote")}
             </p>
             <div className="flex items-center gap-3">
               <Image src="/portfolio/badge-gcc.png" alt="Google UX Design Certificate" width={64} height={64} className="w-16 h-16" />

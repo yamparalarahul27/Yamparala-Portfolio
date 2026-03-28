@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import Footer from "../../components/Footer";
-import Testimonial from "../../components/Testimonial";
+import Footer from "../../../components/Footer";
+import Testimonial from "../../../components/Testimonial";
 
 const suiteProducts = [
   {
