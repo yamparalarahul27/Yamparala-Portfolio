@@ -76,12 +76,10 @@ export default function MiniPage() {
       <section className="flex flex-col">
         {projects.map((project) => {
           const inner = (
-            <div className="flex items-center justify-between gap-4 py-3 border-t border-[var(--border-color)]">
-              <div className="flex items-center gap-4 min-w-0">
-                <span className="text-xs font-mono text-[var(--text-secondary)] shrink-0">{project.year}</span>
-                <span className="text-sm truncate">{project.title}</span>
-              </div>
-              <span className="text-xs font-mono text-[var(--text-secondary)] shrink-0">{project.accent}</span>
+            <div className="grid grid-cols-[48px_1fr_auto] items-center gap-2 py-3 border-t border-[var(--border-color)]">
+              <span className="text-xs font-mono text-[var(--text-secondary)]">{project.year}</span>
+              <span className="text-sm truncate">{project.title}</span>
+              <span className="text-xs font-mono text-[var(--text-secondary)] text-right">{project.accent}</span>
             </div>
           );
 
