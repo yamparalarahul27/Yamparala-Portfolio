@@ -16,6 +16,11 @@ interface CanvasBackgroundProps {
   gradientFrom: string;
   gradientTo: string;
   backgroundColor?: string;
+  // Dark theme overrides
+  darkHoverColor?: string;
+  darkGradientFrom?: string;
+  darkGradientTo?: string;
+  darkBackgroundColor?: string;
 }
 
 interface Dot {
@@ -65,6 +70,13 @@ export default function CanvasBackground(props: CanvasBackgroundProps) {
     let animationId: number;
     let width = 0;
     let height = 0;
+    let isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    function onThemeChange(e: MediaQueryListEvent) {
+      isDark = e.matches;
+    }
+    darkQuery.addEventListener("change", onThemeChange);
 
     function initDots() {
       const p = propsRef.current;
@@ -104,7 +116,9 @@ export default function CanvasBackground(props: CanvasBackgroundProps) {
 
     function animate(time: number) {
       const p = propsRef.current;
-      const bgColor = p.backgroundColor || "#050505";
+      const bgColor = isDark
+        ? (p.darkBackgroundColor || "#050505")
+        : (p.backgroundColor || "#F8F9FA");
 
       ctx!.fillStyle = bgColor;
       ctx!.fillRect(0, 0, width, height);
@@ -113,9 +127,9 @@ export default function CanvasBackground(props: CanvasBackgroundProps) {
       const dirX = Math.cos(angleRad);
       const dirY = Math.sin(angleRad);
 
-      const colorFrom = hexToRgb(p.gradientFrom);
-      const colorTo = hexToRgb(p.gradientTo);
-      const hoverRgb = hexToRgb(p.hoverColor);
+      const colorFrom = hexToRgb(isDark ? (p.darkGradientFrom || p.gradientFrom) : p.gradientFrom);
+      const colorTo = hexToRgb(isDark ? (p.darkGradientTo || p.gradientTo) : p.gradientTo);
+      const hoverRgb = hexToRgb(isDark ? (p.darkHoverColor || p.hoverColor) : p.hoverColor);
 
       for (let i = 0; i < dots.length; i++) {
         const dot = dots[i];
@@ -192,6 +206,7 @@ export default function CanvasBackground(props: CanvasBackgroundProps) {
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseleave", onMouseLeave);
+      darkQuery.removeEventListener("change", onThemeChange);
     };
   }, []);
 

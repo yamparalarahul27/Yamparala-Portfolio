@@ -48,9 +48,13 @@ export default async function RootLayout({
           waveIntensity={0.008}
           waveEnabled={true}
           hoverColor="#111111"
-          gradientFrom="#E11D48"
-          gradientTo="#7928ca"
+          gradientFrom="#9CA3AF"
+          gradientTo="#6B7280"
           backgroundColor="#F8F9FA"
+          darkHoverColor="#ffffff"
+          darkGradientFrom="#D4D4D8"
+          darkGradientTo="#A1A1AA"
+          darkBackgroundColor="#050505"
         />
         <NextIntlClientProvider messages={messages}>
           {children}
