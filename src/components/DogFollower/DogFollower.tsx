@@ -5,11 +5,6 @@ import { useDogState } from './useDogState';
 import { SPRITE_CONFIG } from './config';
 import { AnimationState } from './types';
 
-function isTouchDevice(): boolean {
-  if (typeof window === 'undefined') return false;
-  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-}
-
 function getScaledSpriteSize(): { width: number; height: number } {
   const { frameWidth, frameHeight, renderedWidth, renderedHeight, gutter, animations } =
     SPRITE_CONFIG;
@@ -63,7 +58,6 @@ export function DogFollower() {
   const reducedMotion =
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isTouch = isTouchDevice();
 
   // Generate keyframe styles dynamically with scaled positions
   const keyframeStyles = useMemo(() => {
@@ -93,8 +87,8 @@ export function DogFollower() {
     return keyframes;
   }, []);
 
-  // Don't render on server, touch devices, or with reduced motion
-  if (reducedMotion || isTouch || !isVisible) {
+  // Don't render with reduced motion or when hidden
+  if (reducedMotion || !isVisible) {
     return null;
   }
 

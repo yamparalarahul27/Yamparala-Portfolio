@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimationState, Direction, Position } from './types';
 import { IDLE_ANIMATIONS, SPRITE_CONFIG } from './config';
+import { dogSound } from './sound';
 
 function clampToViewport(pos: Position): Position {
   if (typeof window === 'undefined') return pos;
@@ -12,6 +13,11 @@ function clampToViewport(pos: Position): Position {
   };
 }
 
+function isTouchDevice(): boolean {
+  if (typeof window === 'undefined') return false;
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
+
 interface UseDogStateReturn {
   position: Position;
   animation: AnimationState;
@@ -21,8 +27,16 @@ interface UseDogStateReturn {
 }
 
 export function useDogState(): UseDogStateReturn {
+  const isTouch = typeof window !== 'undefined' && isTouchDevice();
+
   const [position, setPosition] = useState<Position>(() => {
     if (typeof window === 'undefined') return { x: 0, y: 0 };
+    if (isTouch) {
+      return {
+        x: 0,
+        y: window.innerHeight - SPRITE_CONFIG.renderedHeight - SPRITE_CONFIG.mobileBottomOffset,
+      };
+    }
     return {
       x: window.innerWidth - SPRITE_CONFIG.renderedWidth - 20,
       y: 20,
@@ -43,8 +57,8 @@ export function useDogState(): UseDogStateReturn {
   const positionRef = useRef(position);
   const isIdleRef = useRef(isIdle);
   const hasReachedTargetRef = useRef(hasReachedTarget);
+  const prevScrollYRef = useRef(0);
 
-  // Keep position ref in sync for dead zone checks
   useEffect(() => {
     positionRef.current = position;
   }, [position]);
@@ -64,9 +78,9 @@ export function useDogState(): UseDogStateReturn {
     return selected;
   }, []);
 
-  // Mouse tracking with idle detection
+  // Mouse tracking (desktop only)
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || isTouch) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       const newTarget = clampToViewport({
@@ -74,7 +88,6 @@ export function useDogState(): UseDogStateReturn {
         y: e.clientY - SPRITE_CONFIG.cursorOffset.y,
       });
 
-      // Dead zone check when idle: ignore movement if cursor is too close
       if (isIdleRef.current && hasReachedTargetRef.current) {
         const dx = newTarget.x - positionRef.current.x;
         const dy = newTarget.y - positionRef.current.y;
@@ -90,7 +103,6 @@ export function useDogState(): UseDogStateReturn {
       hasReachedTargetRef.current = false;
       setHasReachedTarget(false);
 
-      // Reset idle timer
       if (idleTimerRef.current) {
         clearTimeout(idleTimerRef.current);
       }
@@ -110,13 +122,59 @@ export function useDogState(): UseDogStateReturn {
         clearTimeout(idleTimerRef.current);
       }
     };
-  }, [selectRandomIdle]);
+  }, [selectRandomIdle, isTouch]);
 
-  // Visibility handling (mouse enters/leaves window)
+  // Scroll tracking (mobile only)
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || !isTouch) return;
 
-    //     TODO: Set back to false
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const scrollProgress = maxScroll > 0 ? scrollY / maxScroll : 0;
+
+      const targetX = scrollProgress * (window.innerWidth - SPRITE_CONFIG.renderedWidth);
+      const targetY = window.innerHeight - SPRITE_CONFIG.renderedHeight - SPRITE_CONFIG.mobileBottomOffset;
+
+      // Determine direction from scroll
+      if (scrollY > prevScrollYRef.current) {
+        setDirection('right');
+      } else if (scrollY < prevScrollYRef.current) {
+        setDirection('left');
+      }
+      prevScrollYRef.current = scrollY;
+
+      setTargetPosition(clampToViewport({ x: targetX, y: targetY }));
+      isIdleRef.current = false;
+      setIsIdle(false);
+      hasReachedTargetRef.current = false;
+      setHasReachedTarget(false);
+
+      if (idleTimerRef.current) {
+        clearTimeout(idleTimerRef.current);
+      }
+      idleTimerRef.current = setTimeout(() => {
+        isIdleRef.current = true;
+        setIsIdle(true);
+        if (hasReachedTargetRef.current) {
+          setIdleAnimation(selectRandomIdle());
+        }
+      }, SPRITE_CONFIG.scrollIdleThreshold);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (idleTimerRef.current) {
+        clearTimeout(idleTimerRef.current);
+      }
+    };
+  }, [selectRandomIdle, isTouch]);
+
+  // Visibility handling (desktop only)
+  useEffect(() => {
+    if (typeof window === 'undefined' || isTouch) return;
+
     const handleLeave = () => setIsVisible(true);
     const handleEnter = () => setIsVisible(true);
 
@@ -127,14 +185,15 @@ export function useDogState(): UseDogStateReturn {
       document.removeEventListener('mouseleave', handleLeave);
       document.removeEventListener('mouseenter', handleEnter);
     };
-  }, []);
+  }, [isTouch]);
 
-  // Click handler for speed boost
+  // Click/tap handler for speed boost
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
     const handleClick = () => {
       setBoostLevel((prev) => Math.min(prev + 1, SPRITE_CONFIG.maxBoostClicks));
+      dogSound.playBark();
     };
 
     window.addEventListener('click', handleClick);
@@ -160,7 +219,6 @@ export function useDogState(): UseDogStateReturn {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Calculate speed with boost: linear interpolation from base to max
     const boostRatio = boostLevel / SPRITE_CONFIG.maxBoostClicks;
     const speedMultiplier = 1 + boostRatio * (SPRITE_CONFIG.maxSpeedMultiplier - 1);
     const currentSpeed = SPRITE_CONFIG.walkSpeed * speedMultiplier;
@@ -171,14 +229,12 @@ export function useDogState(): UseDogStateReturn {
         const dy = targetPosition.y - currentPos.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        // Arrived at target
         if (distance < currentSpeed) {
           if (!hasReachedTargetRef.current) {
             hasReachedTargetRef.current = true;
             setHasReachedTarget(true);
             setBoostLevel(0);
-            // Face toward cursor based on offset
-            if (SPRITE_CONFIG.cursorOffset.x !== 0) {
+            if (!isTouch && SPRITE_CONFIG.cursorOffset.x !== 0) {
               setDirection(SPRITE_CONFIG.cursorOffset.x < 0 ? 'left' : 'right');
             }
             if (isIdleRef.current) {
@@ -188,12 +244,10 @@ export function useDogState(): UseDogStateReturn {
           return clampToViewport(targetPosition);
         }
 
-        // Update direction based on movement
-        if (Math.abs(dx) > 0.5) {
+        if (!isTouch && Math.abs(dx) > 0.5) {
           setDirection(dx > 0 ? 'right' : 'left');
         }
 
-        // Move at current speed toward target
         const ratio = currentSpeed / distance;
         return clampToViewport({
           x: currentPos.x + dx * ratio,
@@ -211,12 +265,16 @@ export function useDogState(): UseDogStateReturn {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [targetPosition, boostLevel, selectRandomIdle]);
+  }, [targetPosition, boostLevel, selectRandomIdle, isTouch]);
 
-  // Handle animation end for idle animations
+  // Handle animation end for idle animations + bark sound
   const onAnimationEnd = useCallback(() => {
     if (isIdleRef.current && hasReachedTargetRef.current) {
-      setIdleAnimation(selectRandomIdle());
+      const next = selectRandomIdle();
+      if (next === 'barking') {
+        dogSound.playBark();
+      }
+      setIdleAnimation(next);
     }
   }, [selectRandomIdle]);
 

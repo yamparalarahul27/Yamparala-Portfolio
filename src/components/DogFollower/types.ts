@@ -29,6 +29,8 @@ export interface SpriteConfig {
   maxBoostClicks: number;
   boostDecayInterval: number;
   idleDeadZone: number;
+  scrollIdleThreshold: number;
+  mobileBottomOffset: number;
 }
 
 export interface DogState {

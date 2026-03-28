@@ -34,6 +34,9 @@ export const SPRITE_CONFIG: SpriteConfig = {
   boostDecayInterval: 300,
   // px distance cursor must move from dog before it starts chasing (when idle)
   idleDeadZone: 50,
+  // Mobile scroll settings
+  scrollIdleThreshold: 500,
+  mobileBottomOffset: 16,
 };
 
 export const IDLE_ANIMATIONS: ('sitting' | 'barking')[] = ['sitting', 'barking'];

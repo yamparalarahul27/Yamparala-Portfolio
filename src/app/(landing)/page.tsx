@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
+
+const DogFollower = dynamic(
+  () => import("../../components/DogFollower/DogFollower"),
+  { ssr: false }
+);
 
 export const metadata: Metadata = {
   title: "Yamparala Rahul",
@@ -25,6 +31,8 @@ const projects = [
 
 export default function MiniPage() {
   return (
+    <>
+    <DogFollower />
     <main className="max-w-xl mx-auto px-4 py-16 sm:py-24 text-[var(--text-primary)]">
       {/* Bio */}
       <section className="flex flex-col gap-4 mb-16">
@@ -106,5 +114,6 @@ export default function MiniPage() {
         })}
       </section>
     </main>
+    </>
   );
 }
