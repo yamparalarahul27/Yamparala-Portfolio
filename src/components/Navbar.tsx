@@ -61,7 +61,7 @@ export default function Navbar() {
               {t("work")}
             </button>
             {workOpen && (
-              <div className="absolute top-full right-0 mt-2 w-64 max-w-[calc(100vw-2rem)] bg-white border border-[var(--border-color)] shadow-sm">
+              <div className="absolute top-full right-0 mt-2 w-64 max-w-[calc(100vw-2rem)] bg-[var(--surface-color)] border border-[var(--border-color)] shadow-sm">
                 {workLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -101,7 +101,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-[var(--border-color)] bg-white">
+        <div className="md:hidden border-t border-[var(--border-color)] bg-[var(--surface-color)]">
           <div className="flex flex-col p-4 gap-1">
             {navLinks.map((link) => (
               <Link

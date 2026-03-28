@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </section>
 
-        <article className="brutal-card bg-white animate-enter delay-100">
+        <article className="brutal-card bg-[var(--surface-color)] animate-enter delay-100">
           <div className="flex flex-col gap-10 max-w-3xl">
             {post.entries.map((entry) => (
               <section

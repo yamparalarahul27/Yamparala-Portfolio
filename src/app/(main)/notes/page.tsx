@@ -38,7 +38,7 @@ export default function BlogPage() {
         {/* Posts */}
         <section className="flex flex-col gap-3">
           {blogPosts.map((post, index) => {
-            const cardClassName = `group brutal-card bg-white p-3 animate-enter delay-${(index + 1) * 100}`;
+            const cardClassName = `group brutal-card bg-[var(--surface-color)] p-3 animate-enter delay-${(index + 1) * 100}`;
             const cardContent = (
               <div className="flex flex-col gap-4 sm:flex-row sm:gap-8 items-start justify-between">
                 <div className="flex flex-col gap-3 min-w-0 flex-1">

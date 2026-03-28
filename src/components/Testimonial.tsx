@@ -17,7 +17,7 @@ export default function Testimonial({ quote, name, role, avatar, linkedinUrl }: 
   return (
     <Wrapper
       {...wrapperProps}
-      className="brutal-card bg-white flex flex-col gap-4 hover:border-[var(--text-primary)] hover:translate-y-[-4px] hover:shadow-[4px_4px_0px_0px_var(--text-primary)] transition-all duration-300"
+      className="brutal-card bg-[var(--surface-color)] flex flex-col gap-4 hover:border-[var(--text-primary)] hover:translate-y-[-4px] hover:shadow-[4px_4px_0px_0px_var(--text-primary)] transition-all duration-300"
     >
       <p className="text-[var(--text-secondary)] text-sm leading-relaxed italic">
         &ldquo;{quote}&rdquo;

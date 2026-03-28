@@ -53,7 +53,7 @@ export default function ResumePage() {
             {resumes.map((resume) => (
               <div
                 key={resume.id}
-                className="brutal-card bg-white flex flex-col overflow-hidden"
+                className="brutal-card bg-[var(--surface-color)] flex flex-col overflow-hidden"
               >
                 <div className="relative w-full aspect-[3/4]">
                   <Image

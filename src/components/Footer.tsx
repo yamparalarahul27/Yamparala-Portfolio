@@ -5,7 +5,7 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="border-t border-[var(--border-color)] mt-24 bg-white">
+    <footer className="border-t border-[var(--border-color)] mt-24 bg-[var(--surface-color)]">
       {/* CTA Section */}
       <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-16 text-center flex flex-col items-center gap-3">
         <h2 className="text-2xl lg:text-3xl font-bold tracking-tight">

@@ -217,7 +217,7 @@ export default function MiniPortfolio() {
                 <span className="text-xs font-mono uppercase tracking-[0.2em] text-[var(--text-secondary)]">
                   {t("projects.view")}
                 </span>
-                <div className="flex items-center border border-[var(--border-color)] bg-white">
+                <div className="flex items-center border border-[var(--border-color)] bg-[var(--surface-color)]">
                   <button
                     type="button"
                     onClick={() => setViewMode("card")}
@@ -240,7 +240,7 @@ export default function MiniPortfolio() {
 
             <div className={`flex ${viewMode === "card" ? "flex-col gap-8" : "flex-col gap-2"}`}>
               {projects.map((project, index) => {
-                const cardClassName = `group brutal-card bg-white block animate-enter delay-${(index + 2) * 100} ${viewMode === "list" ? "!p-2 sm:!p-3" : ""}`;
+                const cardClassName = `group brutal-card bg-[var(--surface-color)] block animate-enter delay-${(index + 2) * 100} ${viewMode === "list" ? "!p-2 sm:!p-3" : ""}`;
                 const cardContent = (
                   <div className={`flex items-start justify-between ${viewMode === "card" ? "flex-col gap-8 lg:flex-row lg:gap-10" : "flex-col gap-2 sm:flex-row sm:gap-8"}`}>
                     <div className={`flex flex-col ${viewMode === "card" ? "flex-1 gap-3 lg:max-w-md" : "min-w-0 flex-1 gap-1"}`}>
@@ -270,7 +270,7 @@ export default function MiniPortfolio() {
                     </div>
 
                     {viewMode === "card" ? (
-                      <div className="project-image-wrapper relative w-full lg:w-[55%] aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f3f4f6_100%)]">
+                      <div className="project-image-wrapper relative w-full lg:w-[55%] aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-[var(--surface-color)]">
                         {project.image ? (
                           <Image
                             src={project.image}

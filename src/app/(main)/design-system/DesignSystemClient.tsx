@@ -84,7 +84,7 @@ const accentChipClass =
   "inline-flex items-center border border-[var(--border-color)] px-1 py-1 text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--text-secondary)]";
 
 const controlInputClass =
-  "h-10 border border-[var(--border-color)] bg-white px-3 text-sm text-[var(--text-primary)] outline-none transition-colors focus:border-[var(--text-primary)]";
+  "h-10 border border-[var(--border-color)] bg-[var(--surface-color)] px-3 text-sm text-[var(--text-primary)] outline-none transition-colors focus:border-[var(--text-primary)]";
 
 const controlButtonClass =
   "inline-flex h-10 items-center justify-center border px-4 text-xs font-mono uppercase tracking-[0.2em] transition-colors disabled:cursor-not-allowed disabled:border-[var(--border-color)] disabled:text-[var(--text-secondary)]";
@@ -196,7 +196,7 @@ function Surface({
 }) {
   return (
     <section
-      className={`border border-[var(--border-color)] bg-white p-6 md:p-8 ${className}`}
+      className={`border border-[var(--border-color)] bg-[var(--surface-color)] p-6 md:p-8 ${className}`}
     >
       {children}
     </section>
@@ -458,7 +458,7 @@ function ProjectPreviewContent({
       </div>
 
       {mode === "card" ? (
-        <div className="project-image-wrapper relative w-full lg:w-1/2 aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f3f4f6_100%)]">
+        <div className="project-image-wrapper relative w-full lg:w-1/2 aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-[var(--surface-color)]">
           {project.image ? (
             <Image
               src={project.image}
@@ -510,7 +510,7 @@ function ProjectPreviewCard({
 }) {
   const cardPadding =
     mode === "card" ? Math.max(24, spacing) : Math.max(12, Math.round(spacing / 2.25));
-  const className = "group brutal-card bg-white block";
+  const className = "group brutal-card bg-[var(--surface-color)] block";
 
   if (project.href) {
     return (
@@ -1086,7 +1086,7 @@ export default function DesignSystemClient() {
                       >
                         View
                       </span>
-                      <div className="flex items-center border border-[var(--border-color)] bg-white">
+                      <div className="flex items-center border border-[var(--border-color)] bg-[var(--surface-color)]">
                         <button
                           type="button"
                           onClick={() => setPreviewMode("card")}
