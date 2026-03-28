@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Yamparala Rahul",
   description: "Design Engineer based in India. 5.2 years of experience across healthcare, B2B SaaS, and web3.",
 };
 
-const timeline = [
-  { date: "Jul 2025", text: "Joined Equicom Technologies as Design Engineer. Building products in web3." },
-  { date: "May 2025", text: "Joined Pubkey as Product Designer. Revamped the UI for their Solana Discord verification product. Project closed June 2025." },
-  { date: "Feb 2023", text: "Joined Entytle as UX Designer. US-based B2B SaaS. 2.4 years, 3 end-to-end products, 7% increase in retention." },
-  { date: "Dec 2020", text: "Joined Detrix.io / Synclo as UX Designer. Singapore-based healthcare startup. 2 years, 4 end-to-end products, 3 multi-speciality hospitals onboarded." },
-  { date: "Jan 2019", text: "Founded Yamparala.in. Head of Design, freelance work and portfolio audits. Closed in 2020." },
+const projects = [
+  { year: "2024", title: "Deriverse Trading Journal", accent: "Live", href: "https://deriverse.hirahul.xyz" },
+  { year: "2024", title: "Crpko Graphic Lab", accent: "Internal" },
+  { year: "2024", title: "Log & Resources of Rahul", accent: "Live", href: "https://log.hirahul.xyz" },
+  { year: "2025", title: "YDex", accent: "WIP", href: "https://dex.hirahul.xyz" },
+  { year: "2025", title: "AgentUx", accent: "WIP" },
+  { year: "2025", title: "ConceptDJ", accent: "Concept" },
+  { year: "2025", title: "OME-sim", accent: "Prototype", href: "https://ome.hirahul.xyz" },
+  { year: "2025", title: "YPM", accent: "Idea" },
+  { year: "2025", title: "YouSoft", accent: "Idea" },
+  { year: "2025", title: "Proteus", accent: "Idea", href: "https://proteus.hirahul.xyz" },
+  { year: "2025", title: "YAsset", accent: "Mini app" },
+  { year: "2025", title: "Localhost Status App", accent: "Utility", href: "https://localhost.hirahul.xyz" },
+  { year: "2025", title: "App Backgrounds", accent: "Utility", href: "https://bg.hirahul.xyz" },
 ];
 
 export default function MiniPage() {
@@ -27,17 +36,30 @@ export default function MiniPage() {
           building products in web3.
         </p>
         <p className="text-base leading-relaxed">
-          Previously, he designed healthcare systems at Synclo (Singapore),
-          simplified installed base management at Entytle (US),
-          and revamped Pubkey&apos;s UI. He is a member of{" "}
+          He joined Equicom Technologies in 2025 after revamping{" "}
+          <a href="https://pubkey.app" target="_blank" rel="noreferrer" className="underline decoration-1 underline-offset-4 hover:text-[var(--accent)] transition-colors">
+            Pubkey
+          </a>&apos;s
+          UI on Solana. Before that, he spent 2.4 years at{" "}
+          <a href="https://www.entytle.com" target="_blank" rel="noreferrer" className="underline decoration-1 underline-offset-4 hover:text-[var(--accent)] transition-colors">
+            Entytle
+          </a>{" "}
+          simplifying B2B SaaS, and 2 years at{" "}
+          <Link href="/2-years-at-synclo" className="underline decoration-1 underline-offset-4 hover:text-[var(--accent)] transition-colors">
+            Synclo
+          </Link>{" "}
+          designing healthcare systems. He founded Yamparala.in in 2019.
+        </p>
+        <p className="text-base leading-relaxed">
+          Member of{" "}
           <a href="https://www.islanddao.xyz" target="_blank" rel="noreferrer" className="underline decoration-1 underline-offset-4 hover:text-[var(--accent)] transition-colors">
             IslandDAO
           </a>
-          , contributor at{" "}
+          . Contributor at{" "}
           <a href="https://superteam.fun" target="_blank" rel="noreferrer" className="underline decoration-1 underline-offset-4 hover:text-[var(--accent)] transition-colors">
             SuperteamIndia
           </a>
-          , and a{" "}
+          .{" "}
           <a href="https://greed.academy" target="_blank" rel="noreferrer" className="underline decoration-1 underline-offset-4 hover:text-[var(--accent)] transition-colors">
             Greed Academy
           </a>{" "}
@@ -50,18 +72,27 @@ export default function MiniPage() {
         </p>
       </section>
 
-      {/* Timeline */}
+      {/* Projects */}
       <section className="flex flex-col">
-        {timeline.map((entry) => (
-          <div key={entry.date} className="flex gap-6 py-4 border-t border-[var(--border-color)]">
-            <span className="text-sm font-mono text-[var(--text-secondary)] shrink-0 w-20">
-              {entry.date}
-            </span>
-            <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-              {entry.text}
-            </p>
-          </div>
-        ))}
+        {projects.map((project) => {
+          const inner = (
+            <div className="flex items-center justify-between gap-4 py-3 border-t border-[var(--border-color)]">
+              <div className="flex items-center gap-4 min-w-0">
+                <span className="text-xs font-mono text-[var(--text-secondary)] shrink-0">{project.year}</span>
+                <span className="text-sm truncate">{project.title}</span>
+              </div>
+              <span className="text-xs font-mono text-[var(--text-secondary)] shrink-0">{project.accent}</span>
+            </div>
+          );
+
+          return project.href ? (
+            <a key={project.title} href={project.href} target="_blank" rel="noreferrer" className="hover:text-[var(--accent)] transition-colors">
+              {inner}
+            </a>
+          ) : (
+            <div key={project.title}>{inner}</div>
+          );
+        })}
       </section>
     </main>
   );
