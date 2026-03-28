@@ -78,7 +78,7 @@ export default function Home() {
       title: "YDex",
       category: "Products WIP",
       description: "A work-in-progress product direction exploring a faster, structured way to index and retrieve product knowledge.",
-      href: "https://dex.hirahul.xyz",
+      href: "https://learndex.hirahul.xyz/lessons",
       accent: "WIP",
     },
     {
