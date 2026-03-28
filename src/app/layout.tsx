@@ -38,14 +38,14 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <CanvasBackground
-          dotRadius={1.2}
-          dotSpacing={30}
-          waveSpeed={0.003}
-          maxWaveHeight={20}
-          interactionRadius={150}
-          mouseRepelStrength={15}
-          waveAngle={45}
-          waveIntensity={0.02}
+          dotRadius={0.5}
+          dotSpacing={10}
+          waveSpeed={0.0005}
+          maxWaveHeight={18}
+          interactionRadius={120}
+          mouseRepelStrength={36}
+          waveAngle={62}
+          waveIntensity={0.008}
           waveEnabled={true}
           hoverColor="#111111"
           gradientFrom="#E11D48"
