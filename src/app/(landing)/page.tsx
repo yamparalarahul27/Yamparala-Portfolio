@@ -69,7 +69,7 @@ export default function MiniPage() {
         ))}
       </section>
     </main>
-    <footer className="h-16" aria-hidden="true" />
+    <footer className="h-16 bg-black/[0.02] dark:bg-white/[0.02]" aria-hidden="true" />
     </>
   );
 }
