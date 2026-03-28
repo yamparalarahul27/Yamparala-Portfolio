@@ -32,9 +32,9 @@ export default function MiniPage() {
           <Image
             src="/headshot.png"
             alt="Yamparala Rahul"
-            width={24}
-            height={24}
-            className="rounded-full object-cover w-6 h-6"
+            width={32}
+            height={32}
+            className="rounded-full object-cover w-8 h-8"
           />
           <span className="text-sm font-semibold">Yamparala Rahul</span>
         </div>
