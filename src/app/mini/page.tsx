@@ -11,7 +11,7 @@ const projects = [
   { year: "2024", title: "Deriverse Trading Journal", accent: "Live", href: "https://deriverse.hirahul.xyz" },
   { year: "2024", title: "Crpko Graphic Lab", accent: "Internal" },
   { year: "2024", title: "Log & Resources of Rahul", accent: "Live", href: "https://log.hirahul.xyz" },
-  { year: "2025", title: "YDex", accent: "WIP", href: "https://dex.hirahul.xyz" },
+  { year: "2025", title: "YDex", accent: "WIP", href: "https://learndex.hirahul.xyz/lessons" },
   { year: "2025", title: "AgentUx", accent: "WIP" },
   { year: "2025", title: "ConceptDJ", accent: "Concept" },
   { year: "2025", title: "OME-sim", accent: "Prototype", href: "https://ome.hirahul.xyz" },
