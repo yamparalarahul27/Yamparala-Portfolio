@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, List, Rows2 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Footer from "../../components/Footer";
+import Footer from "../../../components/Footer";
 
-export default function Home() {
+export default function MiniPortfolio() {
   const t = useTranslations();
   const [viewMode, setViewMode] = useState<"card" | "list">("list");
 

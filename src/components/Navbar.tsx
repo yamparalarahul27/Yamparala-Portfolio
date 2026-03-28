@@ -13,7 +13,7 @@ export default function Navbar() {
   const [workOpen, setWorkOpen] = useState(false);
 
   const navLinks = [
-    { href: "/", label: t("home") },
+    { href: "/mini", label: t("home") },
     { href: "/my-story", label: t("aboutMe") },
     { href: "/notes", label: t("notes") },
     { href: "/resume", label: t("resume") },
