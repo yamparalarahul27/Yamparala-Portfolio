@@ -38,9 +38,6 @@
 
 body {
   background-color: var(--bg-color);
-  background-image: url('/background_wallpaper_dot.png');
-  background-repeat: repeat;
-  background-attachment: fixed;
   color: var(--text-primary);
   padding: var(--space-8);
   font-family: var(--font-geist-sans), sans-serif;
