@@ -84,22 +84,24 @@ export default function MiniPage() {
       </section>
 
       {/* Projects */}
-      <section className="flex flex-col">
+      <section className="grid grid-cols-[48px_1fr_auto] gap-x-2">
         {projects.map((project) => {
-          const inner = (
-            <div className="grid grid-cols-[48px_1fr_auto] items-center gap-2 py-3 border-t border-[var(--border-color)]">
-              <span className="text-xs font-mono text-[var(--text-secondary)]">{project.year}</span>
-              <span className="text-sm truncate">{project.title}</span>
-              <span className="text-xs font-mono text-[var(--text-secondary)] text-right">{project.accent}</span>
-            </div>
+          const cells = (
+            <>
+              <span className="text-xs font-mono text-[var(--text-secondary)] py-3 border-t border-[var(--border-color)] flex items-center">{project.year}</span>
+              <span className="text-sm truncate py-3 border-t border-[var(--border-color)] flex items-center">{project.title}</span>
+              <span className="text-xs font-mono text-[var(--text-secondary)] text-right py-3 border-t border-[var(--border-color)] flex items-center justify-end">{project.accent}</span>
+            </>
           );
 
           return project.href ? (
-            <a key={project.title} href={project.href} target="_blank" rel="noreferrer" className="hover:text-[var(--accent)] transition-colors">
-              {inner}
+            <a key={project.title} href={project.href} target="_blank" rel="noreferrer" className="contents hover:text-[var(--accent)] transition-colors">
+              {cells}
             </a>
           ) : (
-            <div key={project.title}>{inner}</div>
+            <div key={project.title} className="contents">
+              {cells}
+            </div>
           );
         })}
       </section>
