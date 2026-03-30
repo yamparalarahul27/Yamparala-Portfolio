@@ -39,6 +39,11 @@
     "bio3": "Member of {islandDAO}. Contributor at {superteam}. {greedAcademy} graduate. Certified by Google and IBM.",
     "contact": "@yamparalarahul"
   },
+  "blog": {
+    "metaSuffix": "Notes",
+    "lastUpdated": "Last updated",
+    "entry": "Entry"
+  },
   "workPages": {
     "synclo": {
       "title": "2 Years at Synclo"
