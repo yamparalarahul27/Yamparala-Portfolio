@@ -6,6 +6,14 @@ import Link from "next/link";
 import { ArrowRight, List, Rows2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Footer from "../../../components/Footer";
+import SyncloSection from "../../../components/sections/SyncloSection";
+import PasswordUxSection from "../../../components/sections/PasswordUxSection";
+import CustomerJourneySection from "../../../components/sections/CustomerJourneySection";
+import MyStorySection from "../../../components/sections/MyStorySection";
+import NotesSection from "../../../components/sections/NotesSection";
+import ResumeSection from "../../../components/sections/ResumeSection";
+import DesignSystemSection from "../../../components/sections/DesignSystemSection";
+import WorkModeSection from "../../../components/sections/WorkModeSection";
 
 export default function MiniPortfolio() {
   const t = useTranslations();
@@ -34,7 +42,7 @@ export default function MiniPortfolio() {
       category: "UI Design",
       description: "Synclo. 2 Years, 4 End to End Products, 3 Multi-speciality Hospitals Onboarded.",
       image: "/portfolio/synclo-work.png",
-      href: "/2-years-at-synclo",
+      href: "#synclo",
       accent: "Case study",
     },
     {
@@ -299,26 +307,54 @@ export default function MiniPortfolio() {
                   </div>
                 );
 
-                return (
-                  project.href ? (
-                    <Link
-                      key={project.id}
-                      href={project.href}
-                      target={project.href.startsWith("http") ? "_blank" : "_self"}
-                      rel={project.href.startsWith("http") ? "noopener noreferrer" : ""}
-                      className={cardClassName}
-                    >
-                      {cardContent}
-                    </Link>
-                  ) : (
+                if (!project.href) {
+                  return (
                     <article key={project.id} className={cardClassName}>
                       {cardContent}
                     </article>
-                  )
+                  );
+                }
+
+                if (project.href.startsWith("#")) {
+                  return (
+                    <a key={project.id} href={project.href} className={cardClassName}>
+                      {cardContent}
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={project.id}
+                    href={project.href}
+                    target={project.href.startsWith("http") ? "_blank" : "_self"}
+                    rel={project.href.startsWith("http") ? "noopener noreferrer" : ""}
+                    className={cardClassName}
+                  >
+                    {cardContent}
+                  </Link>
                 );
               })}
             </div>
           </section>
+
+          {/* ── Inline Sections (migrated from deleted pages) ── */}
+          <hr className="border-t border-[var(--border-color)] my-4" />
+          <SyncloSection />
+          <hr className="border-t border-[var(--border-color)] my-4" />
+          <PasswordUxSection />
+          <hr className="border-t border-[var(--border-color)] my-4" />
+          <CustomerJourneySection />
+          <hr className="border-t border-[var(--border-color)] my-4" />
+          <MyStorySection />
+          <hr className="border-t border-[var(--border-color)] my-4" />
+          <NotesSection />
+          <hr className="border-t border-[var(--border-color)] my-4" />
+          <ResumeSection />
+          <hr className="border-t border-[var(--border-color)] my-4" />
+          <DesignSystemSection />
+          <hr className="border-t border-[var(--border-color)] my-4" />
+          <WorkModeSection />
 
         </div>
       </main>
