@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import { getBlogPostBySlug, publishedBlogPosts } from "@/lib/blog";
+import { getBlogPostBySlug } from "@/lib/blog";
+
+export const dynamic = "force-dynamic";
 
 function formatDateLong(iso: string) {
   const d = new Date(iso);
@@ -9,10 +11,6 @@ function formatDateLong(iso: string) {
     day: "numeric",
     year: "numeric",
   });
-}
-
-export async function generateStaticParams() {
-  return publishedBlogPosts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
