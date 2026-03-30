@@ -19,7 +19,7 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "ai-engineering",
-    lastUpdated: "2026-03-25",
+    lastUpdated: "2026-03-30",
     title: "AI Engineering",
     category: "Technical",
     excerpt:
@@ -82,6 +82,14 @@ export const blogPosts: BlogPost[] = [
           "Check what functionality depends on the change.",
           "Do not assume a visual update is risk-free.",
           "Treat even icon changes with the same engineering discipline.",
+        ],
+      },
+      {
+        date: "2026-03-30",
+        title: "Design Engineering and the Rise of Product Thinkers",
+        paragraphs: [
+          "Design engineering is getting more interesting as I am working on it. As I am getting deep into it, I am feeling less about losing the value of software developers, and seeing the rise of people who truly take control and think in the perspective of product.",
+          "Currently, I am more involved in doing minor edits by Claude mobile and major by Claude desktop and Codex.",
         ],
       },
     ],
