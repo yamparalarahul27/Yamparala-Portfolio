@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import DogFollowerClient from "../../components/DogFollower/DogFollowerClient";
+import ProjectList from "../../components/ProjectList";
 
 export const metadata: Metadata = {
   title: "Yamparala Rahul",
@@ -59,15 +60,7 @@ export default function MiniPage() {
       </section>
 
       {/* Projects */}
-      <section className="grid grid-cols-[48px_1fr_auto] gap-x-2">
-        {projects.map((project) => (
-          <div key={project.title} className="contents">
-            <span className="text-xs font-mono text-[var(--text-secondary)] py-3 border-t border-[var(--border-color)] flex items-center">{project.year}</span>
-            <span className="text-sm truncate py-3 border-t border-[var(--border-color)] flex items-center">{project.title}</span>
-            <span className="text-xs font-mono text-[var(--text-secondary)] text-right py-3 border-t border-[var(--border-color)] flex items-center justify-end">{project.accent}</span>
-          </div>
-        ))}
-      </section>
+      <ProjectList projects={projects} />
     </main>
     <footer className="h-16 bg-black/[0.02] dark:bg-white/[0.02]" aria-hidden="true" />
     </>
