@@ -40,9 +40,12 @@
     "contact": "@yamparalarahul"
   },
   "blog": {
+    "pageTitle": "Notes",
+    "pageDescription": "Published writing on design engineering, product thinking, and building things that matter.",
     "metaSuffix": "Notes",
     "lastUpdated": "Last updated",
-    "entry": "Entry"
+    "entry": "Entry",
+    "readPost": "Read Post"
   },
   "workPages": {
     "synclo": {
