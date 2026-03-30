@@ -37,7 +37,7 @@ export default function MiniPage() {
             alt="Yamparala Rahul"
             width={32}
             height={32}
-            className="rounded-full object-cover w-8 h-8"
+            className="object-cover w-8 h-8"
           />
           <span className="text-sm font-semibold">Yamparala Rahul</span>
         </div>
