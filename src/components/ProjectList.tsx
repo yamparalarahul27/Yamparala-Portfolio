@@ -46,7 +46,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
 
       {/* Toast */}
       <div
-        className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-lg bg-[var(--text-primary)] text-[var(--bg-color)] text-sm font-medium shadow-lg transition-all duration-300 pointer-events-none ${
+        className={`fixed bottom-8 left-4 right-4 z-50 px-5 py-3 rounded-lg bg-[#111111] text-white text-sm font-medium shadow-lg transition-all duration-300 pointer-events-none text-center ${
           toastVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
         }`}
       >
