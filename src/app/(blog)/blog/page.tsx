@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { publishedBlogPosts } from "@/lib/blog";
+import BackLink from "@/components/BackLink";
 
 function formatDate(iso: string) {
   const d = new Date(iso);
@@ -25,6 +26,9 @@ export default async function BlogPage() {
   return (
     <main className="min-h-screen px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 [&_section]:!p-0 [&_section>div]:!p-0 [&_header]:!p-0">
       <div className="max-w-3xl mx-auto flex flex-col gap-10">
+        {/* Back button top */}
+        <BackLink href="/" label={t("back")} className="animate-enter" />
+
         <header className="flex flex-col gap-3 animate-enter">
           <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tighter leading-tight">
             {t("pageTitle")}
@@ -68,6 +72,9 @@ export default async function BlogPage() {
             </Link>
           ))}
         </section>
+
+        {/* Back button bottom */}
+        <BackLink href="/" label={t("back")} />
       </div>
     </main>
   );
