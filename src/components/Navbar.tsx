@@ -1,0 +1,92 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { useTranslations } from "next-intl";
+
+export default function Navbar() {
+  const t = useTranslations("nav");
+  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/mini", label: t("home") },
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-color)]/95 backdrop-blur-sm border-b border-[var(--border-color)]">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-4 py-3 lg:px-8">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 shrink-0">
+          <span className="text-sm lg:text-base font-bold tracking-tight">Yamparala</span>
+          <span className="text-sm lg:text-base font-bold tracking-tight text-[var(--text-primary)]">Rahul</span>
+        </Link>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-4 lg:gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-medium transition-colors hover:text-[var(--text-primary)] ${
+                pathname === link.href ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <a
+            href="https://wa.me/918897132717"
+            target="_blank"
+            rel="noreferrer"
+            className="brutal-btn text-sm !py-2 !px-4"
+          >
+            {t("contact")}
+          </a>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          type="button"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden p-2"
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden border-t border-[var(--border-color)] bg-[var(--surface-color)]">
+          <div className="flex flex-col p-4 gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className={`py-3 px-4 text-sm font-medium transition-colors ${
+                  pathname === link.href ? "text-[var(--text-primary)] bg-[var(--bg-color)]" : "text-[var(--text-secondary)]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href="https://wa.me/918897132717"
+              target="_blank"
+              rel="noreferrer"
+              className="brutal-btn text-sm mt-2 w-full"
+              onClick={() => setMobileOpen(false)}
+            >
+              {t("contact")}
+            </a>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}
