@@ -4,6 +4,11 @@ import BackLink from "../../../components/BackLink";
 
 const follows = [
   {
+    handle: "@goateraction",
+    url: "https://x.com/goateraction",
+    reason: "Follow to open up your mind on why things don't matter to be built — just a why not build it mindset. Lovely Paper Plane app, check it out.",
+  },
+  {
     handle: "@bcherny",
     url: "https://x.com/bcherny",
     reason: "Just follow. Created Claude Code.",
