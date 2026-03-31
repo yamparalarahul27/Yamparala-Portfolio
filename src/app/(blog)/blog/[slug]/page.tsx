@@ -44,7 +44,7 @@ export default async function BlogPostPage({
   const t = await getTranslations("blog");
 
   return (
-    <main className="min-h-screen px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+    <main className="min-h-screen px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 [&_section]:!p-0 [&_section>div]:!p-0">
       <div className="max-w-3xl mx-auto flex flex-col gap-10">
         {/* Back button top */}
         <BackLink href="/blog" label={t("back")} className="animate-enter" />

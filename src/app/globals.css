@@ -56,7 +56,6 @@ html, body {
 body {
   background: transparent;
   color: var(--text-primary);
-  padding: var(--space-8);
   font-family: var(--font-geist-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
