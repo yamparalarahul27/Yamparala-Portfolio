@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import Footer from "../../../components/Footer";
+import BackLink from "../../../components/BackLink";
 
 const follows = [
   {
@@ -13,6 +14,9 @@ export default function SocialFollowPage() {
   return (
     <>
       <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] text-[var(--text-primary)]">
+        {/* Back button top */}
+        <BackLink href="/" label="Back" className="animate-enter mb-4" />
+
         <div className="flex-1 flex flex-col gap-8 sm:gap-10 lg:gap-[44px] pt-8">
           {/* Header */}
           <section className="flex flex-col gap-6 animate-enter">
@@ -60,6 +64,8 @@ export default function SocialFollowPage() {
               </a>
             ))}
           </section>
+          {/* Back button bottom */}
+          <BackLink href="/" label="Back" />
         </div>
       </main>
       <Footer />

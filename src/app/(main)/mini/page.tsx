@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, List, Rows2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Footer from "../../../components/Footer";
+import BackLink from "../../../components/BackLink";
 import SyncloSection from "../../../components/sections/SyncloSection";
 import PasswordUxSection from "../../../components/sections/PasswordUxSection";
 import CustomerJourneySection from "../../../components/sections/CustomerJourneySection";
@@ -172,6 +173,9 @@ export default function MiniPortfolio() {
   return (
     <>
       <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] text-[var(--text-primary)]">
+
+        {/* Back button top */}
+        <BackLink href="/" label="Back" className="animate-enter mb-4" />
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col gap-8 sm:gap-10 lg:gap-[44px] pt-8">
@@ -355,6 +359,9 @@ export default function MiniPortfolio() {
           <DesignSystemSection />
           <hr className="border-t border-[var(--border-color)] my-4" />
           <WorkModeSection />
+
+          {/* Back button bottom */}
+          <BackLink href="/" label="Back" />
 
         </div>
       </main>
