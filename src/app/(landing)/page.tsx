@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 const projects = [
   { year: "2025", title: "AgentUX", accent: "WIP" },
+  { year: "2025", title: "Proteus Library", accent: "Idea" },
   { year: "2025", title: "LearnDex", accent: "WIP" },
   { year: "2024", title: "Deriverse Trading Journal", accent: "Live" },
   { year: "2024", title: "Crpko Graphic Lab", accent: "Internal" },
@@ -18,7 +19,6 @@ const projects = [
   { year: "2025", title: "OME-sim", accent: "Prototype" },
   { year: "2025", title: "YPM", accent: "Idea" },
   { year: "2025", title: "YouSoft", accent: "Idea" },
-  { year: "2025", title: "Proteus Library", accent: "Idea" },
   { year: "2025", title: "YAsset", accent: "Mini app" },
   { year: "2025", title: "Localhost Status App", accent: "Utility" },
   { year: "2025", title: "App Backgrounds", accent: "Utility" },
