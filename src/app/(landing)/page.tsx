@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import DogFollowerClient from "../../components/DogFollower/DogFollowerClient";
+import LandingFooter from "../../components/LandingFooter";
 import ProjectList from "../../components/ProjectList";
 
 export const metadata: Metadata = {
@@ -62,11 +63,7 @@ export default function MiniPage() {
       {/* Projects */}
       <ProjectList projects={projects} />
     </main>
-    <footer className="max-w-xl !px-4 py-6 flex items-center gap-2 flex-wrap">
-      <span className="text-xs text-[var(--text-secondary)] px-3 py-1.5 rounded-full bg-black/[0.05] dark:bg-white/[0.05]">698 visits so far.</span>
-      <span className="text-xs text-[var(--text-secondary)] px-3 py-1.5 rounded-full bg-black/[0.05] dark:bg-white/[0.05]">v2.0</span>
-      <span className="text-xs text-[var(--text-secondary)] px-3 py-1.5 rounded-full bg-black/[0.05] dark:bg-white/[0.05]">Bangalore</span>
-    </footer>
+    <LandingFooter />
     </>
   );
 }
