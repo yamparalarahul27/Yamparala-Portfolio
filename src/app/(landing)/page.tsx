@@ -18,7 +18,7 @@ const projects = [
   { year: "2025", title: "OME-sim", accent: "Prototype" },
   { year: "2025", title: "YPM", accent: "Idea" },
   { year: "2025", title: "YouSoft", accent: "Idea" },
-  { year: "2025", title: "Proteus", accent: "Idea" },
+  { year: "2025", title: "Proteus Library", accent: "Idea" },
   { year: "2025", title: "YAsset", accent: "Mini app" },
   { year: "2025", title: "Localhost Status App", accent: "Utility" },
   { year: "2025", title: "App Backgrounds", accent: "Utility" },
