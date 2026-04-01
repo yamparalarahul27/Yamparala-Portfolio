@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const projects = [
-  { year: "2025", title: "AgentUx", accent: "WIP" },
+  { year: "2025", title: "AgentUX", accent: "WIP" },
   { year: "2025", title: "YDex", accent: "WIP" },
   { year: "2024", title: "Deriverse Trading Journal", accent: "Live" },
   { year: "2024", title: "Crpko Graphic Lab", accent: "Internal" },
