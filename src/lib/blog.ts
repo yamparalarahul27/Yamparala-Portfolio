@@ -19,7 +19,7 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "ai-engineering",
-    lastUpdated: "2026-03-30",
+    lastUpdated: "2026-04-01",
     title: "AI Engineering",
     category: "Technical",
     excerpt:
@@ -90,6 +90,14 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           "Design engineering is getting more interesting as I am working on it. As I am getting deep into it, I am feeling less about losing the value of software developers, and seeing the rise of people who truly take control and think in the perspective of product.",
           "Currently, I am more involved in doing minor edits by Claude mobile and major by Claude desktop and Codex.",
+        ],
+      },
+      {
+        date: "2026-04-01",
+        title: "Tabular Nums for Updating Values",
+        paragraphs: [
+          "One tip from my make-interfaces-feel-better skill is using `font-variant-numeric: tabular-nums` for values that update.",
+          "It makes digits equal width, similar to monospace fonts. Keep in mind that some fonts change the appearance of numerals when this is used.",
         ],
       },
     ],
