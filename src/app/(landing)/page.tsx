@@ -13,7 +13,7 @@ const projects = [
   { year: "2025", title: "AgentUX", accent: "WIP" },
   { year: "2025", title: "Proteus Library", accent: "Idea" },
   { year: "2025", title: "LearnDex", accent: "WIP" },
-  { year: "2024", title: "Deriverse Trading Journal", accent: "Live" },
+  { year: "2024", title: "🏆 Deriverse Trading Journal", accent: "Live" },
   { year: "2024", title: "Crpko Graphic Lab", accent: "Internal" },
   { year: "2024", title: "Log & Resources of Rahul", accent: "Live" },
   { year: "2025", title: "ConceptDJ", accent: "Concept" },
