@@ -104,7 +104,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "leading-team",
-    lastUpdated: "2026-03-26",
+    lastUpdated: "2026-04-03",
     title: "Leading Team",
     category: "Thinking",
     excerpt:
@@ -131,6 +131,14 @@ export const blogPosts: BlogPost[] = [
           "During the discussion, one idea was to build an editor environment inside the app for animations. Too much time and effort.",
           "The real solution came during a smoke break — I do not smoke, but I join others because ideas flow really well at that time.",
           "The idea: create identifiers for SVG elements that need to be animated, and assign a CSS class for each animation type. No editor needed. Clean, simple, and fast to implement.",
+        ],
+      },
+      {
+        date: "2026-04-03",
+        title: "Hiring for Communication, Not Just Skills",
+        paragraphs: [
+          "Hiring is very important. More than skills, communication is important. As agents become more powerful — even right now they can design — but what to design and how is still the job of a human, which needs clear communication.",
+          "In my last hire, I neglected this and went for only work because it was urgent. But it did not turn out to be much help.",
         ],
       },
     ],
