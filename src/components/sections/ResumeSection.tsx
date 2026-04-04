@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 const resumes = [
-  { id: 1, title: "Resume for AI Startups & Companies", image: "/portfolio/resume/ai.png", href: "#" },
-  { id: 2, title: "Resume for B2B Startups & Companies", image: "/portfolio/resume/b2b.png", href: "#" },
-  { id: 3, title: "Resume for Web3 Startups & Companies", image: "/portfolio/resume/web3.png", href: "#" },
+  { id: 1, title: "Resume for AI Startups & Companies", image: "/portfolio/resume/ai.png", href: "/cv?industry=ai" },
+  { id: 2, title: "Resume for B2B Startups & Companies", image: "/portfolio/resume/b2b.png", href: "/cv?industry=b2b" },
+  { id: 3, title: "Resume for Web3 Startups & Companies", image: "/portfolio/resume/web3.png", href: "/cv?industry=web3" },
 ];
 
 export default function ResumeSection() {
