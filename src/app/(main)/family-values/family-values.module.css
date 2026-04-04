@@ -1,0 +1,495 @@
+.page {
+  --fv-bg: color-mix(in oklab, var(--surface-color) 94%, white 6%);
+  --fv-card: color-mix(in oklab, var(--surface-color) 96%, black 4%);
+  --fv-border: color-mix(in oklab, var(--border-color) 80%, var(--text-primary) 20%);
+  --fv-muted: color-mix(in oklab, var(--text-secondary) 92%, white 8%);
+  --fv-heading: color-mix(in oklab, var(--text-primary) 94%, #2f3e5e 6%);
+  --fv-accent: color-mix(in oklab, var(--accent) 78%, #ff9f43 22%);
+
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  max-width: 1140px;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.aside {
+  position: relative;
+  align-self: start;
+  border: 1px solid var(--fv-border);
+  border-radius: 16px;
+  background: linear-gradient(
+    160deg,
+    color-mix(in oklab, var(--fv-bg) 95%, white 5%),
+    color-mix(in oklab, var(--fv-bg) 85%, var(--fv-accent) 15%)
+  );
+  box-shadow: 0 12px 40px color-mix(in oklab, black 8%, transparent);
+  padding: 1rem;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--fv-heading);
+  text-decoration: none;
+  font-size: 0.86rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.aside nav h2 {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fv-muted);
+  margin-bottom: 0.8rem;
+}
+
+.aside nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.aside nav a {
+  color: var(--fv-heading);
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  transition: opacity 0.2s ease;
+}
+
+.aside nav a:hover {
+  opacity: 0.68;
+}
+
+.main {
+  min-width: 0;
+}
+
+.article {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  border: 1px solid var(--fv-border);
+  border-radius: 20px;
+  padding: 1.4rem 1rem 2.2rem;
+  background:
+    radial-gradient(
+      circle at 18% 5%,
+      color-mix(in oklab, var(--fv-accent) 11%, transparent),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--fv-bg) 92%, white 8%),
+      color-mix(in oklab, var(--fv-bg) 98%, black 2%)
+    );
+  box-shadow: 0 28px 90px color-mix(in oklab, black 7%, transparent);
+}
+
+.article header {
+  padding: 0;
+}
+
+.article header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4.8vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--fv-heading);
+}
+
+.article header time {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.86rem;
+  color: var(--fv-muted);
+}
+
+.article p {
+  margin: 0.95rem 0 0;
+  line-height: 1.77;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.article h2 {
+  margin: 1.75rem 0 0;
+  font-size: clamp(1.42rem, 2.3vw, 1.65rem);
+  letter-spacing: -0.02em;
+  color: var(--fv-heading);
+}
+
+.article strong {
+  color: var(--fv-heading);
+}
+
+.article em {
+  color: color-mix(in oklab, var(--text-primary) 75%, var(--fv-accent) 25%);
+}
+
+.headingBreak {
+  margin-top: 2rem;
+  padding: 0;
+}
+
+.hr {
+  padding: 0;
+}
+
+.hr hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--fv-border);
+}
+
+.headingTitle {
+  padding: 0.7rem 0 0;
+}
+
+.headingTitle h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.7vw, 2.2rem);
+  color: var(--fv-heading);
+}
+
+.mediaBlock,
+.formatBlock {
+  margin: 1rem 0 0;
+  border: 1px solid var(--fv-border);
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--fv-card) 88%, white 12%),
+    color-mix(in oklab, var(--fv-card) 96%, black 4%)
+  );
+}
+
+.mediaControls {
+  display: flex;
+  justify-content: center;
+  padding: 0.95rem 1rem 0.3rem;
+}
+
+.speedToggle {
+  border: 1px solid var(--fv-border);
+  background: color-mix(in oklab, var(--surface-color) 86%, black 14%);
+  border-radius: 999px;
+  padding: 0.2rem;
+  display: inline-flex;
+  gap: 0.2rem;
+  cursor: pointer;
+}
+
+.speedToggle span {
+  font-size: 0.75rem;
+  min-width: 2.3rem;
+  text-align: center;
+  border-radius: 999px;
+  color: var(--fv-muted);
+  padding: 0.35rem 0.55rem;
+  transition: all 0.2s ease;
+}
+
+.speedToggle span[data-active="true"] {
+  color: var(--fv-heading);
+  background: color-mix(in oklab, var(--surface-color) 96%, white 4%);
+}
+
+.phoneShell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 1rem 1rem;
+}
+
+.phoneFrame {
+  width: min(260px, 72vw);
+  aspect-ratio: 1 / 2.03;
+  border-radius: 28px;
+  border: 1px solid color-mix(in oklab, var(--fv-border) 70%, white 30%);
+  padding: 0.45rem;
+  background: linear-gradient(180deg, #1f1f26, #0f1115);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in oklab, white 17%, transparent),
+    0 15px 36px color-mix(in oklab, black 28%, transparent);
+}
+
+.phoneScreen {
+  --demo-duration: 3200ms;
+
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  padding: 0.95rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid color-mix(in oklab, white 10%, transparent);
+  background:
+    radial-gradient(
+      circle at 5% 8%,
+      color-mix(in oklab, var(--fv-accent) 40%, transparent),
+      transparent 43%
+    ),
+    linear-gradient(180deg, #0f131f, #0c1020 44%, #090d17);
+}
+
+.demoGlow {
+  position: absolute;
+  width: 120%;
+  height: 42%;
+  left: -10%;
+  top: 25%;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--fv-accent) 38%, transparent),
+    transparent 62%
+  );
+  filter: blur(14px);
+  animation: glowPulse var(--demo-duration) ease-in-out infinite;
+}
+
+.demoStack {
+  display: grid;
+  gap: 0.52rem;
+  position: relative;
+  z-index: 2;
+  margin-top: 0.7rem;
+}
+
+.demoTray {
+  border-radius: 14px;
+  border: 1px solid color-mix(in oklab, white 9%, transparent);
+  background: linear-gradient(
+    140deg,
+    color-mix(in oklab, #7cc7ff 33%, #1c2a3d 67%),
+    color-mix(in oklab, #5b9dfa 20%, #161f30 80%)
+  );
+  animation-duration: var(--demo-duration);
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, white 10%, transparent);
+}
+
+.trayA {
+  height: 23%;
+  animation-name: traySlideA;
+}
+
+.trayB {
+  height: 18%;
+  animation-name: traySlideB;
+}
+
+.trayC {
+  height: 29%;
+  animation-name: traySlideC;
+}
+
+.phoneShell[data-kind="fluidity"] .demoTray {
+  background: linear-gradient(
+    140deg,
+    color-mix(in oklab, #86f8d2 34%, #152d2b 66%),
+    color-mix(in oklab, #56d5dd 25%, #152432 75%)
+  );
+}
+
+.phoneShell[data-kind="delight"] .demoTray {
+  background: linear-gradient(
+    130deg,
+    color-mix(in oklab, #ffa37b 32%, #321c2e 68%),
+    color-mix(in oklab, #ff6e98 28%, #1e1729 72%)
+  );
+}
+
+.phoneShell[data-kind="delight"] .demoGlow {
+  animation-name: shimmerPulse;
+}
+
+.demoFooter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+  position: relative;
+  z-index: 2;
+}
+
+.demoFooter span {
+  height: 0.45rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, white 14%, transparent);
+}
+
+.mediaBlock figcaption,
+.formatBlock figcaption {
+  padding: 0.7rem 1rem 0.95rem;
+  text-align: center;
+  color: var(--fv-muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.formatControls {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: center;
+  padding: 0.95rem 1rem 0.65rem;
+  flex-wrap: wrap;
+}
+
+.formatControls button {
+  border: 1px solid var(--fv-border);
+  background: transparent;
+  color: var(--fv-muted);
+  border-radius: 999px;
+  font-size: 0.76rem;
+  padding: 0.3rem 0.62rem;
+  cursor: pointer;
+}
+
+.formatControls button[data-active="true"] {
+  color: var(--fv-heading);
+  background: color-mix(in oklab, var(--surface-color) 95%, white 5%);
+}
+
+.formatCanvas {
+  margin: 0 0.9rem;
+  border: 1px solid var(--fv-border);
+  border-radius: 14px;
+  background: color-mix(in oklab, var(--surface-color) 91%, black 9%);
+  padding: 1rem;
+  transition: all 0.25s ease;
+}
+
+.formatCanvas p {
+  margin: 0.6rem 0;
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.formatCanvas blockquote {
+  margin: 0.7rem 0;
+  border-left: 3px solid var(--fv-accent);
+  padding-left: 0.72rem;
+  color: var(--fv-muted);
+  font-style: italic;
+}
+
+.formatCanvas mark {
+  background: color-mix(in oklab, var(--fv-accent) 26%, transparent);
+  color: var(--fv-heading);
+  padding: 0.08rem 0.3rem;
+  border-radius: 0.36rem;
+}
+
+.formatCanvas code {
+  border: 1px solid var(--fv-border);
+  border-radius: 0.35rem;
+  padding: 0.07rem 0.32rem;
+  font-size: 0.86em;
+}
+
+.formatCanvas[data-mode="concise"] p {
+  font-size: 0.88rem;
+  line-height: 1.43;
+}
+
+.formatCanvas[data-mode="annotated"] {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--surface-color) 94%, white 6%),
+      color-mix(in oklab, var(--surface-color) 88%, var(--fv-accent) 12%)
+    );
+}
+
+.formatCanvas[data-mode="annotated"] blockquote {
+  border-left-width: 4px;
+}
+
+@keyframes traySlideA {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  40% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+@keyframes traySlideB {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.58;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.95;
+  }
+}
+
+@keyframes traySlideC {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.64;
+  }
+  50% {
+    transform: translateY(-12px);
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    transform: scale(1) translateX(0);
+    opacity: 0.26;
+  }
+  50% {
+    transform: scale(1.09) translateX(5%);
+    opacity: 0.56;
+  }
+}
+
+@keyframes shimmerPulse {
+  0%,
+  100% {
+    transform: scale(1.04) translateX(0);
+    opacity: 0.22;
+  }
+  50% {
+    transform: scale(1.2) translateX(-8%);
+    opacity: 0.58;
+  }
+}
+
+@media (min-width: 980px) {
+  .page {
+    padding-top: 3rem;
+    grid-template-columns: 238px minmax(0, 1fr);
+    gap: 2.9rem;
+    align-items: start;
+  }
+
+  .aside {
+    position: sticky;
+    top: 1.4rem;
+  }
+
+  .article {
+    padding: 1.75rem 1.75rem 2.6rem;
+  }
+}
