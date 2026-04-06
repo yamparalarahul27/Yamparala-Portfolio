@@ -274,16 +274,16 @@ export default function MiniPortfolio() {
       <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] text-[var(--text-primary)] [&_section]:!p-0 [&_section>div]:!p-0 [&_p]:text-pretty [&_h1]:text-balance [&_h2]:text-balance [&_h3]:text-balance">
         <BackLink href="/" label="Back" className="mb-4" />
 
-        <article className="mx-auto w-full max-w-6xl border border-[#a2a9b1] bg-white text-[#202122] shadow-sm tabular-nums">
-          <header className="border-b border-[#a2a9b1] bg-[#f8f9fa] px-4 py-4 sm:px-6">
-            <h1 className="text-balance font-serif text-3xl sm:text-4xl">Yamparala Rahul</h1>
+        <article className="mx-auto w-full max-w-6xl border border-[#a2a9b1] bg-white text-[#202122] shadow-sm tabular-nums overflow-hidden">
+          <header className="border-b border-[#a2a9b1] bg-[#f8f9fa] px-3 py-3 sm:px-6 sm:py-4">
+            <h1 className="text-balance font-serif text-2xl sm:text-3xl lg:text-4xl">Yamparala Rahul</h1>
             <p className="mt-1 text-sm text-[#54595d]">
               Wikipedia-style mini profile page - Last verified on April 6, 2026
             </p>
           </header>
 
-          <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_320px]">
-            <div className="px-4 py-6 sm:px-6 lg:border-r lg:border-[#a2a9b1]">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-0">
+            <div className="px-3 py-4 sm:px-6 sm:py-6 lg:border-r lg:border-[#a2a9b1] min-w-0">
               <p className="text-pretty leading-7">
                 <strong>Yamparala Rahul</strong> is an India-based design engineer focused on web3
                 products, product UX, and technical writing. Public profiles link him to Solana
@@ -291,7 +291,7 @@ export default function MiniPortfolio() {
                 Yamparala / hirahul identity.
               </p>
 
-              <nav className="mt-6 border border-[#c8ccd1] bg-[#f8f9fa] p-3 text-sm">
+              <nav className="mt-6 border border-[#c8ccd1] bg-[#f8f9fa] p-2 sm:p-3 text-sm">
                 <p className="mb-2 font-semibold text-[#202122]">Contents</p>
                 <ol className="list-decimal pl-5 space-y-1">
                   <li><a href="#career" className={wikiLinkClass}>Career overview</a></li>
@@ -307,7 +307,7 @@ export default function MiniPortfolio() {
 
               <div className="mt-6 space-y-6">
                 <section id="career">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-2xl">Career overview</h2>
+                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Career overview</h2>
                   <ul className="mt-3 list-disc space-y-2 pl-6 leading-7">
                     {careerHighlights.map((item) => (
                       <li key={item}>{item}</li>
@@ -316,7 +316,7 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="work">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-2xl">Projects and work log</h2>
+                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Projects and work log</h2>
                   <p className="mt-3 text-sm text-[#54595d]">
                     Compiled from existing portfolio entries and linked public pages.
                   </p>
@@ -376,7 +376,7 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="wins">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-2xl">Web3 wins on Solana</h2>
+                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Web3 wins on Solana</h2>
                   <div className="mt-3 space-y-3">
                     {web3Wins.map((win) => (
                       <div key={win.title} className="border border-[#c8ccd1] bg-[#f8f9fa] p-3">
@@ -396,7 +396,7 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="writing">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-2xl">Articles and research writing</h2>
+                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Articles and research writing</h2>
                   <ul className="mt-3 list-disc space-y-2 pl-6 leading-7">
                     {writings.map((item) => (
                       <li key={item.href}>
@@ -410,7 +410,7 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="media">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-2xl">Social and media channels</h2>
+                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Social and media channels</h2>
                   <p className="text-pretty mt-3 text-sm leading-6">
                     Social links:
                     {" "}
@@ -442,7 +442,7 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="onchain">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-2xl">On-chain collectible</h2>
+                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">On-chain collectible</h2>
                   <p className="text-pretty mt-3 leading-7">
                     Listed first NFT reference:
                     {" "}
@@ -458,10 +458,10 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="references">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-2xl">References</h2>
+                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">References</h2>
                   <ol className="mt-3 list-decimal space-y-2 pl-6 text-sm leading-6">
                     {references.map((url) => (
-                      <li key={url}>
+                      <li key={url} className="break-all">
                         <Link href={url} target="_blank" rel="noreferrer" className={wikiLinkClass}>
                           {url}
                         </Link>
@@ -471,7 +471,7 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="maintenance">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-2xl">Maintenance model and log</h2>
+                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Maintenance model and log</h2>
                   <p className="text-pretty mt-3 text-sm leading-6 text-[#54595d]">
                     This profile is maintained as a compounding wiki artifact, not a one-off static bio.
                   </p>
@@ -496,7 +496,7 @@ export default function MiniPortfolio() {
               </div>
             </div>
 
-            <aside className="border-t border-[#a2a9b1] bg-[#f8f9fa] px-4 py-6 sm:px-6 lg:border-t-0 lg:px-5">
+            <aside className="border-t border-[#a2a9b1] bg-[#f8f9fa] px-3 py-4 sm:px-6 sm:py-6 lg:border-t-0 lg:px-5 min-w-0">
               <div className="lg:sticky lg:top-24">
                 <table className="w-full table-fixed border border-[#a2a9b1] text-xs sm:text-sm">
                   <tbody>
@@ -537,7 +537,7 @@ export default function MiniPortfolio() {
                     </tr>
                     <tr>
                       <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Superteam profile</th>
-                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">
+                      <td className="break-all border-b border-[#eaecf0] px-2 py-1">
                         <Link href="https://superteam.fun/earn/t/yamparalarahul" target="_blank" rel="noreferrer" className={wikiLinkClass}>
                           superteam.fun/earn/t/yamparalarahul
                         </Link>
