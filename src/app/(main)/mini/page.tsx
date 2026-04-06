@@ -30,6 +30,12 @@ type LogItem = {
   details: string;
 };
 
+type WinItem = {
+  title: string;
+  details: string;
+  href?: string;
+};
+
 const careerHighlights = [
   "Founded Yamparala.in in 2019 and began publishing design and product work in public.",
   "Worked at Entytle (2020-2022) on installed-base management and B2B SaaS product UX.",
@@ -85,18 +91,19 @@ const workItems: WorkItem[] = [
   },
   {
     year: "2025",
-    title: "YDex",
+    title: "LearnDex",
     type: "Product (WIP)",
     note: "Structured indexing and retrieval concept for product learning content.",
     status: "WIP",
-    href: "https://learndex.hirahul.xyz/lessons",
+    href: "https://learndex.hirahul.xyz/",
   },
   {
     year: "2025",
-    title: "AgentUx",
+    title: "AgentUX",
     type: "Product (WIP)",
     note: "UX-flow diagnosis concept for founders and developers.",
     status: "WIP",
+    href: "https://agentux.hirahul.xyz/",
   },
   {
     year: "2025",
@@ -207,6 +214,24 @@ const channels: ChannelItem[] = [
   },
 ];
 
+const web3Wins: WinItem[] = [
+  {
+    title: "Superteam Earn profile",
+    details: "45 submissions, 10 wins, and $2,530 total earnings.",
+    href: "https://superteam.fun/earn/t/yamparalarahul",
+  },
+  {
+    title: "Deriverse Trading Journal",
+    details: "Built for a Superteam bounty focused on the Deriverse ecosystem.",
+    href: "https://deriverse.hirahul.xyz",
+  },
+  {
+    title: "OME-sim",
+    details: "Solana order-matching engine simulation prototype for bounty work.",
+    href: "https://ome.hirahul.xyz",
+  },
+];
+
 const maintenanceWorkflow = [
   "Ingest: add public source links (articles, profiles, portfolio pages) and merge new facts.",
   "Query: use the existing profile sections as the base layer for updates and additions.",
@@ -228,7 +253,7 @@ const profileLog: LogItem[] = [
 
 const references = [
   "https://www.hirahul.xyz",
-  "https://earn.superteam.fun/t/yamparalarahul/",
+  "https://superteam.fun/earn/t/yamparalarahul",
   "https://medium.com/feed/@yamparala",
   "https://www.youtube.com/@yamparalarahul",
   "https://www.youtube.com/@yamparalaacademy",
@@ -258,7 +283,7 @@ export default function MiniPortfolio() {
           </header>
 
           <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_320px]">
-            <div className="order-2 border-t border-[#a2a9b1] px-4 py-6 sm:px-6 lg:order-1 lg:border-r lg:border-t-0">
+            <div className="px-4 py-6 sm:px-6 lg:border-r lg:border-[#a2a9b1]">
               <p className="text-pretty leading-7">
                 <strong>Yamparala Rahul</strong> is an India-based design engineer focused on web3
                 products, product UX, and technical writing. Public profiles link him to Solana
@@ -271,6 +296,7 @@ export default function MiniPortfolio() {
                 <ol className="list-decimal pl-5 space-y-1">
                   <li><a href="#career" className={wikiLinkClass}>Career overview</a></li>
                   <li><a href="#work" className={wikiLinkClass}>Projects and work log</a></li>
+                  <li><a href="#wins" className={wikiLinkClass}>Web3 wins on Solana</a></li>
                   <li><a href="#writing" className={wikiLinkClass}>Articles and research writing</a></li>
                   <li><a href="#media" className={wikiLinkClass}>Social and media channels</a></li>
                   <li><a href="#onchain" className={wikiLinkClass}>On-chain collectible</a></li>
@@ -294,7 +320,28 @@ export default function MiniPortfolio() {
                   <p className="mt-3 text-sm text-[#54595d]">
                     Compiled from existing portfolio entries and linked public pages.
                   </p>
-                  <div className="mt-3 overflow-x-auto">
+                  <div className="mt-3 space-y-3 sm:hidden">
+                    {workItems.map((item) => (
+                      <article key={`mobile-${item.year}-${item.title}`} className="border border-[#c8ccd1] bg-[#f8f9fa] p-3">
+                        <p className="text-xs text-[#54595d]">
+                          {item.year} - {item.status}
+                        </p>
+                        <p className="mt-1 font-semibold">
+                          {item.href ? (
+                            <Link href={item.href} target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                              {item.title}
+                            </Link>
+                          ) : (
+                            item.title
+                          )}
+                        </p>
+                        <p className="mt-1 text-xs uppercase text-[#54595d]">{item.type}</p>
+                        <p className="mt-2 text-sm leading-6">{item.note}</p>
+                      </article>
+                    ))}
+                  </div>
+
+                  <div className="mt-3 hidden overflow-x-auto sm:block">
                     <table className="min-w-full border border-[#a2a9b1] text-left text-sm">
                       <thead className="bg-[#eaecf0]">
                         <tr>
@@ -325,6 +372,26 @@ export default function MiniPortfolio() {
                         ))}
                       </tbody>
                     </table>
+                  </div>
+                </section>
+
+                <section id="wins">
+                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-2xl">Web3 wins on Solana</h2>
+                  <div className="mt-3 space-y-3">
+                    {web3Wins.map((win) => (
+                      <div key={win.title} className="border border-[#c8ccd1] bg-[#f8f9fa] p-3">
+                        <p className="font-semibold">
+                          {win.href ? (
+                            <Link href={win.href} target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                              {win.title}
+                            </Link>
+                          ) : (
+                            win.title
+                          )}
+                        </p>
+                        <p className="mt-1 text-sm leading-6">{win.details}</p>
+                      </div>
+                    ))}
                   </div>
                 </section>
 
@@ -429,9 +496,9 @@ export default function MiniPortfolio() {
               </div>
             </div>
 
-            <aside className="order-1 bg-[#f8f9fa] px-4 py-6 sm:px-6 lg:order-2 lg:px-5">
+            <aside className="border-t border-[#a2a9b1] bg-[#f8f9fa] px-4 py-6 sm:px-6 lg:border-t-0 lg:px-5">
               <div className="lg:sticky lg:top-24">
-                <table className="w-full border border-[#a2a9b1] text-sm">
+                <table className="w-full table-fixed border border-[#a2a9b1] text-xs sm:text-sm">
                   <tbody>
                     <tr>
                       <th className="border-b border-[#a2a9b1] bg-[#eaecf0] px-3 py-2 text-center font-serif text-lg" colSpan={2}>
@@ -454,27 +521,35 @@ export default function MiniPortfolio() {
                     </tr>
                     <tr>
                       <th className="w-[40%] border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Occupation</th>
-                      <td className="border-b border-[#eaecf0] px-2 py-1">Design Engineer, Product Builder, Writer</td>
+                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">Design Engineer, Product Builder, Writer</td>
                     </tr>
                     <tr>
                       <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Based in</th>
-                      <td className="border-b border-[#eaecf0] px-2 py-1">India</td>
+                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">India</td>
                     </tr>
                     <tr>
                       <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Active since</th>
-                      <td className="border-b border-[#eaecf0] px-2 py-1">2019</td>
+                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">2019</td>
                     </tr>
                     <tr>
                       <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Superteam</th>
-                      <td className="border-b border-[#eaecf0] px-2 py-1">$2,530 earned - 45 submissions - 10 wins</td>
+                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">$2,530 earned - 45 submissions - 10 wins</td>
+                    </tr>
+                    <tr>
+                      <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Superteam profile</th>
+                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">
+                        <Link href="https://superteam.fun/earn/t/yamparalarahul" target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                          superteam.fun/earn/t/yamparalarahul
+                        </Link>
+                      </td>
                     </tr>
                     <tr>
                       <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Status</th>
-                      <td className="border-b border-[#eaecf0] px-2 py-1">Open for full-time opportunities</td>
+                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">Open for full-time opportunities</td>
                     </tr>
                     <tr>
                       <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">X</th>
-                      <td className="border-b border-[#eaecf0] px-2 py-1">
+                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">
                         <Link href="https://x.com/yamparalarahul1" target="_blank" rel="noreferrer" className={wikiLinkClass}>
                           @yamparalarahul1
                         </Link>
@@ -482,7 +557,7 @@ export default function MiniPortfolio() {
                     </tr>
                     <tr>
                       <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">LinkedIn</th>
-                      <td className="border-b border-[#eaecf0] px-2 py-1">
+                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">
                         <Link href="https://www.linkedin.com/in/yamparalarahul/" target="_blank" rel="noreferrer" className={wikiLinkClass}>
                           /in/yamparalarahul
                         </Link>
@@ -490,7 +565,7 @@ export default function MiniPortfolio() {
                     </tr>
                     <tr>
                       <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Medium</th>
-                      <td className="border-b border-[#eaecf0] px-2 py-1">
+                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">
                         <Link href="https://medium.com/@yamparala" target="_blank" rel="noreferrer" className={wikiLinkClass}>
                           @yamparala
                         </Link>
@@ -498,7 +573,7 @@ export default function MiniPortfolio() {
                     </tr>
                     <tr>
                       <th className="border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Website</th>
-                      <td className="px-2 py-1">
+                      <td className="break-words px-2 py-1">
                         <Link href="https://www.hirahul.xyz" target="_blank" rel="noreferrer" className={wikiLinkClass}>
                           hirahul.xyz
                         </Link>
