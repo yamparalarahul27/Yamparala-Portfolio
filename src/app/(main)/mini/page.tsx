@@ -271,7 +271,7 @@ const wikiLinkClass =
 export default function MiniPortfolio() {
   return (
     <>
-      <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] text-[var(--text-primary)] [&_section]:!p-0 [&_section>div]:!p-0 [&_p]:text-pretty [&_h1]:text-balance [&_h2]:text-balance [&_h3]:text-balance">
+      <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] px-3 sm:px-4 text-[var(--text-primary)] [&_section]:!p-0 [&_section>div]:!p-0 [&_p]:text-pretty [&_h1]:text-balance [&_h2]:text-balance [&_h3]:text-balance">
         <BackLink href="/" label="Back" className="mb-4" />
 
         <article className="mx-auto w-full max-w-6xl border border-[#a2a9b1] bg-white text-[#202122] shadow-sm tabular-nums overflow-hidden">
@@ -282,8 +282,8 @@ export default function MiniPortfolio() {
             </p>
           </header>
 
-          <div className="flex flex-col-reverse lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-0">
-            <div className="px-3 py-4 sm:px-6 sm:py-6 lg:border-r lg:border-[#a2a9b1] min-w-0">
+          <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-0">
+            <div className="order-2 lg:order-1 px-3 py-4 sm:px-6 sm:py-6 lg:border-r lg:border-[#a2a9b1] min-w-0">
               <p className="text-pretty leading-7">
                 <strong>Yamparala Rahul</strong> is an India-based design engineer focused on web3
                 products, product UX, and technical writing. Public profiles link him to Solana
@@ -291,9 +291,9 @@ export default function MiniPortfolio() {
                 Yamparala / hirahul identity.
               </p>
 
-              <nav className="mt-6 border border-[#c8ccd1] bg-[#f8f9fa] p-2 sm:p-3 text-sm">
+              <nav className="mt-4 sm:mt-6 border border-[#c8ccd1] bg-[#f8f9fa] p-2 sm:p-3 text-sm">
                 <p className="mb-2 font-semibold text-[#202122]">Contents</p>
-                <ol className="list-decimal pl-5 space-y-1">
+                <ol className="list-decimal pl-4 sm:pl-5 space-y-1">
                   <li><a href="#career" className={wikiLinkClass}>Career overview</a></li>
                   <li><a href="#work" className={wikiLinkClass}>Projects and work log</a></li>
                   <li><a href="#wins" className={wikiLinkClass}>Web3 wins on Solana</a></li>
@@ -305,10 +305,10 @@ export default function MiniPortfolio() {
                 </ol>
               </nav>
 
-              <div className="mt-6 space-y-6">
+              <div className="mt-4 sm:mt-6 space-y-5 sm:space-y-6">
                 <section id="career">
                   <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Career overview</h2>
-                  <ul className="mt-3 list-disc space-y-2 pl-6 leading-7">
+                  <ul className="mt-3 list-disc space-y-2 pl-4 sm:pl-6 leading-7">
                     {careerHighlights.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -320,9 +320,9 @@ export default function MiniPortfolio() {
                   <p className="mt-3 text-sm text-[#54595d]">
                     Compiled from existing portfolio entries and linked public pages.
                   </p>
-                  <div className="mt-3 space-y-3 sm:hidden">
+                  <div className="mt-3 space-y-2 sm:hidden">
                     {workItems.map((item) => (
-                      <article key={`mobile-${item.year}-${item.title}`} className="border border-[#c8ccd1] bg-[#f8f9fa] p-3">
+                      <article key={`mobile-${item.year}-${item.title}`} className="border border-[#c8ccd1] bg-[#f8f9fa] p-2.5">
                         <p className="text-xs text-[#54595d]">
                           {item.year} - {item.status}
                         </p>
@@ -377,9 +377,9 @@ export default function MiniPortfolio() {
 
                 <section id="wins">
                   <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Web3 wins on Solana</h2>
-                  <div className="mt-3 space-y-3">
+                  <div className="mt-3 space-y-2 sm:space-y-3">
                     {web3Wins.map((win) => (
-                      <div key={win.title} className="border border-[#c8ccd1] bg-[#f8f9fa] p-3">
+                      <div key={win.title} className="border border-[#c8ccd1] bg-[#f8f9fa] p-2.5 sm:p-3">
                         <p className="font-semibold">
                           {win.href ? (
                             <Link href={win.href} target="_blank" rel="noreferrer" className={wikiLinkClass}>
@@ -397,7 +397,7 @@ export default function MiniPortfolio() {
 
                 <section id="writing">
                   <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Articles and research writing</h2>
-                  <ul className="mt-3 list-disc space-y-2 pl-6 leading-7">
+                  <ul className="mt-3 list-disc space-y-2 pl-4 sm:pl-6 leading-7">
                     {writings.map((item) => (
                       <li key={item.href}>
                         <Link href={item.href} target="_blank" rel="noreferrer" className={wikiLinkClass}>
@@ -424,9 +424,9 @@ export default function MiniPortfolio() {
                       LinkedIn (/in/yamparalarahul)
                     </Link>.
                   </p>
-                  <div className="mt-3 space-y-3">
+                  <div className="mt-3 space-y-2 sm:space-y-3">
                     {channels.map((channel) => (
-                      <div key={channel.href} className="border border-[#c8ccd1] bg-[#f8f9fa] p-3">
+                      <div key={channel.href} className="border border-[#c8ccd1] bg-[#f8f9fa] p-2.5 sm:p-3">
                         <p className="font-semibold">
                           <Link href={channel.href} target="_blank" rel="noreferrer" className={wikiLinkClass}>
                             {channel.name}
@@ -459,7 +459,7 @@ export default function MiniPortfolio() {
 
                 <section id="references">
                   <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">References</h2>
-                  <ol className="mt-3 list-decimal space-y-2 pl-6 text-sm leading-6">
+                  <ol className="mt-3 list-decimal space-y-2 pl-4 sm:pl-6 text-sm leading-6">
                     {references.map((url) => (
                       <li key={url} className="break-all">
                         <Link href={url} target="_blank" rel="noreferrer" className={wikiLinkClass}>
@@ -477,7 +477,7 @@ export default function MiniPortfolio() {
                   </p>
 
                   <h3 className="mt-4 text-lg font-semibold">Workflow</h3>
-                  <ul className="mt-2 list-disc space-y-1 pl-6 text-sm leading-6">
+                  <ul className="mt-2 list-disc space-y-1 pl-4 sm:pl-6 text-sm leading-6">
                     {maintenanceWorkflow.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -486,7 +486,7 @@ export default function MiniPortfolio() {
                   <h3 className="mt-4 text-lg font-semibold">Change log</h3>
                   <ul className="mt-2 space-y-2 text-sm leading-6">
                     {profileLog.map((entry) => (
-                      <li key={`${entry.date}-${entry.action}`} className="border border-[#c8ccd1] bg-[#f8f9fa] px-3 py-2">
+                      <li key={`${entry.date}-${entry.action}`} className="border border-[#c8ccd1] bg-[#f8f9fa] px-2.5 py-2 sm:px-3">
                         <p className="font-semibold">{entry.date} - {entry.action}</p>
                         <p>{entry.details}</p>
                       </li>
@@ -496,9 +496,9 @@ export default function MiniPortfolio() {
               </div>
             </div>
 
-            <aside className="border-t border-[#a2a9b1] bg-[#f8f9fa] px-3 py-4 sm:px-6 sm:py-6 lg:border-t-0 lg:px-5 min-w-0">
+            <aside className="order-1 lg:order-2 border-b lg:border-b-0 border-[#a2a9b1] bg-[#f8f9fa] px-3 py-4 sm:px-6 sm:py-6 lg:border-t-0 lg:px-5 min-w-0">
               <div className="lg:sticky lg:top-24">
-                <table className="w-full table-fixed border border-[#a2a9b1] text-xs sm:text-sm">
+                <table className="w-full border border-[#a2a9b1] text-xs sm:text-sm">
                   <tbody>
                     <tr>
                       <th className="border-b border-[#a2a9b1] bg-[#eaecf0] px-3 py-2 text-center font-serif text-lg" colSpan={2}>
