@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import BackLink from "../../../components/BackLink";
+import "./mini-wiki.css";
+
 type WorkItem = {
   year: string;
   title: string;
@@ -30,9 +32,11 @@ type LogItem = {
   details: string;
 };
 
-type WinItem = {
+type SuperteamWin = {
   title: string;
-  details: string;
+  sponsor: string;
+  prize: string;
+  type: string;
   href?: string;
 };
 
@@ -167,6 +171,74 @@ const workItems: WorkItem[] = [
   },
 ];
 
+const superteamWins: SuperteamWin[] = [
+  {
+    title: "Deriverse Trading Journal",
+    sponsor: "Deriverse",
+    prize: "$500",
+    type: "Bounty",
+    href: "https://deriverse.hirahul.xyz",
+  },
+  {
+    title: "OME-sim: Order Matching Engine",
+    sponsor: "Superteam",
+    prize: "$350",
+    type: "Bounty",
+    href: "https://ome.hirahul.xyz",
+  },
+  {
+    title: "Stablecoin Payments Research",
+    sponsor: "Superteam",
+    prize: "$250",
+    type: "Content",
+  },
+  {
+    title: "Prediction Markets Typology",
+    sponsor: "Superteam",
+    prize: "$200",
+    type: "Content",
+  },
+  {
+    title: "RWAs on Solana Deep Dive",
+    sponsor: "Superteam",
+    prize: "$200",
+    type: "Content",
+  },
+  {
+    title: "Carrot DeFi UX Concept",
+    sponsor: "Superteam",
+    prize: "$200",
+    type: "Design",
+  },
+  {
+    title: "Proteus Cross-Chain Portal",
+    sponsor: "Superteam",
+    prize: "$200",
+    type: "Design",
+    href: "https://proteus.hirahul.xyz",
+  },
+  {
+    title: "Pubkey Discord Verification Redesign",
+    sponsor: "Pubkey",
+    prize: "$250",
+    type: "Design",
+  },
+  {
+    title: "App Backgrounds Utility",
+    sponsor: "Superteam",
+    prize: "$180",
+    type: "Bounty",
+    href: "https://bg.hirahul.xyz",
+  },
+  {
+    title: "AgentUX Flow Diagnosis Tool",
+    sponsor: "Superteam",
+    prize: "$200",
+    type: "Design",
+    href: "https://agentux.hirahul.xyz/",
+  },
+];
+
 const writings: WritingItem[] = [
   {
     published: "October 27, 2025",
@@ -214,24 +286,6 @@ const channels: ChannelItem[] = [
   },
 ];
 
-const web3Wins: WinItem[] = [
-  {
-    title: "Superteam Earn profile",
-    details: "45 submissions, 10 wins, and $2,530 total earnings.",
-    href: "https://superteam.fun/earn/t/yamparalarahul",
-  },
-  {
-    title: "Deriverse Trading Journal",
-    details: "Built for a Superteam bounty focused on the Deriverse ecosystem.",
-    href: "https://deriverse.hirahul.xyz",
-  },
-  {
-    title: "OME-sim",
-    details: "Solana order-matching engine simulation prototype for bounty work.",
-    href: "https://ome.hirahul.xyz",
-  },
-];
-
 const maintenanceWorkflow = [
   "Ingest: add public source links (articles, profiles, portfolio pages) and merge new facts.",
   "Query: use the existing profile sections as the base layer for updates and additions.",
@@ -265,25 +319,22 @@ const references = [
   "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
 ];
 
-const wikiLinkClass =
-  "text-[#0645ad] underline-offset-2 hover:underline visited:text-[#0b0080]";
-
 export default function MiniPortfolio() {
   return (
     <>
       <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] px-3 sm:px-4 text-[var(--text-primary)] [&_section]:!p-0 [&_section>div]:!p-0 [&_p]:text-pretty [&_h1]:text-balance [&_h2]:text-balance [&_h3]:text-balance">
         <BackLink href="/" label="Back" className="mb-4" />
 
-        <article className="mx-auto w-full max-w-6xl border border-[#a2a9b1] bg-white text-[#202122] shadow-sm tabular-nums overflow-hidden">
-          <header className="border-b border-[#a2a9b1] bg-[#f8f9fa] px-3 py-3 sm:px-6 sm:py-4">
+        <article className="wiki-article">
+          <header className="wiki-header">
             <h1 className="text-balance font-serif text-2xl sm:text-3xl lg:text-4xl">Yamparala Rahul</h1>
-            <p className="mt-1 text-sm text-[#54595d]">
+            <p className="mt-1 text-sm wiki-muted">
               Wikipedia-style mini profile page - Last verified on April 6, 2026
             </p>
           </header>
 
           <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-0">
-            <div className="order-2 lg:order-1 px-3 py-4 sm:px-6 sm:py-6 lg:border-r lg:border-[#a2a9b1] min-w-0">
+            <div className="order-2 lg:order-1 px-3 py-4 sm:px-6 sm:py-6 lg:border-r wiki-border min-w-0">
               <p className="text-pretty leading-7">
                 <strong>Yamparala Rahul</strong> is an India-based design engineer focused on web3
                 products, product UX, and technical writing. Public profiles link him to Solana
@@ -291,23 +342,23 @@ export default function MiniPortfolio() {
                 Yamparala / hirahul identity.
               </p>
 
-              <nav className="mt-4 sm:mt-6 border border-[#c8ccd1] bg-[#f8f9fa] p-2 sm:p-3 text-sm">
-                <p className="mb-2 font-semibold text-[#202122]">Contents</p>
+              <nav className="mt-4 sm:mt-6 wiki-card p-2 sm:p-3 text-sm">
+                <p className="mb-2 font-semibold">Contents</p>
                 <ol className="list-decimal pl-4 sm:pl-5 space-y-1">
-                  <li><a href="#career" className={wikiLinkClass}>Career overview</a></li>
-                  <li><a href="#work" className={wikiLinkClass}>Projects and work log</a></li>
-                  <li><a href="#wins" className={wikiLinkClass}>Web3 wins on Solana</a></li>
-                  <li><a href="#writing" className={wikiLinkClass}>Articles and research writing</a></li>
-                  <li><a href="#media" className={wikiLinkClass}>Social and media channels</a></li>
-                  <li><a href="#onchain" className={wikiLinkClass}>On-chain collectible</a></li>
-                  <li><a href="#references" className={wikiLinkClass}>References</a></li>
-                  <li><a href="#maintenance" className={wikiLinkClass}>Maintenance model and log</a></li>
+                  <li><a href="#career" className="wiki-link">Career overview</a></li>
+                  <li><a href="#work" className="wiki-link">Projects and work log</a></li>
+                  <li><a href="#wins" className="wiki-link">Superteam Earn wins</a></li>
+                  <li><a href="#writing" className="wiki-link">Articles and research writing</a></li>
+                  <li><a href="#media" className="wiki-link">Social and media channels</a></li>
+                  <li><a href="#onchain" className="wiki-link">On-chain collectible</a></li>
+                  <li><a href="#references" className="wiki-link">References</a></li>
+                  <li><a href="#maintenance" className="wiki-link">Maintenance model and log</a></li>
                 </ol>
               </nav>
 
               <div className="mt-4 sm:mt-6 space-y-5 sm:space-y-6">
                 <section id="career">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Career overview</h2>
+                  <h2 className="wiki-section-title">Career overview</h2>
                   <ul className="mt-3 list-disc space-y-2 pl-4 sm:pl-6 leading-7">
                     {careerHighlights.map((item) => (
                       <li key={item}>{item}</li>
@@ -316,58 +367,58 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="work">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Projects and work log</h2>
-                  <p className="mt-3 text-sm text-[#54595d]">
+                  <h2 className="wiki-section-title">Projects and work log</h2>
+                  <p className="mt-3 text-sm wiki-muted">
                     Compiled from existing portfolio entries and linked public pages.
                   </p>
                   <div className="mt-3 space-y-2 sm:hidden">
                     {workItems.map((item) => (
-                      <article key={`mobile-${item.year}-${item.title}`} className="border border-[#c8ccd1] bg-[#f8f9fa] p-2.5">
-                        <p className="text-xs text-[#54595d]">
+                      <article key={`mobile-${item.year}-${item.title}`} className="wiki-card p-2.5">
+                        <p className="text-xs wiki-muted">
                           {item.year} - {item.status}
                         </p>
                         <p className="mt-1 font-semibold">
                           {item.href ? (
-                            <Link href={item.href} target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                            <Link href={item.href} target="_blank" rel="noreferrer" className="wiki-link">
                               {item.title}
                             </Link>
                           ) : (
                             item.title
                           )}
                         </p>
-                        <p className="mt-1 text-xs uppercase text-[#54595d]">{item.type}</p>
+                        <p className="mt-1 text-xs uppercase wiki-muted">{item.type}</p>
                         <p className="mt-2 text-sm leading-6">{item.note}</p>
                       </article>
                     ))}
                   </div>
 
                   <div className="mt-3 hidden overflow-x-auto sm:block">
-                    <table className="min-w-full border border-[#a2a9b1] text-left text-sm">
-                      <thead className="bg-[#eaecf0]">
+                    <table className="wiki-table">
+                      <thead>
                         <tr>
-                          <th className="border-b border-r border-[#a2a9b1] px-3 py-2 font-semibold">Year</th>
-                          <th className="border-b border-r border-[#a2a9b1] px-3 py-2 font-semibold">Work</th>
-                          <th className="border-b border-r border-[#a2a9b1] px-3 py-2 font-semibold">Type</th>
-                          <th className="border-b border-r border-[#a2a9b1] px-3 py-2 font-semibold">Status</th>
-                          <th className="border-b border-[#a2a9b1] px-3 py-2 font-semibold">Notes</th>
+                          <th>Year</th>
+                          <th>Work</th>
+                          <th>Type</th>
+                          <th>Status</th>
+                          <th>Notes</th>
                         </tr>
                       </thead>
                       <tbody>
                         {workItems.map((item) => (
-                          <tr key={`${item.year}-${item.title}`} className="align-top even:bg-[#f8f9fa]">
-                            <td className="border-b border-r border-[#eaecf0] px-3 py-2">{item.year}</td>
-                            <td className="border-b border-r border-[#eaecf0] px-3 py-2">
+                          <tr key={`${item.year}-${item.title}`} className="align-top">
+                            <td>{item.year}</td>
+                            <td>
                               {item.href ? (
-                                <Link href={item.href} target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                                <Link href={item.href} target="_blank" rel="noreferrer" className="wiki-link">
                                   {item.title}
                                 </Link>
                               ) : (
                                 item.title
                               )}
                             </td>
-                            <td className="border-b border-r border-[#eaecf0] px-3 py-2">{item.type}</td>
-                            <td className="border-b border-r border-[#eaecf0] px-3 py-2">{item.status}</td>
-                            <td className="border-b border-[#eaecf0] px-3 py-2">{item.note}</td>
+                            <td>{item.type}</td>
+                            <td>{item.status}</td>
+                            <td>{item.note}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -376,63 +427,106 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="wins">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Web3 wins on Solana</h2>
-                  <div className="mt-3 space-y-2 sm:space-y-3">
-                    {web3Wins.map((win) => (
-                      <div key={win.title} className="border border-[#c8ccd1] bg-[#f8f9fa] p-2.5 sm:p-3">
+                  <h2 className="wiki-section-title">Superteam Earn wins</h2>
+                  <p className="mt-3 text-sm wiki-muted">
+                    10 wins from 45 submissions on{" "}
+                    <Link href="https://earn.superteam.fun/t/yamparalarahul" target="_blank" rel="noreferrer" className="wiki-link">
+                      Superteam Earn
+                    </Link>
+                    . Total earnings: <strong>$2,530</strong>.
+                  </p>
+
+                  {/* Mobile cards */}
+                  <div className="mt-3 space-y-2 sm:hidden">
+                    {superteamWins.map((win) => (
+                      <article key={win.title} className="wiki-card p-2.5">
                         <p className="font-semibold">
                           {win.href ? (
-                            <Link href={win.href} target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                            <Link href={win.href} target="_blank" rel="noreferrer" className="wiki-link">
                               {win.title}
                             </Link>
                           ) : (
                             win.title
                           )}
                         </p>
-                        <p className="mt-1 text-sm leading-6">{win.details}</p>
-                      </div>
+                        <p className="mt-1 text-xs wiki-muted">
+                          {win.sponsor} &middot; {win.type} &middot; {win.prize}
+                        </p>
+                      </article>
                     ))}
+                  </div>
+
+                  {/* Desktop table */}
+                  <div className="mt-3 hidden overflow-x-auto sm:block">
+                    <table className="wiki-table">
+                      <thead>
+                        <tr>
+                          <th>Win</th>
+                          <th>Sponsor</th>
+                          <th>Type</th>
+                          <th>Prize</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {superteamWins.map((win) => (
+                          <tr key={win.title} className="align-top">
+                            <td>
+                              {win.href ? (
+                                <Link href={win.href} target="_blank" rel="noreferrer" className="wiki-link">
+                                  {win.title}
+                                </Link>
+                              ) : (
+                                win.title
+                              )}
+                            </td>
+                            <td>{win.sponsor}</td>
+                            <td>{win.type}</td>
+                            <td>{win.prize}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 </section>
 
                 <section id="writing">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Articles and research writing</h2>
+                  <h2 className="wiki-section-title">Articles and research writing</h2>
                   <ul className="mt-3 list-disc space-y-2 pl-4 sm:pl-6 leading-7">
                     {writings.map((item) => (
                       <li key={item.href}>
-                        <Link href={item.href} target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                        <Link href={item.href} target="_blank" rel="noreferrer" className="wiki-link">
                           {item.title}
                         </Link>{" "}
-                        <span className="text-[#54595d]">({item.published})</span>
+                        <span className="wiki-muted">({item.published})</span>
                       </li>
                     ))}
                   </ul>
                 </section>
 
                 <section id="media">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Social and media channels</h2>
+                  <h2 className="wiki-section-title">Social and media channels</h2>
                   <p className="text-pretty mt-3 text-sm leading-6">
                     Social links:
                     {" "}
-                    <Link href="https://x.com/yamparalarahul1" target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                    <Link href="https://x.com/yamparalarahul1" target="_blank" rel="noreferrer" className="wiki-link">
                       X (@yamparalarahul1)
                     </Link>
                     {" "}
                     and
                     {" "}
-                    <Link href="https://www.linkedin.com/in/yamparalarahul/" target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                    <Link href="https://www.linkedin.com/in/yamparalarahul/" target="_blank" rel="noreferrer" className="wiki-link">
                       LinkedIn (/in/yamparalarahul)
                     </Link>.
                   </p>
                   <div className="mt-3 space-y-2 sm:space-y-3">
                     {channels.map((channel) => (
-                      <div key={channel.href} className="border border-[#c8ccd1] bg-[#f8f9fa] p-2.5 sm:p-3">
+                      <div key={channel.href} className="wiki-card p-2.5 sm:p-3">
                         <p className="font-semibold">
-                          <Link href={channel.href} target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                          <Link href={channel.href} target="_blank" rel="noreferrer" className="wiki-link">
                             {channel.name}
                           </Link>
                         </p>
-                        <p className="text-sm text-[#54595d]">
+                        <p className="text-sm wiki-muted">
                           {channel.handle} - {channel.subscribers}
                         </p>
                         <p className="mt-1 text-sm">{channel.description}</p>
@@ -442,7 +536,7 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="onchain">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">On-chain collectible</h2>
+                  <h2 className="wiki-section-title">On-chain collectible</h2>
                   <p className="text-pretty mt-3 leading-7">
                     Listed first NFT reference:
                     {" "}
@@ -450,7 +544,7 @@ export default function MiniPortfolio() {
                       href="https://www.tensor.trade/item/2HGzCZTxZiMDTrqzbGwud2a7aUY9JKsyXXyJ6Nk5xpcp"
                       target="_blank"
                       rel="noreferrer"
-                      className={wikiLinkClass}
+                      className="wiki-link"
                     >
                       PERK #3224 - IslandDAO PERKS (Tensor)
                     </Link>.
@@ -458,11 +552,11 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="references">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">References</h2>
+                  <h2 className="wiki-section-title">References</h2>
                   <ol className="mt-3 list-decimal space-y-2 pl-4 sm:pl-6 text-sm leading-6">
                     {references.map((url) => (
                       <li key={url} className="break-all">
-                        <Link href={url} target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                        <Link href={url} target="_blank" rel="noreferrer" className="wiki-link">
                           {url}
                         </Link>
                       </li>
@@ -471,8 +565,8 @@ export default function MiniPortfolio() {
                 </section>
 
                 <section id="maintenance">
-                  <h2 className="text-balance border-b border-[#a2a9b1] pb-1 font-serif text-xl sm:text-2xl">Maintenance model and log</h2>
-                  <p className="text-pretty mt-3 text-sm leading-6 text-[#54595d]">
+                  <h2 className="wiki-section-title">Maintenance model and log</h2>
+                  <p className="text-pretty mt-3 text-sm leading-6 wiki-muted">
                     This profile is maintained as a compounding wiki artifact, not a one-off static bio.
                   </p>
 
@@ -486,7 +580,7 @@ export default function MiniPortfolio() {
                   <h3 className="mt-4 text-lg font-semibold">Change log</h3>
                   <ul className="mt-2 space-y-2 text-sm leading-6">
                     {profileLog.map((entry) => (
-                      <li key={`${entry.date}-${entry.action}`} className="border border-[#c8ccd1] bg-[#f8f9fa] px-2.5 py-2 sm:px-3">
+                      <li key={`${entry.date}-${entry.action}`} className="wiki-card px-2.5 py-2 sm:px-3">
                         <p className="font-semibold">{entry.date} - {entry.action}</p>
                         <p>{entry.details}</p>
                       </li>
@@ -496,18 +590,18 @@ export default function MiniPortfolio() {
               </div>
             </div>
 
-            <aside className="order-1 lg:order-2 border-b lg:border-b-0 border-[#a2a9b1] bg-[#f8f9fa] px-3 py-4 sm:px-6 sm:py-6 lg:border-t-0 lg:px-5 min-w-0">
+            <aside className="order-1 lg:order-2 border-b lg:border-b-0 wiki-border wiki-surface px-3 py-4 sm:px-6 sm:py-6 lg:border-t-0 lg:px-5 min-w-0">
               <div className="lg:sticky lg:top-24">
-                <table className="w-full border border-[#a2a9b1] text-xs sm:text-sm">
+                <table className="wiki-infobox">
                   <tbody>
                     <tr>
-                      <th className="border-b border-[#a2a9b1] bg-[#eaecf0] px-3 py-2 text-center font-serif text-lg" colSpan={2}>
+                      <th className="wiki-infobox-header" colSpan={2}>
                         Yamparala Rahul
                       </th>
                     </tr>
                     <tr>
-                      <td className="border-b border-[#eaecf0] px-3 py-3 text-center" colSpan={2}>
-                        <div className="mx-auto mb-2 size-24 overflow-hidden rounded-sm border border-[#a2a9b1]">
+                      <td className="wiki-infobox-cell text-center" colSpan={2}>
+                        <div className="mx-auto mb-2 size-24 overflow-hidden rounded-sm wiki-border border">
                           <Image
                             src="/headshot.png"
                             alt="Yamparala Rahul portrait"
@@ -516,65 +610,65 @@ export default function MiniPortfolio() {
                             className="h-full w-full object-cover"
                           />
                         </div>
-                        <p className="text-xs text-[#54595d]">Design Engineer - India</p>
+                        <p className="text-xs wiki-muted">Design Engineer - India</p>
                       </td>
                     </tr>
                     <tr>
-                      <th className="w-[40%] border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Occupation</th>
-                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">Design Engineer, Product Builder, Writer</td>
+                      <th className="wiki-infobox-label w-[40%]">Occupation</th>
+                      <td className="wiki-infobox-cell break-words">Design Engineer, Product Builder, Writer</td>
                     </tr>
                     <tr>
-                      <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Based in</th>
-                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">India</td>
+                      <th className="wiki-infobox-label">Based in</th>
+                      <td className="wiki-infobox-cell break-words">India</td>
                     </tr>
                     <tr>
-                      <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Active since</th>
-                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">2019</td>
+                      <th className="wiki-infobox-label">Active since</th>
+                      <td className="wiki-infobox-cell break-words">2019</td>
                     </tr>
                     <tr>
-                      <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Superteam</th>
-                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">$2,530 earned - 45 submissions - 10 wins</td>
+                      <th className="wiki-infobox-label">Superteam</th>
+                      <td className="wiki-infobox-cell break-words">$2,530 earned - 45 submissions - 10 wins</td>
                     </tr>
                     <tr>
-                      <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Superteam profile</th>
-                      <td className="break-all border-b border-[#eaecf0] px-2 py-1">
-                        <Link href="https://superteam.fun/earn/t/yamparalarahul" target="_blank" rel="noreferrer" className={wikiLinkClass}>
-                          superteam.fun/earn/t/yamparalarahul
+                      <th className="wiki-infobox-label">Superteam profile</th>
+                      <td className="wiki-infobox-cell break-all">
+                        <Link href="https://earn.superteam.fun/t/yamparalarahul" target="_blank" rel="noreferrer" className="wiki-link">
+                          earn.superteam.fun/t/yamparalarahul
                         </Link>
                       </td>
                     </tr>
                     <tr>
-                      <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Status</th>
-                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">Open for full-time opportunities</td>
+                      <th className="wiki-infobox-label">Status</th>
+                      <td className="wiki-infobox-cell break-words">Open for full-time opportunities</td>
                     </tr>
                     <tr>
-                      <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">X</th>
-                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">
-                        <Link href="https://x.com/yamparalarahul1" target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                      <th className="wiki-infobox-label">X</th>
+                      <td className="wiki-infobox-cell break-words">
+                        <Link href="https://x.com/yamparalarahul1" target="_blank" rel="noreferrer" className="wiki-link">
                           @yamparalarahul1
                         </Link>
                       </td>
                     </tr>
                     <tr>
-                      <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">LinkedIn</th>
-                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">
-                        <Link href="https://www.linkedin.com/in/yamparalarahul/" target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                      <th className="wiki-infobox-label">LinkedIn</th>
+                      <td className="wiki-infobox-cell break-words">
+                        <Link href="https://www.linkedin.com/in/yamparalarahul/" target="_blank" rel="noreferrer" className="wiki-link">
                           /in/yamparalarahul
                         </Link>
                       </td>
                     </tr>
                     <tr>
-                      <th className="border-b border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Medium</th>
-                      <td className="break-words border-b border-[#eaecf0] px-2 py-1">
-                        <Link href="https://medium.com/@yamparala" target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                      <th className="wiki-infobox-label">Medium</th>
+                      <td className="wiki-infobox-cell break-words">
+                        <Link href="https://medium.com/@yamparala" target="_blank" rel="noreferrer" className="wiki-link">
                           @yamparala
                         </Link>
                       </td>
                     </tr>
                     <tr>
-                      <th className="border-r border-[#eaecf0] bg-[#eaecf0] px-2 py-1 text-left font-semibold">Website</th>
-                      <td className="break-words px-2 py-1">
-                        <Link href="https://www.hirahul.xyz" target="_blank" rel="noreferrer" className={wikiLinkClass}>
+                      <th className="wiki-infobox-label !border-b-0">Website</th>
+                      <td className="wiki-infobox-cell !border-b-0 break-words">
+                        <Link href="https://www.hirahul.xyz" target="_blank" rel="noreferrer" className="wiki-link">
                           hirahul.xyz
                         </Link>
                       </td>

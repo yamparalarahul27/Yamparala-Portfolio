@@ -1,0 +1,173 @@
+/*
+ * Wikipedia Dark Theme (Codex Design Tokens)
+ * Source: wikimedia/design-codex dark.json
+ * Only applied to the /mini wiki page
+ */
+
+/* ── Design Tokens ── */
+.wiki-article {
+  --wiki-bg-base: #101418;
+  --wiki-bg-surface: #202122;
+  --wiki-bg-neutral: #27292d;
+  --wiki-text-primary: #eaecf0;
+  --wiki-text-emphasized: #f8f9fa;
+  --wiki-text-muted: #a2a9b1;
+  --wiki-text-disabled: #54595d;
+  --wiki-link: #88a3e8;
+  --wiki-link-hover: #a6bbf5;
+  --wiki-link-visited: #a799cd;
+  --wiki-border-base: #72777d;
+  --wiki-border-subtle: #54595d;
+  --wiki-border-muted: #404244;
+  --wiki-table-header: #27292d;
+  --wiki-table-row-alt: #202122;
+  --wiki-accent: #6485d1;
+}
+
+/* ── Article container ── */
+.wiki-article {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 72rem;
+  border: 1px solid var(--wiki-border-base);
+  background-color: var(--wiki-bg-surface);
+  color: var(--wiki-text-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.wiki-header {
+  border-bottom: 1px solid var(--wiki-border-base);
+  background-color: var(--wiki-bg-neutral);
+  padding: 0.75rem 0.75rem;
+}
+@media (min-width: 640px) {
+  .wiki-header {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* ── Semantic classes ── */
+.wiki-muted {
+  color: var(--wiki-text-muted);
+}
+
+.wiki-border {
+  border-color: var(--wiki-border-base);
+}
+
+.wiki-surface {
+  background-color: var(--wiki-bg-neutral);
+}
+
+.wiki-link {
+  color: var(--wiki-link);
+  text-underline-offset: 2px;
+}
+.wiki-link:hover {
+  color: var(--wiki-link-hover);
+  text-decoration: underline;
+}
+.wiki-link:visited {
+  color: var(--wiki-link-visited);
+}
+
+/* ── Section headings ── */
+.wiki-section-title {
+  text-wrap: balance;
+  border-bottom: 1px solid var(--wiki-border-base);
+  padding-bottom: 0.25rem;
+  font-family: serif;
+  font-size: 1.25rem;
+  color: var(--wiki-text-emphasized);
+}
+@media (min-width: 640px) {
+  .wiki-section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ── Cards (contents nav, mobile items, changelog) ── */
+.wiki-card {
+  border: 1px solid var(--wiki-border-muted);
+  background-color: var(--wiki-bg-neutral);
+}
+
+/* ── Tables ── */
+.wiki-table {
+  min-width: 100%;
+  border: 1px solid var(--wiki-border-base);
+  text-align: left;
+  font-size: 0.875rem;
+}
+.wiki-table thead {
+  background-color: var(--wiki-table-header);
+}
+.wiki-table th {
+  border-bottom: 1px solid var(--wiki-border-base);
+  border-right: 1px solid var(--wiki-border-base);
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+  color: var(--wiki-text-emphasized);
+}
+.wiki-table th:last-child {
+  border-right: none;
+}
+.wiki-table td {
+  border-bottom: 1px solid var(--wiki-border-muted);
+  border-right: 1px solid var(--wiki-border-muted);
+  padding: 0.5rem 0.75rem;
+}
+.wiki-table td:last-child {
+  border-right: none;
+}
+.wiki-table tbody tr:nth-child(even) {
+  background-color: var(--wiki-table-row-alt);
+}
+
+/* ── Infobox (sidebar table) ── */
+.wiki-infobox {
+  width: 100%;
+  border: 1px solid var(--wiki-border-base);
+  font-size: 0.75rem;
+}
+@media (min-width: 640px) {
+  .wiki-infobox {
+    font-size: 0.875rem;
+  }
+}
+.wiki-infobox-header {
+  border-bottom: 1px solid var(--wiki-border-base);
+  background-color: var(--wiki-table-header);
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  font-family: serif;
+  font-size: 1.125rem;
+  color: var(--wiki-text-emphasized);
+}
+.wiki-infobox-label {
+  border-bottom: 1px solid var(--wiki-border-muted);
+  border-right: 1px solid var(--wiki-border-muted);
+  background-color: var(--wiki-table-header);
+  padding: 0.25rem 0.5rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--wiki-text-emphasized);
+}
+.wiki-infobox-cell {
+  border-bottom: 1px solid var(--wiki-border-muted);
+  padding: 0.25rem 0.5rem;
+}
+
+/* ── Strong text in dark theme ── */
+.wiki-article strong {
+  color: var(--wiki-text-emphasized);
+}
+
+/* ── List markers ── */
+.wiki-article li::marker {
+  color: var(--wiki-text-muted);
+}
