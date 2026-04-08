@@ -1,0 +1,286 @@
+/*
+ * Case Study Presentation Layout
+ * Inspired by tiket.com Discover case study format
+ */
+
+/* ── Label ── */
+.cs-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ── Layout: sidebar + main ── */
+.cs-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+@media (min-width: 1024px) {
+  .cs-layout {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+/* ── Sidebar (desktop only) ── */
+.cs-sidebar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .cs-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    flex-shrink: 0;
+    padding-right: 1.5rem;
+    border-right: 1px solid var(--border-color);
+    position: sticky;
+    top: 6rem;
+    align-self: flex-start;
+    height: fit-content;
+  }
+}
+
+/* ── Nav items ── */
+.cs-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.375rem 0;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  transition: color 0.15s;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.cs-nav-item:hover {
+  color: var(--text-primary);
+}
+.cs-nav-active {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+.cs-nav-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  flex-shrink: 0;
+  transition: background-color 0.15s;
+}
+.cs-nav-active .cs-nav-dot {
+  background-color: var(--accent);
+}
+.cs-nav-link {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Main area ── */
+.cs-main {
+  flex: 1;
+  min-width: 0;
+}
+@media (min-width: 1024px) {
+  .cs-main {
+    padding-left: 2rem;
+  }
+}
+
+/* ── Mobile tabs ── */
+.cs-mobile-tabs {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.cs-mobile-tabs::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .cs-mobile-tabs {
+    display: none;
+  }
+}
+.cs-tab {
+  flex-shrink: 0;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.cs-tab:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+.cs-tab-active {
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+  border-color: var(--text-primary);
+}
+
+/* ── Slider ── */
+.cs-slider-area {
+  margin-bottom: 1.5rem;
+}
+.cs-slider-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 20px;
+  padding: 0 4px;
+}
+.cs-slider-track::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 50%;
+  height: 2px;
+  background: var(--border-color);
+  transform: translateY(-50%);
+  border-radius: 1px;
+}
+.cs-slider-progress {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  height: 2px;
+  background: var(--accent);
+  transform: translateY(-50%);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+.cs-slider-dot {
+  position: relative;
+  z-index: 1;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface-color);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+.cs-slider-dot:hover {
+  border-color: var(--text-secondary);
+}
+.cs-slider-dot-active {
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Stage ── */
+.cs-stage {
+  animation: cs-fadein 0.3s ease;
+}
+@keyframes cs-fadein {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cs-stage-header {
+  margin-bottom: 1.5rem;
+}
+.cs-stage-body {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .cs-stage-body {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+/* ── Annotations ── */
+.cs-annotations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .cs-annotations {
+    width: 200px;
+    flex-shrink: 0;
+    padding-top: 0.5rem;
+  }
+}
+.cs-annotation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--border-color);
+}
+.cs-annotation-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.cs-annotation-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ── Mockup ── */
+.cs-mockup {
+  flex: 1;
+  min-width: 0;
+}
+.cs-mockup-frame {
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: var(--surface-color);
+}
+
+/* ── Counter / Prev-Next ── */
+.cs-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+}
+.cs-counter-btn {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.375rem 0.75rem;
+  transition: color 0.15s;
+}
+.cs-counter-btn:hover:not(:disabled) {
+  color: var(--text-primary);
+}
+.cs-counter-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
