@@ -226,13 +226,7 @@ const superteamWins: SuperteamWin[] = [
     type: "Design",
     href: "https://proteus.hirahul.xyz",
   },
-  {
-    title: "Pubkey Discord Verification Redesign",
-    sponsor: "Pubkey",
-    prize: "$250",
-    type: "Design",
-  },
-  {
+{
     title: "App Backgrounds Utility",
     sponsor: "Superteam",
     prize: "$180",
