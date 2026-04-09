@@ -7,7 +7,7 @@ export default function WorkModeSection() {
     <div id="work-mode" className="flex flex-col gap-8 sm:gap-12 lg:gap-[56px]">
       {/* Header */}
       <section className="flex flex-col gap-4 animate-enter">
-        <h2 className="text-4xl lg:text-5xl font-bold tracking-tighter">Work Mode</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tighter">Work Mode</h2>
         <p className="text-sm font-mono text-[var(--text-secondary)]">Focus space. Play some music and get to work.</p>
       </section>
 

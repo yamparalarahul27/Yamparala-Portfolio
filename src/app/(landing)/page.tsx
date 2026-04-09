@@ -29,7 +29,7 @@ export default function MiniPage() {
   return (
     <>
     <DogFollowerClient />
-    <main className="max-w-xl !px-4 !py-16 sm:!py-24 text-[var(--text-primary)] [&_section]:!p-0 [&_section>div]:!p-0 [&_footer]:!p-0">
+    <main className="max-w-xl mx-auto !px-4 !py-16 sm:!py-24 text-[var(--text-primary)] [&_section]:!p-0 [&_section>div]:!p-0 [&_footer]:!p-0">
       {/* Bio */}
       <section className="flex flex-col gap-4 mb-16">
         <div className="flex items-center gap-2 pb-1">

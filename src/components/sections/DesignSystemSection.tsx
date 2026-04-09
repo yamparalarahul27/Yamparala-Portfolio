@@ -308,7 +308,7 @@ function ControlledPreview({
         </div>
 
         <div className="flex flex-wrap items-end gap-3">
-          <label className="flex min-w-[220px] flex-1 flex-col gap-2">
+          <label className="flex min-w-0 flex-1 flex-col gap-2">
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-[var(--text-secondary)]">
               Spacing
             </span>

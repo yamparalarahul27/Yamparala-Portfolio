@@ -5,7 +5,7 @@ export default function CustomerJourneySection() {
     <div id="customer-journey-mapping" className="flex flex-col gap-8 sm:gap-12 lg:gap-[56px]">
       {/* Hero */}
       <section className="flex flex-col gap-4 animate-enter">
-        <h2 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tighter leading-tight">
           Customer Journey Mapping
         </h2>
         <p className="text-sm font-mono text-[var(--accent)] tracking-wide">Referencing Synclo Brand</p>

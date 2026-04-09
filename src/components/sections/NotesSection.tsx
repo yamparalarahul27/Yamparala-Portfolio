@@ -45,9 +45,9 @@ export default function NotesSection() {
                   <div className="flex flex-col gap-3 min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[var(--text-secondary)]">
                       <span>Last updated {formatDate(post.lastUpdated)}</span>
-                      <span className="w-8 h-px bg-[var(--border-color)]" />
+                      <span className="hidden sm:inline-block w-8 h-px bg-[var(--border-color)]" />
                       <span className="text-[var(--accent)] font-semibold">{post.category}</span>
-                      <span className="w-8 h-px bg-[var(--border-color)]" />
+                      <span className="hidden sm:inline-block w-8 h-px bg-[var(--border-color)]" />
                       <span>{post.readTime}</span>
                     </div>
                     <h3 className="text-xl font-bold tracking-tight transition-colors">{post.title}</h3>

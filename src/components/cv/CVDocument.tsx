@@ -26,7 +26,7 @@ export default function CVDocument({
         <p className={`${forPrint ? "text-[11px] text-gray-600" : "text-sm text-[var(--text-secondary)]"} mt-0.5`}>
           {cv.title}
         </p>
-        <div className={`flex flex-wrap gap-x-4 gap-y-0.5 mt-2 ${forPrint ? "text-[9px] text-gray-500" : "text-[10px] text-[var(--text-secondary)]"}`}>
+        <div className={`flex flex-wrap gap-x-4 gap-y-0.5 mt-2 break-all ${forPrint ? "text-[9px] text-gray-500" : "text-[10px] text-[var(--text-secondary)]"}`}>
           <span>{cv.contact.email}</span>
           <span>{cv.contact.phone}</span>
           <span>{cv.contact.website}</span>
@@ -78,7 +78,7 @@ export default function CVDocument({
         <h2 className={`${forPrint ? "text-[11px]" : "text-xs"} font-bold uppercase tracking-[0.15em] mb-1`}>
           Skills
         </h2>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-0.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-0.5">
           {cv.skills.map((skill) => (
             <div key={skill.category}>
               <span className="font-bold">{skill.category}: </span>
@@ -97,12 +97,12 @@ export default function CVDocument({
         </h2>
         <div className="flex flex-wrap gap-x-6 gap-y-0.5">
           {cv.education.map((edu) => (
-            <span key={edu.institution}>
+            <span key={edu.institution} className="min-w-0 break-words">
               <span className="font-bold">{edu.degree}</span> — {edu.institution} ({edu.year})
             </span>
           ))}
           {cv.certifications.map((cert) => (
-            <span key={cert.name}>
+            <span key={cert.name} className="min-w-0 break-words">
               <span className="font-bold">{cert.name}</span> — {cert.issuer}
             </span>
           ))}

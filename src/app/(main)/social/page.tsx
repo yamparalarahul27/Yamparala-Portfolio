@@ -38,7 +38,7 @@ const follows = [
 export default function SocialFollowPage() {
   return (
     <>
-      <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] text-[var(--text-primary)]">
+      <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] px-3 sm:px-4 text-[var(--text-primary)]">
         {/* Back button top */}
         <BackLink href="/" label="Back to Index" className="animate-enter mb-4" />
 

@@ -32,7 +32,7 @@ export default function CVPage() {
             Select an industry to tailor the resume
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <IndustrySelector selected={industry} onChange={setIndustry} />
           <button
             onClick={handleDownload}

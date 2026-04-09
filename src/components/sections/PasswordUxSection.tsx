@@ -173,7 +173,7 @@ export default function PasswordUxSection() {
         <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
           Instead of the ambiguous eye icon, the redesign uses a simple <strong className="text-[var(--text-primary)]">&ldquo;Show password&rdquo; checkbox</strong>.
         </p>
-        <ul className="space-y-3 text-[var(--text-secondary)] text-sm leading-relaxed mb-8 ml-4">
+        <ul className="space-y-3 text-[var(--text-secondary)] text-sm leading-relaxed mb-8 pl-4">
           <li><strong className="text-[var(--text-primary)]">Clarity:</strong> the label removes all ambiguity about the toggle state.</li>
           <li><strong className="text-[var(--text-primary)]">Accessibility:</strong> checkboxes are natively supported by screen readers and keyboard navigation.</li>
           <li><strong className="text-[var(--text-primary)]">Security:</strong> unchecked by default, passwords start hidden, as users expect.</li>

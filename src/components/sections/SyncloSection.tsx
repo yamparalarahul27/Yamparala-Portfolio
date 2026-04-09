@@ -32,7 +32,7 @@ export default function SyncloSection() {
           <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tighter leading-tight">
             Building connected OPD Care at Singapore Based
           </h2>
-          <p className="text-sm font-mono text-[var(--accent)] tracking-wide">
+          <p className="text-sm font-mono text-[var(--accent)] tracking-normal sm:tracking-wide">
             UI Design | 2 Years | 4 End to End Products | 3 Multi-speciality Hospitals Onboarded
           </p>
           <p className="text-lg text-[var(--text-secondary)] max-w-3xl text-balance leading-relaxed">

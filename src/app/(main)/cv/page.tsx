@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CVRoute() {
   return (
-    <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] text-[var(--text-primary)]">
+    <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] px-3 sm:px-4 text-[var(--text-primary)]">
       <BackLink href="/" label="Back" className="animate-enter mb-6" />
       <div className="animate-enter delay-100">
         <CVPage />
