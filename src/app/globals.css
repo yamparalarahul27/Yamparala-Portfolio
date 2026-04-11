@@ -44,14 +44,6 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Restore a small baseline of inner spacing for editorial layout containers. */
-:where(main, section, article, aside, nav, header, footer) {
-  padding: var(--space-8);
-}
-
-:where(main, section, article, aside, nav, header, footer) > div {
-  padding: var(--space-8);
-}
 
 body {
   background: transparent;

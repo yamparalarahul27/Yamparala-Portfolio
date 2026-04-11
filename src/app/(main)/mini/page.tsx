@@ -326,8 +326,8 @@ const references = [
 export default function MiniPortfolio() {
   return (
     <>
-      <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] px-3 sm:px-4 text-[var(--text-primary)] [&_p]:text-pretty [&_h1]:text-balance [&_h2]:text-balance [&_h3]:text-balance">
-        <BackLink href="/" label="Back" className="mb-4" />
+      <main className="page-container mt-12 sm:mt-16 lg:mt-[72px] px-3 sm:px-4 gap-8 text-[var(--text-primary)] [&_p]:text-pretty [&_h1]:text-balance [&_h2]:text-balance [&_h3]:text-balance">
+        <BackLink href="/" label="Back" />
 
         <article className="wiki-article">
           <header className="wiki-header">

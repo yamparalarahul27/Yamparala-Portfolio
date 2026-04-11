@@ -200,10 +200,3 @@
   color: var(--wiki-text-muted);
 }
 
-/* ── Reset base padding inside wiki article ── */
-.wiki-article section,
-.wiki-article nav,
-.wiki-article header,
-.wiki-article aside {
-  padding: 0;
-}
