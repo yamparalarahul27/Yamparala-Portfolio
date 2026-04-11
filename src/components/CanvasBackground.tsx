@@ -70,13 +70,20 @@ export default function CanvasBackground(props: CanvasBackgroundProps) {
     let animationId: number;
     let width = 0;
     let height = 0;
-    let isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    let isDark = document.documentElement.getAttribute("data-theme") === "dark";
 
-    const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    function onThemeChange(e: MediaQueryListEvent) {
-      isDark = e.matches;
+    const observer = new MutationObserver(() => {
+      isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    let visible = localStorage.getItem("dots-enabled") !== "false";
+    canvas.style.opacity = visible ? "1" : "0";
+    function onDotsToggle(e: Event) {
+      visible = (e as CustomEvent).detail;
+      canvas.style.opacity = visible ? "1" : "0";
     }
-    darkQuery.addEventListener("change", onThemeChange);
+    window.addEventListener("dots-toggle", onDotsToggle);
 
     function initDots() {
       const p = propsRef.current;
@@ -206,7 +213,8 @@ export default function CanvasBackground(props: CanvasBackgroundProps) {
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseleave", onMouseLeave);
-      darkQuery.removeEventListener("change", onThemeChange);
+      window.removeEventListener("dots-toggle", onDotsToggle);
+      observer.disconnect();
     };
   }, []);
 
@@ -214,7 +222,7 @@ export default function CanvasBackground(props: CanvasBackgroundProps) {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-screen h-screen -z-10"
-      style={{ pointerEvents: "none" }}
+      style={{ pointerEvents: "none", transition: "opacity 0.3s ease" }}
     />
   );
 }

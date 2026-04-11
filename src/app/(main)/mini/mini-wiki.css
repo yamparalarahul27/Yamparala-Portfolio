@@ -25,26 +25,24 @@
   --wiki-accent: #3366cc;
 }
 
-/* ── Dark Theme (system preference) ── */
-@media (prefers-color-scheme: dark) {
-  .wiki-article {
-    --wiki-bg-base: #101418;
-    --wiki-bg-surface: #202122;
-    --wiki-bg-neutral: #27292d;
-    --wiki-text-primary: #eaecf0;
-    --wiki-text-emphasized: #f8f9fa;
-    --wiki-text-muted: #a2a9b1;
-    --wiki-text-disabled: #54595d;
-    --wiki-link: #88a3e8;
-    --wiki-link-hover: #a6bbf5;
-    --wiki-link-visited: #a799cd;
-    --wiki-border-base: #72777d;
-    --wiki-border-subtle: #54595d;
-    --wiki-border-muted: #404244;
-    --wiki-table-header: #27292d;
-    --wiki-table-row-alt: #202122;
-    --wiki-accent: #6485d1;
-  }
+/* ── Dark Theme ── */
+[data-theme="dark"] .wiki-article {
+  --wiki-bg-base: #101418;
+  --wiki-bg-surface: #202122;
+  --wiki-bg-neutral: #27292d;
+  --wiki-text-primary: #eaecf0;
+  --wiki-text-emphasized: #f8f9fa;
+  --wiki-text-muted: #a2a9b1;
+  --wiki-text-disabled: #54595d;
+  --wiki-link: #88a3e8;
+  --wiki-link-hover: #a6bbf5;
+  --wiki-link-visited: #a799cd;
+  --wiki-border-base: #72777d;
+  --wiki-border-subtle: #54595d;
+  --wiki-border-muted: #404244;
+  --wiki-table-header: #27292d;
+  --wiki-table-row-alt: #202122;
+  --wiki-accent: #6485d1;
 }
 
 /* ── Article container ── */
@@ -60,10 +58,8 @@
   font-variant-numeric: tabular-nums;
   overflow: hidden;
 }
-@media (prefers-color-scheme: dark) {
-  .wiki-article {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  }
+[data-theme="dark"] .wiki-article {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* ── Header ── */
