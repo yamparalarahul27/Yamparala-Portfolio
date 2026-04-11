@@ -50,7 +50,19 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
               )}
             </span>
             <span className="text-xs font-mono text-[var(--text-secondary)] text-right py-3 border-t border-[var(--border-color)] flex items-center justify-end">
-              {project.accent}
+              {project.accent.includes(".") && !project.accent.includes("Private") ? (
+                <a
+                  href={`https://${project.accent}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[var(--text-primary)] transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {project.accent}
+                </a>
+              ) : (
+                project.accent
+              )}
             </span>
           </div>
         ))}

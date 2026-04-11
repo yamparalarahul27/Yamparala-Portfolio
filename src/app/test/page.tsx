@@ -35,19 +35,16 @@ const bioSegments: Segment[] = [
 ];
 
 const projects = [
-  { year: "2025", title: "AgentUX", accent: "WIP", image: "/AgentUX.png", imageAlt: "AgentUX" },
-  { year: "2025", title: "Proteus Library", accent: "Idea", image: "/Proteus.png", imageAlt: "Proteus Library" },
-  { year: "2025", title: "LearnDex", accent: "WIP", image: "/portfolio/synclo-work.png", imageAlt: "LearnDex" },
-  { year: "2024", title: "🏆 Deriverse Trading Journal", accent: "Live", image: "/Derivsers.png", imageAlt: "Deriverse" },
-  { year: "2024", title: "Crpko Graphic Lab", accent: "Internal" },
-  { year: "2024", title: "Log & Resources of Rahul", accent: "Live", image: "/images/Ymparalalog.png", imageAlt: "Log & Resources" },
-  { year: "2025", title: "ConceptDJ", accent: "Concept" },
-  { year: "2025", title: "OME-sim", accent: "Prototype" },
-  { year: "2025", title: "YPM", accent: "Idea" },
-  { year: "2025", title: "YouSoft", accent: "Idea" },
-  { year: "2025", title: "YAsset", accent: "Mini app" },
-  { year: "2025", title: "Localhost Status App", accent: "Utility" },
-  { year: "2025", title: "App Backgrounds", accent: "Utility" },
+  { year: "2025", title: "Collection App", accent: "proteus.hirahul.xyz", image: "/Proteus.png", imageAlt: "Proteus Collection App" },
+  { year: "2024", title: "Log App", accent: "log.hirahul.xyz", image: "/images/Ymparalalog.png", imageAlt: "Log App" },
+  { year: "2025", title: "AgenticUX App", accent: "Own Private", image: "/AgentUX.png", imageAlt: "AgenticUX App" },
+  { year: "2024", title: "Crpko Graphics App", accent: "Work Private" },
+  { year: "2025", title: "Asset App", accent: "Own Private" },
+  { year: "2024", title: "Deriverse Journal App", accent: "deriverse.hirahul.xyz", image: "/Derivsers.png", imageAlt: "Deriverse Journal" },
+  { year: "2025", title: "UI Concept App", accent: "conceptdj.vercel.app" },
+  { year: "2025", title: "Y Dex", accent: "learndex.hirahul.xyz" },
+  { year: "2025", title: "Order Matching Simulator", accent: "ome-sim.vercel.app" },
+  { year: "2025", title: "Background App", accent: "bg.hirahul.xyz" },
 ];
 
 export default function TestPage() {
