@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import CanvasBackground from "../components/CanvasBackground";
+import Settings from "../components/Settings";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -51,6 +52,11 @@ export default async function RootLayout({
       <head>
         <meta name="theme-color" content="#F8F9FA" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})()`,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -74,6 +80,7 @@ export default async function RootLayout({
           darkGradientTo="#A1A1AA"
           darkBackgroundColor="#050505"
         />
+        <Settings />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

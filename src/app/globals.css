@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
   /* Minimal Editorial/Brutalist Theme */
   --bg-color: #F8F9FA;
@@ -20,15 +22,13 @@
   --grid-line-bold: 2px solid var(--text-primary);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #0A0A0A;
-    --text-primary: #F1F1F1;
-    --text-secondary: #9CA3AF;
-    --border-color: #2A2A2A;
-    --accent: #F43F5E;
-    --surface-color: #141414;
-  }
+[data-theme="dark"] {
+  --bg-color: #0A0A0A;
+  --text-primary: #F1F1F1;
+  --text-secondary: #9CA3AF;
+  --border-color: #2A2A2A;
+  --accent: #F43F5E;
+  --surface-color: #141414;
 }
 
 
