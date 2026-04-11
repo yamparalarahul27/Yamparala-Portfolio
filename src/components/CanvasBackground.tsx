@@ -81,7 +81,7 @@ export default function CanvasBackground(props: CanvasBackgroundProps) {
     canvas.style.opacity = visible ? "1" : "0";
     function onDotsToggle(e: Event) {
       visible = (e as CustomEvent).detail;
-      canvas.style.opacity = visible ? "1" : "0";
+      if (canvas) canvas.style.opacity = visible ? "1" : "0";
     }
     window.addEventListener("dots-toggle", onDotsToggle);
 
