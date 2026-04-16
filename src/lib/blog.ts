@@ -19,7 +19,7 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "ai-engineering",
-    lastUpdated: "2026-04-15",
+    lastUpdated: "2026-04-16",
     title: "AI Engineering",
     category: "Technical",
     excerpt:
@@ -106,6 +106,13 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           "Today, while coming to office, I got a thought — what if I lose this job? What can I say to prove my self-worth?",
           "Then I got the answer: I am doing my 110%. That extra 10% led to a golden path for MVP before the 31st. That 10% led to quick execution of design. That 10% got the design team efforts streamlined. That 10% got me a collective view of what feature we are building and where its source is.",
+        ],
+      },
+      {
+        date: "2026-04-16",
+        title: "Taking Ownership of the PRD",
+        paragraphs: [
+          "Today, after a small discussion, I am very disappointed by my PM — not because of management, but because he is avoiding the work of writing a detailed PRD. Since he does not want to do it, I have taken the initiative and started doing it myself. Obviously using AI, but it is good to experience engineering and product management in one view.",
         ],
       },
     ],
