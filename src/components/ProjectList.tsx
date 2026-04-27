@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef } from "react";
 import Peektext from "./Peektext";
+import ProjectPanel, { type ProjectDetails } from "./ProjectPanel";
 
 interface Project {
   year: string;
@@ -9,21 +10,30 @@ interface Project {
   accent: string;
   image?: string;
   imageAlt?: string;
+  details?: ProjectDetails;
 }
 
 export default function ProjectList({ projects }: { projects: Project[] }) {
   const [shakingIndex, setShakingIndex] = useState<number | null>(null);
   const [toastVisible, setToastVisible] = useState(false);
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
   const toastTimeout = useRef<ReturnType<typeof setTimeout>>(null);
 
   const handleClick = useCallback((index: number) => {
+    const project = projects[index];
+
+    if (project.details) {
+      setActiveProject(project);
+      return;
+    }
+
     setShakingIndex(index);
     setTimeout(() => setShakingIndex(null), 300);
 
     setToastVisible(true);
     if (toastTimeout.current) clearTimeout(toastTimeout.current);
     toastTimeout.current = setTimeout(() => setToastVisible(false), 2500);
-  }, []);
+  }, [projects]);
 
   return (
     <>
@@ -78,6 +88,8 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
           👋 nothing to show here yet
         </div>
       </div>
+
+      <ProjectPanel project={activeProject} onClose={() => setActiveProject(null)} />
     </>
   );
 }

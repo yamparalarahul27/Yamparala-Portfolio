@@ -10,7 +10,18 @@ export const metadata: Metadata = {
 };
 
 const projects = [
-  { year: "2025", title: "AgentUX", accent: "WIP" },
+  {
+    year: "2025",
+    title: "AgentUX",
+    accent: "WIP",
+    details: {
+      description:
+        "AgentUX is an exploration of the interface patterns that emerge when AI agents become first-class users of software.\n\nIt looks at how UIs can be built so that humans and agents can both navigate, control, and trust the same product — covering affordances, transparency, hand-off moments, and the small details that make agentic flows feel coherent instead of magical.",
+      links: [
+        { label: "Read notes (coming soon)", href: "#" },
+      ],
+    },
+  },
   { year: "2025", title: "Proteus Library", accent: "Idea" },
   { year: "2025", title: "LearnDex", accent: "WIP" },
   { year: "2024", title: "🏆 Deriverse Trading Journal", accent: "Live" },
