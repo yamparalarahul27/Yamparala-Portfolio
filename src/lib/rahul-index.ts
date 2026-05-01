@@ -23,6 +23,104 @@ export const rahulProfile = {
   email: "rahulvignanwork@gmail.com",
 } as const;
 
+export type VideoCategory = "Builds" | "Product Analysis" | "Lessons";
+
+export interface VideoEpisode {
+  label: string;
+  youtubeId: string;
+}
+
+export interface IndexVideo {
+  title: string;
+  description: string;
+  category: VideoCategory;
+  year: string;
+  accent?: string;
+  youtubeId?: string;
+  episodes?: VideoEpisode[];
+}
+
+export const indexVideos: IndexVideo[] = [
+  {
+    title: "Deriverse — Analytics Layer",
+    description:
+      "Built an analytics layer for Deriverse, a Solana DEX, for a Superteam bounty. Won 200 USDC.",
+    category: "Builds",
+    year: "2024",
+    accent: "🏆 200 USDC",
+    youtubeId: "odKifzz8NbI",
+  },
+  {
+    title: "Order Matching Engine in Rust",
+    description:
+      "Order matching engine written in Rust (first time touching the language) using Cursor — logic and architecture mine, with a visual layer for devs to understand the internals.",
+    category: "Builds",
+    year: "2025",
+    accent: "Rust · Cursor",
+    youtubeId: "dBYo17Dq6Pg",
+  },
+  {
+    title: "Fintech Dashboard",
+    description: "Designing an AI-powered fintech dashboard.",
+    category: "Builds",
+    year: "2025",
+    accent: "Design",
+    youtubeId: "-fTaHwBDixY",
+  },
+  {
+    title: "Website with WhatsApp",
+    description:
+      "A 2-day sprint with two friends — building a way to create a website using WhatsApp alone.",
+    category: "Builds",
+    year: "2025",
+    accent: "2-day sprint",
+    youtubeId: "fFFsqD3Rhso",
+  },
+  {
+    title: "Trepa — Landing Page",
+    description: "Landing page designed for the Trepa bounty. Won 3rd place — 100 USDC.",
+    category: "Builds",
+    year: "2024",
+    accent: "🥉 100 USDC",
+    youtubeId: "ck5hiZ2HH2o",
+  },
+  {
+    title: "Robinhood — UX Tear-down",
+    description:
+      "A 3-part series on why Robinhood is exceptional in fintech UX — what works, why, and what to steal.",
+    category: "Product Analysis",
+    year: "2024",
+    accent: "3 parts",
+    episodes: [
+      { label: "Part 1", youtubeId: "6O_q03-c8Bw" },
+      { label: "Part 2", youtubeId: "IWB5KPJt6lk" },
+      { label: "Part 3", youtubeId: "a3zPmtwnr_8" },
+    ],
+  },
+  {
+    title: "7 Finance Mistakes",
+    description: "Lessons from my own finance journey — seven mistakes I made and what I learned.",
+    category: "Lessons",
+    year: "2024",
+    accent: "Personal",
+    youtubeId: "8-wFapGhgK8",
+  },
+  {
+    title: "What is Staking?",
+    description: "An explainer on staking, featuring MagicEden.",
+    category: "Lessons",
+    year: "2024",
+    accent: "Explainer",
+    youtubeId: "fAkzDq6mApU",
+  },
+];
+
+export const videoCategoryOrder: VideoCategory[] = [
+  "Builds",
+  "Product Analysis",
+  "Lessons",
+];
+
 export const indexProjects: IndexProject[] = [
   {
     year: "2025",
