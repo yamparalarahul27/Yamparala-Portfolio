@@ -52,18 +52,18 @@ function loadYouTubeAPI(): Promise<void> {
   return apiReadyPromise;
 }
 
-export default function YouTubePlayer({
-  youtubeId,
-  title,
-}: {
+interface Props {
   youtubeId: string;
   title: string;
-}) {
+  started: boolean;
+  onStart: () => void;
+}
+
+export default function YouTubePlayer({ youtubeId, title, started, onStart }: Props) {
   const mountRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<YTPlayerInstance | null>(null);
   const idRef = useRef(youtubeId);
 
-  const [started, setStarted] = useState(false);
   const [endedAtId, setEndedAtId] = useState<string | null>(null);
   const ended = endedAtId === youtubeId;
 
@@ -121,7 +121,7 @@ export default function YouTubePlayer({
       {!started ? (
         <button
           type="button"
-          onClick={() => setStarted(true)}
+          onClick={onStart}
           className="absolute inset-0 w-full h-full flex items-center justify-center group"
           aria-label={`Play ${title}`}
         >
