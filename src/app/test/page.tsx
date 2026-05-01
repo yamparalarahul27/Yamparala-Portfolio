@@ -3,38 +3,12 @@ import Image from "next/image";
 import DogFollowerClient from "../../components/DogFollower/DogFollowerClient";
 import LandingFooter from "../../components/LandingFooter";
 import ProjectList from "../../components/ProjectList";
+import { indexProjects, rahulProfile } from "../../lib/rahul-index";
 
 export const metadata: Metadata = {
-  title: "Yamparala Rahul",
-  description: "Design Engineer based in India. 5.2 years of experience across healthcare, B2B SaaS, and web3.",
+  title: rahulProfile.name,
+  description: rahulProfile.headline,
 };
-
-const projects = [
-  {
-    year: "2025",
-    title: "AgentUX",
-    accent: "WIP",
-    details: {
-      description:
-        "AgentUX is an exploration of the interface patterns that emerge when AI agents become first-class users of software.\n\nIt looks at how UIs can be built so that humans and agents can both navigate, control, and trust the same product — covering affordances, transparency, hand-off moments, and the small details that make agentic flows feel coherent instead of magical.",
-      links: [
-        { label: "Read notes (coming soon)", href: "#" },
-      ],
-    },
-  },
-  { year: "2025", title: "Proteus Library", accent: "Idea" },
-  { year: "2025", title: "LearnDex", accent: "WIP" },
-  { year: "2024", title: "🏆 Deriverse Trading Journal", accent: "Live" },
-  { year: "2024", title: "Crpko Graphic Lab", accent: "Internal" },
-  { year: "2024", title: "Log & Resources of Rahul", accent: "Live" },
-  { year: "2025", title: "ConceptDJ", accent: "Concept" },
-  { year: "2025", title: "OME-sim", accent: "Prototype" },
-  { year: "2025", title: "YPM", accent: "Idea" },
-  { year: "2025", title: "YouSoft", accent: "Idea" },
-  { year: "2025", title: "YAsset", accent: "Mini app" },
-  { year: "2025", title: "Localhost Status App", accent: "Utility" },
-  { year: "2025", title: "App Backgrounds", accent: "Utility" },
-];
 
 export default function MiniPage() {
   return (
@@ -51,28 +25,26 @@ export default function MiniPage() {
             height={40}
             className="object-cover w-10 h-10 rounded-lg"
           />
-          <span className="text-sm font-semibold">Yamparala Rahul</span>
+          <span className="text-sm font-semibold">{rahulProfile.name}</span>
         </div>
         <p className="text-base leading-relaxed">
-          Yamparala Rahul is a Design Engineer based in India with 5.2 years of experience.
-          He currently works at Equicom Technologies building products in web3.
+          {rahulProfile.bio[0]}
         </p>
         <p className="text-base leading-relaxed">
-          He joined Equicom Technologies in 2025 after revamping Pubkey&apos;s
-          UI on Solana. Before that, he spent 2.4 years at Entytle simplifying B2B SaaS, and 2 years at Synclo designing healthcare systems. He founded Yamparala.in in 2019.
+          {rahulProfile.bio[1]}
         </p>
         <p className="text-base leading-relaxed">
-          Member of IslandDAO. Contributor at SuperteamIndia. Greed Academy graduate. Certified by Google and IBM.
+          {rahulProfile.bio[2]}
         </p>
         <p className="text-sm text-[var(--text-secondary)] pb-4">
-          <span>@yamparalarahul</span>
+          <span>{rahulProfile.handle}</span>
           {" / "}
-          <a href="mailto:rahulvignanwork@gmail.com" className="hover:text-[var(--text-primary)] transition-colors">rahulvignanwork@gmail.com</a>
+          <a href={`mailto:${rahulProfile.email}`} className="hover:text-[var(--text-primary)] transition-colors">{rahulProfile.email}</a>
         </p>
       </section>
 
       {/* Projects */}
-      <ProjectList projects={projects} />
+      <ProjectList projects={indexProjects} />
     </main>
     <LandingFooter />
     </>
