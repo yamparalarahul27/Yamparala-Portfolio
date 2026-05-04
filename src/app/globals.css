@@ -73,6 +73,15 @@ h6 {
   line-height: 1.1;
 }
 
+/* Hide scrollbars on horizontal carousels (used by /apps) */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Staggered Entrance Animations */
 .animate-enter {
   opacity: 0;

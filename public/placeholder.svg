@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Placeholder image">
+  <defs>
+    <linearGradient id="placeholder-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5f5f7" />
+      <stop offset="1" stop-color="#d2d2d7" />
+    </linearGradient>
+    <linearGradient id="placeholder-glyph" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#86868b" />
+      <stop offset="1" stop-color="#6e6e73" />
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#placeholder-bg)" />
+  <g transform="translate(512 470)" fill="url(#placeholder-glyph)">
+    <path d="M-160 -120 L0 -200 L160 -120 L160 80 L0 160 L-160 80 Z M-128 -100 L-128 60 L-16 116 L-16 -44 Z M16 -44 L16 116 L128 60 L128 -100 Z M-144 -116 L0 -44 L144 -116 L0 -188 Z" fill-rule="evenodd" />
+  </g>
+  <text x="512" y="780" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="56" font-weight="600" fill="#6e6e73" letter-spacing="2">PLACEHOLDER</text>
+</svg>
