@@ -236,6 +236,14 @@ export const blogPosts: BlogPost[] = [
           "I am still not sure I will be able to say so.",
         ],
       },
+      {
+        date: "2026-05-04",
+        title: "Resolve as a Skill",
+        paragraphs: [
+          "Based on the last 25 years, I strongly feel I lack the solid resolve of saying something that may have a sad or negative impact on someone.",
+          "Being strong like that is a skill — just like communication is a skill — and it should be taught. I am going to try to teach it to Seshu.",
+        ],
+      },
     ],
   },
   {
