@@ -244,6 +244,15 @@ export const blogPosts: BlogPost[] = [
           "Being strong like that is a skill — just like communication is a skill — and it should be taught. I am going to try to teach it to Seshu.",
         ],
       },
+      {
+        date: "2026-05-04",
+        title: "Ten Points by June 15",
+        paragraphs: [
+          "I finally gave Praveen a last push — not sure if it is the last of the day or the last last. I told him to take the work more seriously.",
+          "I asked him about his probation period. It ends June 15. So I am holding 10 points that Praveen needs to hit by then. If he hits them, that will say Praveen is a great asset for Crpko.",
+          "An idea I got from this: a page where the team can see the points I am holding them to and what they have already achieved. So it is not vague, not arbitrary. They know exactly where they stand.",
+        ],
+      },
     ],
   },
   {
